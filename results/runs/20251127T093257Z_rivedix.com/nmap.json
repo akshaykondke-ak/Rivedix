@@ -1,0 +1,20 @@
+[
+  {
+    "metadata": {
+      "tool": "nmap",
+      "description": "Run Nmap with selectable scan profiles",
+      "version": "1.1",
+      "finished": "2025-11-27T09:33:17.437908",
+      "target": "rivedix.com"
+    },
+    "findings": [
+      {
+        "title": "Nmap Output Error",
+        "description": "Could not parse XML. Raw output returned.",
+        "severity": "info",
+        "evidence": "Starting Nmap 7.98 ( https://nmap.org ) at 2025-11-27 15:02 +0530\nNmap scan report for rivedix.com (192.0.78.162)\nHost is up (0.013s latency).\nOther addresses for rivedix.com (not scanned): 192.0.78.234\n\nPORT    STATE    SERVICE  VERSION\n22/tcp  filtered ssh\n80/tcp  open     http     nginx\n443/tcp open     ssl/http nginx\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 19.79 seconds\n"
+      }
+    ],
+    "raw": "Starting Nmap 7.98 ( https://nmap.org ) at 2025-11-27 15:02 +0530\nNmap scan report for rivedix.com (192.0.78.162)\nHost is up (0.013s latency).\nOther addresses for rivedix.com (not scanned): 192.0.78.234\n\nPORT    STATE    SERVICE  VERSION\n22/tcp  filtered ssh\n80/tcp  open     http     nginx\n443/tcp open     ssl/http nginx\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 19.79 seconds\n"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "run_id": "20251128T075226Z_example.com",
+  "targets": [
+    "example.com"
+  ],
+  "tools": [
+    "subfinder"
+  ],
+  "timestamp": "20251128T075226Z"
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "metadata": {
+      "tool": "nuclei",
+      "target": "example.com",
+      "error": "Command 'nuclei -target example.com -silent -rl 50 -c 25 -retries 1 -bulk-size 20 -timeout 10 -severity critical,high,medium,low,info -json-export /var/folders/gl/0qfq7xl90yx734dmpx27xk9w0000gp/T/tmprrloq7fq.json -no-meta -stats -t /Users/rivedix/nuclei-templates' timed out after 900 seconds",
+      "finished": "2025-11-28T06:16:47.853614"
+    },
+    "findings": [],
+    "raw": ""
+  }
+]

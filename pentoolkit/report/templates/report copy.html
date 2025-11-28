@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pentoolkit Security Report - {{ target }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    pre {
+      max-height: 40vh;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    
+    @media print {
+      .no-print { display: none; }
+    }
+    
+    .severity-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900 min-h-screen">
+  <div class="max-w-7xl mx-auto p-6 lg:p-8">
+
+    <!-- HEADER -->
+    <header class="bg-white rounded-xl shadow-lg p-8 mb-8 border-t-4 border-sky-600">
+      <div class="flex items-start justify-between">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-3">
+            <svg class="w-10 h-10 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <h1 class="text-4xl font-bold text-slate-900">Security Assessment Report</h1>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+            <div class="flex items-center gap-2 text-slate-600">
+              <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+              </svg>
+              <span class="font-semibold">Target:</span>
+              <span class="font-mono bg-slate-100 px-2 py-1 rounded text-sm">{{ target }}</span>
+            </div>
+            
+            <div class="flex items-center gap-2 text-slate-600">
+              <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span class="font-semibold">Generated:</span>
+              <span class="text-sm">{{ generated }}</span>
+            </div>
+            
+            <div class="flex items-center gap-2 text-slate-600">
+              <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+              </svg>
+              <span class="font-semibold">Run ID:</span>
+              <span class="font-mono text-sm">{{ run }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOGO -->
+        <div class="ml-6 no-print">
+          <img src="../../../pentoolkit/report/static/logo.png" alt="Logo" class="h-16 w-auto object-contain rounded-lg shadow-md">
+        </div>
+      </div>
+    </header>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+        <svg class="w-7 h-7 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+        Executive Summary
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Tools Card -->
+        <div class="bg-gradient-to-br from-blue-50 to-sky-50 rounded-lg p-6 border border-blue-100">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-slate-900">Assessment Tools</h3>
+            <div class="bg-blue-100 rounded-full p-2">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+          </div>
+          <ul class="space-y-2">
+            {% for t in tools %}
+            <li class="flex items-center gap-2 text-sm text-slate-700">
+              <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span class="font-mono">{{ t }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- Total Findings Card -->
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-100">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-slate-900">Total Findings</h3>
+            <div class="bg-purple-100 rounded-full p-2">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+            </div>
+          </div>
+          <p class="text-6xl font-bold text-purple-600">{{ total_findings }}</p>
+          <p class="text-sm text-slate-600 mt-2">Security observations detected</p>
+        </div>
+
+        <!-- Severity Breakdown Card -->
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg p-6 border border-amber-100">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-slate-900">Risk Distribution</h3>
+            <div class="bg-amber-100 rounded-full p-2">
+              <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+          </div>
+          <ul class="space-y-2">
+            {% for sev, count in severities.items() %}
+            <li class="flex items-center justify-between text-sm">
+              <div class="flex items-center gap-2">
+                {% if sev == 'critical' %}
+                <span class="w-3 h-3 rounded-full bg-red-600"></span>
+                <span class="font-semibold text-slate-900 capitalize">{{ sev }}</span>
+                {% elif sev == 'high' %}
+                <span class="w-3 h-3 rounded-full bg-orange-600"></span>
+                <span class="font-semibold text-slate-900 capitalize">{{ sev }}</span>
+                {% elif sev == 'medium' %}
+                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                <span class="font-semibold text-slate-900 capitalize">{{ sev }}</span>
+                {% elif sev == 'low' %}
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                <span class="font-semibold text-slate-900 capitalize">{{ sev }}</span>
+                {% else %}
+                <span class="w-3 h-3 rounded-full bg-gray-400"></span>
+                <span class="font-semibold text-slate-900 capitalize">{{ sev }}</span>
+                {% endif %}
+              </div>
+              <span class="font-bold text-slate-900">{{ count }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILED FINDINGS -->
+    {% for tool, entries in results.items() %}
+    <section class="mb-8">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="bg-gradient-to-r from-sky-600 to-blue-600 px-8 py-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span class="font-mono">{{ tool }}</span>
+          </h2>
+        </div>
+
+        <div class="p-8 space-y-6">
+          {% for e in entries %}
+
+          {% if tool == "nuclei" %}
+          <!-- NUCLEI SPECIFIC RENDERING -->
+          <div class="border-l-4 border-sky-600 pl-6">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <p class="text-sm text-slate-500 mb-1">Target</p>
+                <p class="font-mono text-lg font-semibold text-slate-900">{{ e.metadata.target }}</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm text-slate-500 mb-1">Completed</p>
+                <p class="text-sm text-slate-700">{{ e.metadata.finished }}</p>
+              </div>
+            </div>
+
+            <div class="bg-slate-50 rounded-lg p-4 mb-6">
+              <p class="text-sm text-slate-600">
+                <span class="font-semibold">Scan Mode:</span> 
+                <span class="font-mono">{{ e.metadata.mode if e.metadata.mode else 'hybrid' }}</span>
+              </p>
+            </div>
+
+            {% set by_sev = {'critical': [], 'high': [], 'medium': [], 'low': [], 'info': []} %}
+            {% for f in e.findings %}
+            {% set _ = by_sev.setdefault(f.severity|default('info'), []).append(f) %}
+            {% endfor %}
+
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+              {% for sev in ['critical','high','medium','low','info'] %}
+              <div class="bg-white border-2 {% if sev == 'critical' %}border-red-200{% elif sev == 'high' %}border-orange-200{% elif sev == 'medium' %}border-yellow-200{% elif sev == 'low' %}border-green-200{% else %}border-gray-200{% endif %} rounded-lg p-4 text-center">
+                <div class="text-xs font-bold uppercase tracking-wider {% if sev == 'critical' %}text-red-600{% elif sev == 'high' %}text-orange-600{% elif sev == 'medium' %}text-yellow-600{% elif sev == 'low' %}text-green-600{% else %}text-gray-600{% endif %} mb-2">{{ sev }}</div>
+                <div class="text-3xl font-bold {% if sev == 'critical' %}text-red-600{% elif sev == 'high' %}text-orange-600{% elif sev == 'medium' %}text-yellow-600{% elif sev == 'low' %}text-green-600{% else %}text-gray-600{% endif %}">{{ by_sev[sev] | length }}</div>
+              </div>
+              {% endfor %}
+            </div>
+
+            <div class="space-y-6">
+              {% for sev in ['critical','high','medium','low','info'] %}
+              {% if by_sev[sev] %}
+              <div>
+                <h4 class="text-lg font-bold mb-3 capitalize flex items-center gap-2">
+                  {% if sev == 'critical' %}
+                  <span class="severity-badge bg-red-600 text-white">{{ sev }}</span>
+                  {% elif sev == 'high' %}
+                  <span class="severity-badge bg-orange-600 text-white">{{ sev }}</span>
+                  {% elif sev == 'medium' %}
+                  <span class="severity-badge bg-yellow-500 text-black">{{ sev }}</span>
+                  {% elif sev == 'low' %}
+                  <span class="severity-badge bg-green-500 text-white">{{ sev }}</span>
+                  {% else %}
+                  <span class="severity-badge bg-gray-400 text-white">{{ sev }}</span>
+                  {% endif %}
+                  <span class="text-slate-600">({{ by_sev[sev]|length }})</span>
+                </h4>
+                
+                <div class="space-y-3">
+                  {% for f in by_sev[sev] %}
+                  <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                    <div class="font-semibold text-slate-900 mb-2">{{ f.title }}</div>
+                    <p class="text-sm text-slate-700 mb-3">{{ f.description }}</p>
+
+                    {% if f.evidence %}
+                    <details class="group">
+                      <summary class="cursor-pointer text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-2">
+                        <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                        View Evidence
+                      </summary>
+                      <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">{{ f.evidence | e }}</pre>
+                    </details>
+                    {% endif %}
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+            {% if e.raw %}
+            <details class="mt-6 no-print">
+              <summary class="cursor-pointer text-indigo-600 hover:text-indigo-700 font-medium text-sm flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                Raw Nuclei JSON Export
+              </summary>
+              <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">{{ e.raw | e }}</pre>
+            </details>
+            {% endif %}
+          </div>
+
+          {% elif tool == "subfinder" %}
+          <!-- SUBFINDER SPECIFIC RENDERING -->
+          <div class="border-l-4 border-sky-600 pl-6">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <p class="text-sm text-slate-500 mb-1">Target</p>
+                <p class="font-mono text-lg font-semibold text-slate-900">{{ e.metadata.target }}</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm text-slate-500 mb-1">Completed</p>
+                <p class="text-sm text-slate-700">{{ e.metadata.finished }}</p>
+              </div>
+            </div>
+
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <p class="text-lg">
+                <span class="font-semibold text-slate-900">Total Subdomains Discovered:</span>
+                <span class="text-blue-600 font-bold text-2xl ml-2">{{ e.findings | length - 1 }}</span>
+              </p>
+            </div>
+
+            <div class="overflow-hidden border border-slate-200 rounded-lg mb-4">
+              <table class="w-full text-sm">
+                <thead class="bg-slate-100 text-slate-700">
+                  <tr>
+                    <th class="p-3 text-left font-semibold">#</th>
+                    <th class="p-3 text-left font-semibold">Subdomain</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                  {% set ns = namespace(count=0) %}
+                  {% for f in e.findings[:20] %}
+                  {% if f.title == "Subdomain Found" %}
+                  {% set ns.count = ns.count + 1 %}
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="p-3 text-slate-500 font-mono text-xs">{{ ns.count }}</td>
+                    <td class="p-3 font-mono text-slate-900">{{ f.evidence }}</td>
+                  </tr>
+                  {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <details class="group">
+              <summary class="cursor-pointer text-indigo-600 hover:text-indigo-700 font-medium text-sm flex items-center gap-2">
+                <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                Show All {{ e.findings | length - 1 }} Subdomains
+              </summary>
+              <pre class="bg-slate-100 text-slate-900 text-xs p-4 rounded-lg mt-3 overflow-auto max-h-96 border border-slate-300">{% for f in e.findings %}{% if f.title == "Subdomain Found" %}{{ f.evidence }}
+{% endif %}{% endfor %}</pre>
+            </details>
+
+            {% if e.raw %}
+            <details class="mt-4 no-print">
+              <summary class="cursor-pointer text-indigo-600 hover:text-indigo-700 font-medium text-sm flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                Raw Output
+              </summary>
+              <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">{{ e.raw | e }}</pre>
+            </details>
+            {% endif %}
+          </div>
+
+          {% else %}
+          <!-- GENERIC TOOL RENDERING -->
+          <div class="border-l-4 border-sky-600 pl-6">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <p class="text-sm text-slate-500 mb-1">Target</p>
+                <p class="font-mono text-lg font-semibold text-slate-900">{{ e.metadata.target }}</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm text-slate-500 mb-1">Completed</p>
+                <p class="text-sm text-slate-700">{{ e.metadata.finished }}</p>
+              </div>
+            </div>
+
+            {% if e.findings %}
+            <div class="space-y-3">
+              {% for f in e.findings %}
+              <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="font-semibold text-slate-900">{{ f.title }}</span>
+                  
+                  {% if f.severity == 'critical' %}
+                  <span class="severity-badge bg-red-600 text-white">critical</span>
+                  {% elif f.severity == 'high' %}
+                  <span class="severity-badge bg-orange-600 text-white">high</span>
+                  {% elif f.severity == 'medium' %}
+                  <span class="severity-badge bg-yellow-500 text-black">medium</span>
+                  {% elif f.severity == 'low' %}
+                  <span class="severity-badge bg-green-500 text-white">low</span>
+                  {% else %}
+                  <span class="severity-badge bg-gray-400 text-white">info</span>
+                  {% endif %}
+                </div>
+
+                <p class="text-sm text-slate-700 mb-3">{{ f.description }}</p>
+
+                {% if f.evidence %}
+                <details class="group">
+                  <summary class="cursor-pointer text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-2">
+                    <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    View Evidence
+                  </summary>
+                  <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">{{ f.evidence | e }}</pre>
+                </details>
+                {% endif %}
+              </div>
+              {% endfor %}
+            </div>
+            {% else %}
+            <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 text-center">
+              <svg class="w-12 h-12 text-slate-300 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p class="text-slate-500 font-medium">No findings detected</p>
+            </div>
+            {% endif %}
+
+            {% if e.raw %}
+            <details class="mt-4 no-print">
+              <summary class="cursor-pointer text-indigo-600 hover:text-indigo-700 font-medium text-sm flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                Raw Output
+              </summary>
+              <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">{{ e.raw | e }}</pre>
+            </details>
+            {% endif %}
+          </div>
+          {% endif %}
+
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% endfor %}
+
+    <!-- FOOTER -->
+    <footer class="bg-white rounded-xl shadow-lg p-6 mt-8 text-center border-t-4 border-sky-600">
+      <p class="text-sm text-slate-600">
+        Generated by <span class="font-semibold text-slate-900">Pentoolkit</span> • 
+        <span class="font-mono">{{ generated }}</span>
+      </p>
+      <p class="text-xs text-slate-500 mt-2">
+        This report contains confidential security assessment results. Handle with care.
+      </p>

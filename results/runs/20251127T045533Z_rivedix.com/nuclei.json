@@ -1,0 +1,12 @@
+[
+  {
+    "metadata": {
+      "tool": "nuclei",
+      "target": "rivedix.com",
+      "error": "templates_root missing in config.yaml for nuclei",
+      "finished": "2025-11-27T04:55:33.276391+00:00"
+    },
+    "findings": [],
+    "raw": ""
+  }
+]

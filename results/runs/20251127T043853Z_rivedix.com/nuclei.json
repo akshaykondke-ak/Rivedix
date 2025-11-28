@@ -1,0 +1,20 @@
+[
+  {
+    "metadata": {
+      "tool": "nuclei",
+      "description": "Run Nuclei vulnerability scanner (optimized FAST-mode)",
+      "version": "3.5-pro",
+      "finished": "2025-11-27T04:38:55.183182",
+      "target": "rivedix.com"
+    },
+    "findings": [
+      {
+        "title": "No vulnerabilities detected",
+        "description": "Nuclei returned no results",
+        "severity": "info",
+        "evidence": ""
+      }
+    ],
+    "raw": ""
+  }
+]

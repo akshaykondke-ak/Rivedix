@@ -1,0 +1,10 @@
+{
+  "run_id": "20251127T094706Z_rivedix.com",
+  "targets": [
+    "rivedix.com"
+  ],
+  "tools": [
+    "nmap"
+  ],
+  "timestamp": "20251127T094706Z"
+}

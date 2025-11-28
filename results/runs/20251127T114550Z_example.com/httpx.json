@@ -1,0 +1,26 @@
+[
+  {
+    "metadata": {
+      "tool": "httpx",
+      "description": "Discover URLs, titles, status codes and tech via httpx (-json)",
+      "version": "1.0",
+      "finished": "2025-11-27T11:45:52.967323",
+      "target": "example.com"
+    },
+    "findings": [
+      {
+        "title": "httpx: 1 URL(s) discovered",
+        "description": "Found 1 URL(s); sample: https://example.com",
+        "severity": "info",
+        "evidence": "[\n  {\n    \"url\": \"https://example.com\",\n    \"status\": \"-\",\n    \"title\": \"Example Domain\",\n    \"tech\": [\n      \"HTTP/3\"\n    ],\n    \"server\": \"\"\n  }\n]"
+      },
+      {
+        "title": "https://example.com",
+        "description": "- | Example Domain",
+        "severity": "info",
+        "evidence": "{\n  \"status\": \"-\",\n  \"title\": \"Example Domain\",\n  \"tech\": [\n    \"HTTP/3\"\n  ],\n  \"server\": \"\"\n}"
+      }
+    ],
+    "raw": "{\"timestamp\":\"2025-11-27T17:15:52.958572+05:30\",\"port\":\"443\",\"url\":\"https://example.com\",\"input\":\"example.com\",\"title\":\"Example Domain\",\"scheme\":\"https\",\"content_type\":\"text/html\",\"method\":\"GET\",\"host\":\"23.215.0.138\",\"path\":\"/\",\"time\":\"746.485ms\",\"a\":[\"23.215.0.138\",\"23.192.228.80\",\"23.220.75.245\",\"23.192.228.84\",\"23.215.0.136\",\"23.220.75.232\"],\"aaaa\":[\"2600:1406:5e00:6::17ce:bc12\",\"2600:1408:ec00:36::1736:7f31\",\"2600:1406:bc00:53::b81e:94c8\",\"2600:1406:bc00:53::b81e:94ce\",\"2600:1406:5e00:6::17ce:bc1b\",\"2600:1408:ec00:36::1736:7f24\"],\"tech\":[\"HTTP/3\"],\"words\":25,\"lines\":1,\"status_code\":200,\"content_length\":513,\"failed\":false,\"knowledgebase\":{\"PageType\":\"nonerror\",\"pHash\":0},\"resolvers\":[\"1.1.1.1:53\",\"1.0.0.1:53\"]}\n"
+  }
+]

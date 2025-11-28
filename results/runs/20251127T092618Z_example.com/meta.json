@@ -1,0 +1,10 @@
+{
+  "run_id": "20251127T092618Z_example.com",
+  "targets": [
+    "example.com"
+  ],
+  "tools": [
+    "nmap"
+  ],
+  "timestamp": "20251127T092618Z"
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "metadata": {
+      "tool": "whatweb",
+      "description": "Fingerprint web technologies using WhatWeb v0.0.8",
+      "version": "0.0.8-adapter",
+      "finished": "2025-11-27T09:57:19.680089",
+      "target": "rivedix.com"
+    },
+    "findings": [
+      {
+        "title": "HTTPServer",
+        "description": "Detected HTTPServer",
+        "severity": "info",
+        "evidence": "nginx"
+      },
+      {
+        "title": "IP",
+        "description": "Detected IP",
+        "severity": "info",
+        "evidence": "192.0.78.234"
+      },
+      {
+        "title": "MetaGenerator",
+        "description": "Detected MetaGenerator",
+        "severity": "info",
+        "evidence": "Redux 4.4.0, Elementor 3.33.2; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap, "
+      },
+      {
+        "title": "Title",
+        "description": "Detected Title",
+        "severity": "info",
+        "evidence": "Rivedix Technology Solutions "
+      },
+      {
+        "title": "Shodan Fingerprint",
+        "description": "Additional fingerprint data from Shodan internal DB",
+        "severity": "info",
+        "evidence": "From Shodan Internal DB: Ports[80, 443] CPEs[cpe:/a:f5:nginx] Hostnames[www.moanerlisa.blog, hidomisansan.car.blog, www.pediatricassociatesofaustin.health.blog, premierlitigationfunding.com.au, cellythoughts.blog, catrionabrown.com, causewayharpschool.com, castifi.com, pediatricassociatesofaustin.health.blog, cavallomaremmano.blog, cassandramason.com, sonsofcadence.com, www.johandewitt.nl, www.centralmnwildlife.org, www.isaacsworld.family.blog, ce2partners.com, amigosdepelotas.com.br, johandewitt.nl, www.carolinemouriespsychologue.fr, moanerlisa.blog, cassieandalejandro.com, ccpministries.org, pegasusalu.com, www.causewayharpschool.com, www.sonsofcadence.com, www.ce2partners.com, olacreaciones.com, www.cidade979.com.br, www.pegasusalu.com, peshte.me, www.catrionabrown.com, www.premierlitigationfunding.com.au, carolinemouriespsychologue.fr, cassiaglass.com, www.cavallomaremmano.blog, centrehenriaigueperse.com, www.cassandramason.com, www.centrehenriaigueperse.com, www.cassiaglass.com, www.cellythoughts.blog, centralmnwildlife.org, tls.automattic.com, cdeuxc.com, www.ccpministries.org, blocks.linchpin.com, www.cdeuxc.com, www.electricaltrainingprogram.code.blog, www.leveleighty7.fashion.blog, www.makerpress.co.uk, isaacsworld.family.blog, www.cefobagto.org]"
+      }
+    ],
+    "raw": "https://rivedix.com/ [200 OK] HTTPServer[nginx] IP[192.0.78.234]  MetaGenerator[Redux 4.4.0, Elementor 3.33.2; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap, ] Title[Rivedix Technology Solutions ]  \nFrom Shodan Internal DB: Ports[80, 443] CPEs[cpe:/a:f5:nginx] Hostnames[www.moanerlisa.blog, hidomisansan.car.blog, www.pediatricassociatesofaustin.health.blog, premierlitigationfunding.com.au, cellythoughts.blog, catrionabrown.com, causewayharpschool.com, castifi.com, pediatricassociatesofaustin.health.blog, cavallomaremmano.blog, cassandramason.com, sonsofcadence.com, www.johandewitt.nl, www.centralmnwildlife.org, www.isaacsworld.family.blog, ce2partners.com, amigosdepelotas.com.br, johandewitt.nl, www.carolinemouriespsychologue.fr, moanerlisa.blog, cassieandalejandro.com, ccpministries.org, pegasusalu.com, www.causewayharpschool.com, www.sonsofcadence.com, www.ce2partners.com, olacreaciones.com, www.cidade979.com.br, www.pegasusalu.com, peshte.me, www.catrionabrown.com, www.premierlitigationfunding.com.au, carolinemouriespsychologue.fr, cassiaglass.com, www.cavallomaremmano.blog, centrehenriaigueperse.com, www.cassandramason.com, www.centrehenriaigueperse.com, www.cassiaglass.com, www.cellythoughts.blog, centralmnwildlife.org, tls.automattic.com, cdeuxc.com, www.ccpministries.org, blocks.linchpin.com, www.cdeuxc.com, www.electricaltrainingprogram.code.blog, www.leveleighty7.fashion.blog, www.makerpress.co.uk, isaacsworld.family.blog, www.cefobagto.org]"
+  }
+]

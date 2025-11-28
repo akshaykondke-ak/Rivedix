@@ -1,0 +1,26 @@
+[
+  {
+    "metadata": {
+      "tool": "subfinder",
+      "description": "Discover subdomains using Subfinder",
+      "version": "1.0",
+      "finished": "2025-11-27T05:50:36.067936",
+      "target": "rivedix.com"
+    },
+    "findings": [
+      {
+        "title": "Subdomain Found",
+        "description": "Discovered subdomain: www.rivedix.com",
+        "severity": "info",
+        "evidence": "www.rivedix.com"
+      },
+      {
+        "title": "Subdomain Enumeration Summary",
+        "description": "Total subdomains discovered: 1",
+        "severity": "info",
+        "evidence": "www.rivedix.com"
+      }
+    ],
+    "raw": "{\"host\":\"www.rivedix.com\",\"input\":\"rivedix.com\",\"source\":\"crtsh\"}"
+  }
+]

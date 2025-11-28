@@ -1,0 +1,10 @@
+{
+  "run_id": "20251128T075551Z_example.com",
+  "targets": [
+    "example.com"
+  ],
+  "tools": [
+    "whatweb"
+  ],
+  "timestamp": "20251128T075551Z"
+}

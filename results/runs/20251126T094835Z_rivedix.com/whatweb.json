@@ -1,0 +1,44 @@
+[
+  {
+    "metadata": {
+      "tool": "whatweb",
+      "description": "Fingerprint web technologies using WhatWeb v0.0.8",
+      "version": "0.0.8-adapter",
+      "finished": "2025-11-26T09:49:58.084945",
+      "target": "rivedix.com"
+    },
+    "findings": [
+      {
+        "title": "HTTPServer",
+        "description": "Detected HTTPServer",
+        "severity": "info",
+        "evidence": "nginx"
+      },
+      {
+        "title": "IP",
+        "description": "Detected IP",
+        "severity": "info",
+        "evidence": "192.0.78.234"
+      },
+      {
+        "title": "MetaGenerator",
+        "description": "Detected MetaGenerator",
+        "severity": "info",
+        "evidence": "Redux 4.4.0, Elementor 3.33.2; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap, "
+      },
+      {
+        "title": "Title",
+        "description": "Detected Title",
+        "severity": "info",
+        "evidence": "Rivedix Technology Solutions "
+      },
+      {
+        "title": "Shodan Fingerprint",
+        "description": "Additional fingerprint data from Shodan internal DB",
+        "severity": "info",
+        "evidence": "From Shodan Internal DB: Ports[80, 443] CPEs[cpe:/a:f5:nginx] Hostnames[wordpress.com]"
+      }
+    ],
+    "raw": "https://rivedix.com/ [200 OK] HTTPServer[nginx] IP[192.0.78.234]  MetaGenerator[Redux 4.4.0, Elementor 3.33.2; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap, ] Title[Rivedix Technology Solutions ]  \nFrom Shodan Internal DB: Ports[80, 443] CPEs[cpe:/a:f5:nginx] Hostnames[wordpress.com]"
+  }
+]

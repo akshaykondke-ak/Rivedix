@@ -1,0 +1,12 @@
+[
+  {
+    "metadata": {
+      "tool": "nuclei",
+      "target": "example.com",
+      "error": null,
+      "finished": "2025-11-28T07:52:26.485647+00:00"
+    },
+    "findings": [],
+    "raw": "flag provided but not defined: -json\n"
+  }
+]

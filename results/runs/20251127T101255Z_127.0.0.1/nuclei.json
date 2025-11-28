@@ -1,0 +1,33 @@
+[
+  {
+    "metadata": {
+      "tool": "nuclei",
+      "description": "Run Nuclei vulnerability scanner (hybrid mode)",
+      "version": "0.1",
+      "finished": "2025-11-27T10:13:22.443394",
+      "target": "127.0.0.1"
+    },
+    "findings": [],
+    "raw": [
+      {
+        "metadata": {
+          "tool": "nuclei",
+          "target": "https://127.0.0.1",
+          "finished": "2025-11-27T10:13:12.109676",
+          "returncode": 0,
+          "stderr": "",
+          "stdout": ""
+        },
+        "findings": [
+          {
+            "title": "No vulnerabilities detected",
+            "description": "Nuclei completed successfully but returned zero matches for this target.",
+            "severity": "info",
+            "evidence": ""
+          }
+        ],
+        "raw": ""
+      }
+    ]
+  }
+]

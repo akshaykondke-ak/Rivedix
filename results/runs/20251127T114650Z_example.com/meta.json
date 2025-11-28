@@ -1,0 +1,10 @@
+{
+  "run_id": "20251127T114650Z_example.com",
+  "targets": [
+    "example.com"
+  ],
+  "tools": [
+    "tlsinfo"
+  ],
+  "timestamp": "20251127T114650Z"
+}

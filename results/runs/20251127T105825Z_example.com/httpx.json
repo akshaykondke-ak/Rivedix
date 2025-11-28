@@ -1,0 +1,69 @@
+[
+  {
+    "metadata": {
+      "tool": "httpx",
+      "description": "Discover URLs, titles, status codes and tech via httpx (-json)",
+      "version": "0.1",
+      "finished": "2025-11-27T10:58:27.416385",
+      "target": "example.com"
+    },
+    "findings": [],
+    "raw": [
+      {
+        "metadata": {
+          "tool": "httpx",
+          "target": "example.com",
+          "finished": "2025-11-27T10:58:25.218071"
+        },
+        "findings": [
+          {
+            "timestamp": "2025-11-27T16:28:27.402804+05:30",
+            "port": "443",
+            "url": "https://example.com",
+            "input": "example.com",
+            "title": "Example Domain",
+            "scheme": "https",
+            "content_type": "text/html",
+            "method": "GET",
+            "host": "23.215.0.136",
+            "path": "/",
+            "time": "791.216917ms",
+            "a": [
+              "23.215.0.138",
+              "23.215.0.136",
+              "23.192.228.80",
+              "23.220.75.232",
+              "23.220.75.245",
+              "23.192.228.84"
+            ],
+            "aaaa": [
+              "2600:1406:5e00:6::17ce:bc12",
+              "2600:1408:ec00:36::1736:7f24",
+              "2600:1406:bc00:53::b81e:94c8",
+              "2600:1406:bc00:53::b81e:94ce",
+              "2600:1406:5e00:6::17ce:bc1b",
+              "2600:1408:ec00:36::1736:7f31"
+            ],
+            "tech": [
+              "HTTP/3"
+            ],
+            "words": 25,
+            "lines": 1,
+            "status_code": 200,
+            "content_length": 513,
+            "failed": false,
+            "knowledgebase": {
+              "PageType": "nonerror",
+              "pHash": 0
+            },
+            "resolvers": [
+              "1.1.1.1:53",
+              "1.0.0.1:53"
+            ]
+          }
+        ],
+        "raw": "{\"timestamp\":\"2025-11-27T16:28:27.402804+05:30\",\"port\":\"443\",\"url\":\"https://example.com\",\"input\":\"example.com\",\"title\":\"Example Domain\",\"scheme\":\"https\",\"content_type\":\"text/html\",\"method\":\"GET\",\"host\":\"23.215.0.136\",\"path\":\"/\",\"time\":\"791.216917ms\",\"a\":[\"23.215.0.138\",\"23.215.0.136\",\"23.192.228.80\",\"23.220.75.232\",\"23.220.75.245\",\"23.192.228.84\"],\"aaaa\":[\"2600:1406:5e00:6::17ce:bc12\",\"2600:1408:ec00:36::1736:7f24\",\"2600:1406:bc00:53::b81e:94c8\",\"2600:1406:bc00:53::b81e:94ce\",\"2600:1406:5e00:6::17ce:bc1b\",\"2600:1408:ec00:36::1736:7f31\"],\"tech\":[\"HTTP/3\"],\"words\":25,\"lines\":1,\"status_code\":200,\"content_length\":513,\"failed\":false,\"knowledgebase\":{\"PageType\":\"nonerror\",\"pHash\":0},\"resolvers\":[\"1.1.1.1:53\",\"1.0.0.1:53\"]}\n"
+      }
+    ]
+  }
+]

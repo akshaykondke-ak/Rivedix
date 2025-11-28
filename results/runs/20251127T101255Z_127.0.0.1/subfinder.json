@@ -1,0 +1,20 @@
+[
+  {
+    "metadata": {
+      "tool": "subfinder",
+      "description": "Discover subdomains using Subfinder",
+      "version": "1.0",
+      "finished": "2025-11-27T10:13:12.107861",
+      "target": "127.0.0.1"
+    },
+    "findings": [
+      {
+        "title": "No Subdomains Found",
+        "description": "Subfinder returned empty output",
+        "severity": "info",
+        "evidence": ""
+      }
+    ],
+    "raw": ""
+  }
+]

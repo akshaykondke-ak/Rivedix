@@ -1,0 +1,10 @@
+{
+  "run_id": "20251128T075127Z_example.com",
+  "targets": [
+    "example.com"
+  ],
+  "tools": [
+    "httpx"
+  ],
+  "timestamp": "20251128T075127Z"
+}

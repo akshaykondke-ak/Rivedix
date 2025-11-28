@@ -1,0 +1,441 @@
+import React, { useState } from 'react';
+import { Check, Circle, AlertCircle, Star } from 'lucide-react';
+
+const ImprovementsChecklist = () => {
+  const [checkedItems, setCheckedItems] = useState({});
+
+  const toggleItem = (id) => {
+    setCheckedItems(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
+  const improvements = [
+    {
+      category: "🔴 CRITICAL - Phase 1 (Week 1)",
+      priority: "critical",
+      items: [
+        {
+          id: "c1",
+          title: "Fix Error Handling in Runner",
+          file: "runner.py",
+          description: "Wrap prepare(), validate_target(), run(), parse_output() in granular try-catch blocks",
+          impact: "Prevents entire scan crashes when single tool fails",
+          effort: "2 hours"
+        },
+        {
+          id: "c2",
+          title: "Implement Proper Logging System",
+          file: "utils/logging.py",
+          description: "Add structured logging with Rich handler, log levels, and file rotation",
+          impact: "Better debugging and audit trail",
+          effort: "3 hours"
+        },
+        {
+          id: "c3",
+          title: "Input Validation & Sanitization",
+          file: "runner.py, base.py",
+          description: "Validate targets (IP/domain), CIDR ranges, URL normalization",
+          impact: "Security & stability improvements",
+          effort: "2 hours"
+        },
+        {
+          id: "c4",
+          title: "Fix Binary Path Validation",
+          file: "base.py",
+          description: "Check if binary is executable, not just exists",
+          impact: "Prevents runtime errors",
+          effort: "1 hour"
+        },
+        {
+          id: "c5",
+          title: "Add Timeout Configuration",
+          file: "config.yaml, base.py",
+          description: "Per-tool configurable timeouts instead of hardcoded values",
+          impact: "Better control over long-running scans",
+          effort: "1.5 hours"
+        }
+      ]
+    },
+    {
+      category: "🟠 HIGH PRIORITY - Phase 2 (Week 2)",
+      priority: "high",
+      items: [
+        {
+          id: "h1",
+          title: "Implement Retry Logic",
+          file: "runner.py",
+          description: "Add configurable retry mechanism with exponential backoff",
+          impact: "Handle transient failures gracefully",
+          effort: "3 hours"
+        },
+        {
+          id: "h2",
+          title: "Rate Limiting Per Tool",
+          file: "runner.py",
+          description: "Add Semaphore-based rate limiting for each tool type",
+          impact: "Prevent resource exhaustion",
+          effort: "2 hours"
+        },
+        {
+          id: "h3",
+          title: "Enhanced Progress Tracking",
+          file: "cli.py, runner.py",
+          description: "Real-time progress bars per tool with ETA",
+          impact: "Better UX during long scans",
+          effort: "3 hours"
+        },
+        {
+          id: "h4",
+          title: "Improve XML Parsing in Nmap",
+          file: "modules/nmap_module.py",
+          description: "Better error handling, extract OS detection, service versions",
+          impact: "More accurate nmap results",
+          effort: "2 hours"
+        },
+        {
+          id: "h5",
+          title: "Nuclei Template Filtering",
+          file: "modules/nuclei_module.py",
+          description: "Filter by severity, tags, custom template paths",
+          impact: "Faster, more targeted scans",
+          effort: "2 hours"
+        },
+        {
+          id: "h6",
+          title: "HttpX Metadata Extraction",
+          file: "modules/httpx_module.py",
+          description: "Extract headers, cookies, response times, CDN info",
+          impact: "Richer reconnaissance data",
+          effort: "2 hours"
+        }
+      ]
+    },
+    {
+      category: "🟡 MEDIUM PRIORITY - Phase 3 (Week 3-4)",
+      priority: "medium",
+      items: [
+        {
+          id: "m1",
+          title: "Database Integration",
+          file: "database.py (NEW)",
+          description: "SQLite database for scan history, findings, comparisons",
+          impact: "Track changes over time",
+          effort: "6 hours"
+        },
+        {
+          id: "m2",
+          title: "Enhanced Report Engine",
+          file: "report/report_engine.py",
+          description: "Executive summary, risk scores, vulnerability deduplication",
+          impact: "Professional reporting",
+          effort: "5 hours"
+        },
+        {
+          id: "m3",
+          title: "Multi-Format Export",
+          file: "report/exporters.py (NEW)",
+          description: "Support PDF, CSV, JSON, Markdown exports",
+          impact: "Integration with other tools",
+          effort: "4 hours"
+        },
+        {
+          id: "m4",
+          title: "Configuration Validation",
+          file: "config.py",
+          description: "Pydantic validators for all config fields",
+          impact: "Catch config errors early",
+          effort: "2 hours"
+        },
+        {
+          id: "m5",
+          title: "Authentication Support",
+          file: "config.yaml, base.py",
+          description: "API keys, proxies, custom headers per tool",
+          impact: "Scan authenticated targets",
+          effort: "3 hours"
+        },
+        {
+          id: "m6",
+          title: "Memory Management",
+          file: "runner.py",
+          description: "Monitor memory usage, implement limits, cleanup",
+          impact: "Prevent OOM on large scans",
+          effort: "4 hours"
+        }
+      ]
+    },
+    {
+      category: "🟢 ENHANCEMENTS - Phase 4 (Month 2)",
+      priority: "low",
+      items: [
+        {
+          id: "l1",
+          title: "Add New Modules",
+          file: "modules/ (NEW)",
+          description: "sslyze, testssl, waybackurls, katana, dnsx, gospider",
+          impact: "More comprehensive scanning",
+          effort: "10 hours"
+        },
+        {
+          id: "l2",
+          title: "Comprehensive Test Suite",
+          file: "tests/ (NEW)",
+          description: "Unit tests, integration tests, fixtures",
+          impact: "Code quality & reliability",
+          effort: "12 hours"
+        },
+        {
+          id: "l3",
+          title: "Scan Comparison Feature",
+          file: "cli.py, report_engine.py",
+          description: "Compare current vs previous scans, highlight changes",
+          impact: "Track security posture over time",
+          effort: "6 hours"
+        },
+        {
+          id: "l4",
+          title: "Web Dashboard",
+          file: "web/ (NEW)",
+          description: "Flask/FastAPI web UI for scan management",
+          impact: "Better usability",
+          effort: "20 hours"
+        },
+        {
+          id: "l5",
+          title: "Scheduled Scanning",
+          file: "scheduler.py (NEW)",
+          description: "Cron-like scheduled scans with notifications",
+          impact: "Automated monitoring",
+          effort: "8 hours"
+        },
+        {
+          id: "l6",
+          title: "Plugin System",
+          file: "plugins/ (NEW)",
+          description: "Allow custom modules without modifying core",
+          impact: "Extensibility",
+          effort: "10 hours"
+        }
+      ]
+    },
+    {
+      category: "🔧 CODE QUALITY - Ongoing",
+      priority: "quality",
+      items: [
+        {
+          id: "q1",
+          title: "Type Hints Throughout",
+          file: "All files",
+          description: "Add complete type annotations, run mypy",
+          impact: "Better IDE support, catch errors",
+          effort: "6 hours"
+        },
+        {
+          id: "q2",
+          title: "Docstrings & Documentation",
+          file: "All files",
+          description: "Complete docstrings, usage examples, API docs",
+          impact: "Developer experience",
+          effort: "8 hours"
+        },
+        {
+          id: "q3",
+          title: "Code Formatting",
+          file: "All files",
+          description: "Setup black, isort, flake8 pre-commit hooks",
+          impact: "Consistent code style",
+          effort: "2 hours"
+        },
+        {
+          id: "q4",
+          title: "Security Audit",
+          file: "All files",
+          description: "Review for command injection, path traversal, etc.",
+          impact: "Security hardening",
+          effort: "4 hours"
+        },
+        {
+          id: "q5",
+          title: "Performance Profiling",
+          file: "runner.py, modules/",
+          description: "Profile bottlenecks, optimize hot paths",
+          impact: "Faster scans",
+          effort: "4 hours"
+        }
+      ]
+    }
+  ];
+
+  const getPriorityColor = (priority) => {
+    const colors = {
+      critical: "border-red-500 bg-red-50",
+      high: "border-orange-500 bg-orange-50",
+      medium: "border-yellow-500 bg-yellow-50",
+      low: "border-green-500 bg-green-50",
+      quality: "border-blue-500 bg-blue-50"
+    };
+    return colors[priority] || "border-gray-500 bg-gray-50";
+  };
+
+  const getProgressStats = () => {
+    const total = improvements.reduce((sum, cat) => sum + cat.items.length, 0);
+    const completed = Object.values(checkedItems).filter(Boolean).length;
+    const percentage = Math.round((completed / total) * 100);
+    return { total, completed, percentage };
+  };
+
+  const stats = getProgressStats();
+
+  return (
+    <div className="max-w-6xl mx-auto p-6 bg-gray-50 min-h-screen">
+      <div className="bg-white rounded-lg shadow-lg p-8 mb-6">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              🛠️ Pentoolkit Improvements Roadmap
+            </h1>
+            <p className="text-gray-600">
+              Comprehensive refactoring and enhancement plan
+            </p>
+          </div>
+          <div className="text-right">
+            <div className="text-4xl font-bold text-blue-600">{stats.percentage}%</div>
+            <div className="text-sm text-gray-600">
+              {stats.completed} of {stats.total} completed
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+          <div className="flex items-start gap-3">
+            <Star className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+            <div>
+              <h3 className="font-semibold text-blue-900 mb-1">Total Estimated Time</h3>
+              <p className="text-sm text-blue-800">
+                ~140 hours of development work • Recommended: 4-8 weeks with focused effort
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full bg-gray-200 rounded-full h-3 mb-2">
+          <div
+            className="bg-blue-600 h-3 rounded-full transition-all duration-300"
+            style={{ width: `${stats.percentage}%` }}
+          />
+        </div>
+      </div>
+
+      {improvements.map((category, catIndex) => (
+        <div key={catIndex} className="mb-6">
+          <div className={`rounded-lg shadow-md border-l-4 ${getPriorityColor(category.priority)} overflow-hidden`}>
+            <div className="p-4 bg-white border-b">
+              <h2 className="text-xl font-bold text-gray-900">
+                {category.category}
+              </h2>
+              <p className="text-sm text-gray-600 mt-1">
+                {category.items.filter(item => checkedItems[item.id]).length} / {category.items.length} completed
+              </p>
+            </div>
+
+            <div className="divide-y">
+              {category.items.map((item) => (
+                <div
+                  key={item.id}
+                  className={`p-4 bg-white hover:bg-gray-50 transition-colors ${
+                    checkedItems[item.id] ? 'opacity-60' : ''
+                  }`}
+                >
+                  <div className="flex items-start gap-3">
+                    <button
+                      onClick={() => toggleItem(item.id)}
+                      className="mt-1 flex-shrink-0"
+                    >
+                      {checkedItems[item.id] ? (
+                        <Check className="w-6 h-6 text-green-600" />
+                      ) : (
+                        <Circle className="w-6 h-6 text-gray-400" />
+                      )}
+                    </button>
+
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-4 mb-2">
+                        <h3 className={`font-semibold text-gray-900 ${
+                          checkedItems[item.id] ? 'line-through' : ''
+                        }`}>
+                          {item.title}
+                        </h3>
+                        <div className="flex gap-2 flex-shrink-0">
+                          <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                            {item.effort}
+                          </span>
+                        </div>
+                      </div>
+
+                      <p className="text-sm text-gray-600 mb-2">
+                        📁 <span className="font-mono text-xs bg-gray-100 px-2 py-0.5 rounded">
+                          {item.file}
+                        </span>
+                      </p>
+
+                      <p className="text-sm text-gray-700 mb-2">
+                        {item.description}
+                      </p>
+
+                      <div className="flex items-center gap-2 text-xs">
+                        <span className="flex items-center gap-1 text-blue-600">
+                          <AlertCircle className="w-3 h-3" />
+                          <span className="font-medium">Impact:</span>
+                        </span>
+                        <span className="text-gray-600">{item.impact}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
+        <h2 className="text-xl font-bold text-gray-900 mb-4">📋 Implementation Strategy</h2>
+        
+        <div className="space-y-4">
+          <div className="border-l-4 border-red-500 pl-4">
+            <h3 className="font-semibold text-red-900 mb-1">Phase 1: Foundation (Week 1)</h3>
+            <p className="text-sm text-gray-700">
+              Focus on critical stability and error handling. These are prerequisite for all future work.
+              Start with logging, then error handling, then validation.
+            </p>
+          </div>
+
+          <div className="border-l-4 border-orange-500 pl-4">
+            <h3 className="font-semibold text-orange-900 mb-1">Phase 2: Resilience (Week 2)</h3>
+            <p className="text-sm text-gray-700">
+              Add retry logic, rate limiting, and progress tracking. Improve individual module parsers.
+            </p>
+          </div>
+
+          <div className="border-l-4 border-yellow-500 pl-4">
+            <h3 className="font-semibold text-yellow-900 mb-1">Phase 3: Features (Week 3-4)</h3>
+            <p className="text-sm text-gray-700">
+              Implement database, enhanced reporting, and authentication support. Focus on user-facing features.
+            </p>
+          </div>
+
+          <div className="border-l-4 border-green-500 pl-4">
+            <h3 className="font-semibold text-green-900 mb-1">Phase 4: Scale (Month 2+)</h3>
+            <p className="text-sm text-gray-700">
+              Add new modules, web dashboard, and advanced features. This is where the tool becomes enterprise-ready.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ImprovementsChecklist;

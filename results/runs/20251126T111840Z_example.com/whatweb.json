@@ -1,0 +1,20 @@
+[
+  {
+    "metadata": {
+      "tool": "whatweb",
+      "description": "Fingerprint web technologies using WhatWeb v0.0.8",
+      "version": "0.0.8-adapter",
+      "finished": "2025-11-26T11:19:35.948996",
+      "target": "example.com"
+    },
+    "findings": [
+      {
+        "title": "Empty WhatWeb Output",
+        "description": "No data returned by WhatWeb v0.0.8",
+        "severity": "info",
+        "evidence": ""
+      }
+    ],
+    "raw": ""
+  }
+]

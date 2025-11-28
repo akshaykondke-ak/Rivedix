@@ -1,0 +1,12 @@
+[
+  {
+    "metadata": {
+      "tool": "nmap",
+      "target": "rivedix.com",
+      "error": "Nmap scan timeout",
+      "finished": "2025-11-27T09:29:44.956997+00:00"
+    },
+    "findings": [],
+    "raw": ""
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "metadata": {
+      "tool": "nmap",
+      "target": "example.com",
+      "error": "NmapModule.run() got an unexpected keyword argument 'scan_type'",
+      "finished": "2025-11-27T09:21:47.152929+00:00"
+    },
+    "findings": [],
+    "raw": ""
+  }
+]

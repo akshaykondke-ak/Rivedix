@@ -1,0 +1,69 @@
+[
+  {
+    "metadata": {
+      "tool": "httpx",
+      "description": "Discover URLs, titles, status codes and tech via httpx (-json)",
+      "version": "0.1",
+      "finished": "2025-11-27T09:57:01.948890",
+      "target": "rivedix.com"
+    },
+    "findings": [],
+    "raw": [
+      {
+        "metadata": {
+          "tool": "httpx",
+          "target": "rivedix.com",
+          "finished": "2025-11-27T09:56:59.687809"
+        },
+        "findings": [
+          {
+            "timestamp": "2025-11-27T15:27:01.932715+05:30",
+            "port": "443",
+            "url": "https://rivedix.com",
+            "input": "rivedix.com",
+            "title": "Rivedix Technology Solutions",
+            "scheme": "https",
+            "webserver": "nginx",
+            "content_type": "text/html",
+            "method": "GET",
+            "host": "192.0.78.162",
+            "path": "/",
+            "time": "111.804375ms",
+            "a": [
+              "192.0.78.234",
+              "192.0.78.162"
+            ],
+            "tech": [
+              "Elementor:3.33.2",
+              "HSTS",
+              "HTTP/3",
+              "MySQL",
+              "Nginx",
+              "PHP",
+              "Redux Framework:4.4.0",
+              "WordPress",
+              "WordPress.com",
+              "imagesLoaded",
+              "jQuery",
+              "jQuery Migrate"
+            ],
+            "words": 11647,
+            "lines": 2020,
+            "status_code": 200,
+            "content_length": 201341,
+            "failed": false,
+            "knowledgebase": {
+              "PageType": "other",
+              "pHash": 0
+            },
+            "resolvers": [
+              "1.1.1.1:53",
+              "1.0.0.1:53"
+            ]
+          }
+        ],
+        "raw": "{\"timestamp\":\"2025-11-27T15:27:01.932715+05:30\",\"port\":\"443\",\"url\":\"https://rivedix.com\",\"input\":\"rivedix.com\",\"title\":\"Rivedix Technology Solutions\",\"scheme\":\"https\",\"webserver\":\"nginx\",\"content_type\":\"text/html\",\"method\":\"GET\",\"host\":\"192.0.78.162\",\"path\":\"/\",\"time\":\"111.804375ms\",\"a\":[\"192.0.78.234\",\"192.0.78.162\"],\"tech\":[\"Elementor:3.33.2\",\"HSTS\",\"HTTP/3\",\"MySQL\",\"Nginx\",\"PHP\",\"Redux Framework:4.4.0\",\"WordPress\",\"WordPress.com\",\"imagesLoaded\",\"jQuery\",\"jQuery Migrate\"],\"words\":11647,\"lines\":2020,\"status_code\":200,\"content_length\":201341,\"failed\":false,\"knowledgebase\":{\"PageType\":\"other\",\"pHash\":0},\"resolvers\":[\"1.1.1.1:53\",\"1.0.0.1:53\"]}\n"
+      }
+    ]
+  }
+]

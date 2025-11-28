@@ -1,0 +1,32 @@
+[
+  {
+    "metadata": {
+      "tool": "tlsinfo",
+      "description": "TLS/SSL scanner using OpenSSL",
+      "version": "1.0",
+      "finished": "2025-11-27T05:50:32.403655",
+      "target": "rivedix.com"
+    },
+    "findings": [
+      {
+        "title": "Certificate Subject",
+        "description": "CN=tls.automattic.com",
+        "severity": "info",
+        "evidence": "CN=tls.automattic.com"
+      },
+      {
+        "title": "Certificate Issuer",
+        "description": "C=US, O=Let's Encrypt, CN=E8",
+        "severity": "info",
+        "evidence": "C=US, O=Let's Encrypt, CN=E8"
+      },
+      {
+        "title": "TLS Protocol Negotiated",
+        "description": "TLSv1.3",
+        "severity": "info",
+        "evidence": "TLSv1.3"
+      }
+    ],
+    "raw": "CONNECTED(00000006)\n---\nCertificate chain\n 0 s:CN=tls.automattic.com\n   i:C=US, O=Let's Encrypt, CN=E8\n   a:PKEY: EC, (prime256v1); sigalg: ecdsa-with-SHA384\n   v:NotBefore: Nov 16 07:05:06 2025 GMT; NotAfter: Feb 14 07:05:05 2026 GMT\n-----BEGIN CERTIFICATE-----\nMIIIPTCCB8SgAwIBAgISBoIlyv7LmVHL4FaTwMQDUvSSMAoGCCqGSM49BAMDMDIx\nCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQDEwJF\nODAeFw0yNTExMTYwNzA1MDZaFw0yNjAyMTQwNzA1MDVaMB0xGzAZBgNVBAMTEnRs\ncy5hdXRvbWF0dGljLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABK6wqpFx\nvEo/qWHlh12Rv9GW1p/wjBkzj/zJ45GFbJVpq4M0TOOqRLyk0hAUjrVDXzyaBGma\nJvCqXu1scLzi9NajggbNMIIGyTAOBgNVHQ8BAf8EBAMCB4AwHQYDVR0lBBYwFAYI\nKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFO+okOCH\nWMy6IteQ7rvufSJ4t2U3MB8GA1UdIwQYMBaAFI8NE6L2Ln7RUGwzGDhdWY4jcpHK\nMDIGCCsGAQUFBwEBBCYwJDAiBggrBgEFBQcwAoYWaHR0cDovL2U4LmkubGVuY3Iu\nb3JnLzCCBMoGA1UdEQSCBMEwggS9gh1jYW1icmlhY2EubmV3c3BhY2tzdGFnaW5n\nLmNvbYIYZGFpbHlzaG9ydHMuZmFzaGlvbi5ibG9ngglka2RlZi5jb22CF2dhbWVz\ncGxhdGZyb20uZ2FtZS5ibG9ngg1ndWlkZWFraWQub3JnghRpbmRpZWtpZC5mYW1p\nbHkuYmxvZ4IRa2FhdGpldmVydGVsdC5jb22CFWxhZGllc2JsLmZhc2hpb24uYmxv\nZ4ITbGFuZGhhdXNyb3NzYXR6LmNvbYISbGFudGVybmFnYWxsaS5ibG9nghNsaWZl\nb25ndW1zdHJlZXQuY29tghVtYXN0ZXJhY2hhcmF2YWRlZS5jb22CFG1pc3NjbGFp\ncmVzdGVsbGUuY29tghRtb3Jyb3dhcGFydG1lbnRzLm5ldIITbXlmb3JwbGF5Lmdh\nbWUuYmxvZ4IObmljaG9sc2VzcS5jb22CHm9sZGZsb3JpZGFlc3RhdGVtYW5hZ2Vt\nZW50LmNvbYIXb3NrYXJmcm9ibG9tLm11c2ljLmJsb2eCDG91dGVybW9zdC5jb4IJ\ncGNoa3MuY29tggtyaXZlZGl4LmNvbYIXc2NvdHRtZXRveWVyLm11c2ljLmJsb2eC\nJHRoZXBvbGl0aWNhbGRpc2N1c3Npb24ucG9saXRpY3MuYmxvZ4ISdGxzLmF1dG9t\nYXR0aWMuY29tghR0dW5lc2RheXMubXVzaWMuYmxvZ4Icd3d3LmRhaWx5c2hvcnRz\nLmZhc2hpb24uYmxvZ4Ibd3d3LmdhbWVzcGxhdGZyb20uZ2FtZS5ibG9nghF3d3cu\nZ3VpZGVha2lkLm9yZ4IYd3d3LmluZGlla2lkLmZhbWlseS5ibG9nghl3d3cubGFk\naWVzYmwuZmFzaGlvbi5ibG9nghd3d3cubGFuZGhhdXNyb3NzYXR6LmNvbYIXd3d3\nLmxpZmVvbmd1bXN0cmVldC5jb22CF3d3dy5saW1lc3RyZWV0Z3JvdXAuY29tghR3\nd3cubWFyY2VsYXVjaG9hLm5ldIISd3d3Lm1hcmluYXRvcnJlLmZyghh3d3cubWlz\nc2NsYWlyZXN0ZWxsZS5jb22CG3d3dy5tb25hc3RlcmJvaWNlcGFyaXNoLmNvbYIX\nd3d3Lm15Zm9ycGxheS5nYW1lLmJsb2eCEnd3dy5uaWNob2xzZXNxLmNvbYIYd3d3\nLm5pa2tpa2lja3NjYW5jZXIuY29tgiJ3d3cub2xkZmxvcmlkYWVzdGF0ZW1hbmFn\nZW1lbnQuY29tgg53d3cub3Bnc3dkLmNvbYIbd3d3Lm9za2FyZnJvYmxvbS5tdXNp\nYy5ibG9ngg13d3cucGNoa3MuY29tghZ3d3cucHMxMzhrYnJvb2tseW4ub3JnghV3\nd3cucmtiZ3JlZW5wb3dlci5jb22CG3d3dy5zY290dG1ldG95ZXIubXVzaWMuYmxv\nZ4Iod3d3LnRoZXBvbGl0aWNhbGRpc2N1c3Npb24ucG9saXRpY3MuYmxvZ4IYd3d3\nLnR1bmVzZGF5cy5tdXNpYy5ibG9nghl3d3cudW5vY2N1cGllZC5tdXNpYy5ibG9n\ngiB3d3cuemFubmljYXJkcXRmeGQucG9saXRpY3MuYmxvZzATBgNVHSAEDDAKMAgG\nBmeBDAECATAtBgNVHR8EJjAkMCKgIKAehhxodHRwOi8vZTguYy5sZW5jci5vcmcv\nMTkuY3JsMIIBAgYKKwYBBAHWeQIEAgSB8wSB8ADuAHUAGYbUxyiqb/66A294Kk0B\nkarOLXIxD67OXXBBLSVMx9QAAAGai7DhzwAABAMARjBEAiAiZnID9I9AdnF0CChG\nV4m1kBEveHX9Ikrhwb/rHWSNvQIgcwOIXKtZkZfeGvBxVOkfAJU4WA1AzsnJOsKM\nIYCEzNAAdQCWl2S/VViXrfdDh2g3CEJ36fA61fak8zZuRqQ/D8qpxgAAAZqLsOI7\nAAAEAwBGMEQCIE8yDeD7vbW3gcL1rjGA9I+wRAWmeZWvyD4SUWT4Wv8cAiARjl4d\nFNUrmI2MKo41ffRn40br4+Xbpuk9328qtiWjBTAKBggqhkjOPQQDAwNnADBkAjAy\nX/6fth1QHwg20sUuXnRG2wz2nH+bgzrBPU4Ym+38WCjxielW/Qm/dQyICTBj9y4C\nMBTQgaDlWkpX2OYn7OvhEgvX53ROeZAnmfRYjgHmZx+P4VcuMlkqxSK8N2DLVj/T\nJg==\n-----END CERTIFICATE-----\n 1 s:C=US, O=Let's Encrypt, CN=E8\n   i:C=US, O=Internet Security Research Group, CN=ISRG Root X1\n   a:PKEY: EC, (secp384r1); sigalg: sha256WithRSAEncryption\n   v:NotBefore: Mar 13 00:00:00 2024 GMT; NotAfter: Mar 12 23:59:59 2027 GMT\n-----BEGIN CERTIFICATE-----\nMIIEVjCCAj6gAwIBAgIQY5WTY8JOcIJxWRi/w9ftVjANBgkqhkiG9w0BAQsFADBP\nMQswCQYDVQQGEwJVUzEpMCcGA1UEChMgSW50ZXJuZXQgU2VjdXJpdHkgUmVzZWFy\nY2ggR3JvdXAxFTATBgNVBAMTDElTUkcgUm9vdCBYMTAeFw0yNDAzMTMwMDAwMDBa\nFw0yNzAzMTIyMzU5NTlaMDIxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBF\nbmNyeXB0MQswCQYDVQQDEwJFODB2MBAGByqGSM49AgEGBSuBBAAiA2IABNFl8l7c\nS7QMApzSsvru6WyrOq44ofTUOTIzxULUzDMMNMchIJBwXOhiLxxxs0LXeb5GDcHb\nR6EToMffgSZjO9SNHfY9gjMy9vQr5/WWOrQTZxh7az6NSNnq3u2ubT6HTKOB+DCB\n9TAOBgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMB\nMBIGA1UdEwEB/wQIMAYBAf8CAQAwHQYDVR0OBBYEFI8NE6L2Ln7RUGwzGDhdWY4j\ncpHKMB8GA1UdIwQYMBaAFHm0WeZ7tuXkAXOACIjIGlj26ZtuMDIGCCsGAQUFBwEB\nBCYwJDAiBggrBgEFBQcwAoYWaHR0cDovL3gxLmkubGVuY3Iub3JnLzATBgNVHSAE\nDDAKMAgGBmeBDAECATAnBgNVHR8EIDAeMBygGqAYhhZodHRwOi8veDEuYy5sZW5j\nci5vcmcvMA0GCSqGSIb3DQEBCwUAA4ICAQBnE0hGINKsCYWi0Xx1ygxD5qihEjZ0\nRI3tTZz1wuATH3ZwYPIp97kWEayanD1j0cDhIYzy4CkDo2jB8D5t0a6zZWzlr98d\nAQFNh8uKJkIHdLShy+nUyeZxc5bNeMp1Lu0gSzE4McqfmNMvIpeiwWSYO9w82Ob8\notvXcO2JUYi3svHIWRm3+707DUbL51XMcY2iZdlCq4Wa9nbuk3WTU4gr6LY8MzVA\naDQG2+4U3eJ6qUF10bBnR1uuVyDYs9RhrwucRVnfuDj29CMLTsplM5f5wSV5hUpm\nUwp/vV7M4w4aGunt74koX71n4EdagCsL/Yk5+mAQU0+tue0JOfAV/R6t1k+Xk9s2\nHMQFeoxppfzAVC04FdG9M+AC2JWxmFSt6BCuh3CEey3fE52Qrj9YM75rtvIjsm/1\nHl+u//Wqxnu1ZQ4jpa+VpuZiGOlWrqSP9eogdOhCGisnyewWJwRQOqK16wiGyZeR\nxs/Bekw65vwSIaVkBruPiTfMOo0Zh4gVa8/qJgMbJbyrwwG97z/PRgmLKCDl8z3d\ntA0Z7qq7fta0Gl24uyuB05dqI5J1LvAzKuWdIjT1tP8qCoxSE/xpix8hX2dt3h+/\njujUgFPFZ0EVZ0xSyBNRF3MboGZnYXFUxpNjTWPKpagDHJQmqrAcDmWJnMsFY3jS\nu1igv3OefnWjSQ==\n-----END CERTIFICATE-----\n---\nServer certificate\nsubject=CN=tls.automattic.com\nissuer=C=US, O=Let's Encrypt, CN=E8\n---\nNo client certificate CA names sent\nPeer signing digest: SHA256\nPeer signature type: ecdsa_secp256r1_sha256\nNegotiated TLS1.3 group: X25519MLKEM768\n---\nSSL handshake has read 4694 bytes and written 1622 bytes\nVerification: OK\n---\nNew, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384\nProtocol: TLSv1.3\nServer public key is 256 bit\nThis TLS version forbids renegotiation.\nCompression: NONE\nExpansion: NONE\nNo ALPN negotiated\nEarly data was not sent\nVerify return code: 0 (ok)\n---\n"
+  }
+]

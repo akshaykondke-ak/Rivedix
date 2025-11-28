@@ -1,0 +1,8 @@
+2025-11-28 14:14:37 | INFO     | pentoolkit.runner | Initializing Pentoolkit Runner
+2025-11-28 14:14:37 | INFO     | pentoolkit.runner | Configuration loaded from config.yaml
+2025-11-28 14:14:37 | INFO     | pentoolkit.runner | Discovered 6 modules: httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-11-28 14:14:37 | INFO     | pentoolkit.runner | Starting nmap execution on 1 target(s) with concurrency=4
+2025-11-28 14:14:37 | INFO     | pentoolkit.runner | Preparing nmap for example.com
+2025-11-28 14:14:37 | INFO     | pentoolkit.runner | Running nmap on example.com
+2025-11-28 14:14:42 | INFO     | pentoolkit.runner | nmap found 1 findings for example.com
+2025-11-28 14:14:42 | INFO     | pentoolkit.runner | nmap completed: 1 successful, 0 failed

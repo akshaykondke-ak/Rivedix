@@ -1,0 +1,26 @@
+[
+  {
+    "metadata": {
+      "tool": "nmap",
+      "description": "Run Nmap with selectable scan profiles",
+      "version": "1.1",
+      "finished": "2025-11-27T09:44:52.621794",
+      "target": "rivedix.com"
+    },
+    "findings": [
+      {
+        "title": "Open Port 80/tcp",
+        "description": "http nginx None",
+        "severity": "info",
+        "evidence": "192.0.78.162:80 (http)"
+      },
+      {
+        "title": "Open Port 443/tcp",
+        "description": "http nginx None",
+        "severity": "info",
+        "evidence": "192.0.78.162:443 (http)"
+      }
+    ],
+    "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE nmaprun>\n<?xml-stylesheet href=\"file:///opt/homebrew/bin/../share/nmap/nmap.xsl\" type=\"text/xsl\"?>\n<!-- Nmap 7.98 scan initiated Thu Nov 27 15:14:33 2025 as: nmap -T3 -Pn -sV -p80,443,22 -oX - rivedix.com -->\n<nmaprun scanner=\"nmap\" args=\"nmap -T3 -Pn -sV -p80,443,22 -oX - rivedix.com\" start=\"1764236673\" startstr=\"Thu Nov 27 15:14:33 2025\" version=\"7.98\" xmloutputversion=\"1.05\">\n<scaninfo type=\"connect\" protocol=\"tcp\" numservices=\"3\" services=\"22,80,443\"/>\n<verbose level=\"0\"/>\n<debugging level=\"0\"/>\n<host starttime=\"1764236674\" endtime=\"1764236692\"><status state=\"up\" reason=\"user-set\" reason_ttl=\"0\"/>\n<address addr=\"192.0.78.162\" addrtype=\"ipv4\"/>\n<hostnames>\n<hostname name=\"rivedix.com\" type=\"user\"/>\n</hostnames>\n<ports><port protocol=\"tcp\" portid=\"22\"><state state=\"filtered\" reason=\"no-response\" reason_ttl=\"0\"/><service name=\"ssh\" method=\"table\" conf=\"3\"/></port>\n<port protocol=\"tcp\" portid=\"80\"><state state=\"open\" reason=\"syn-ack\" reason_ttl=\"0\"/><service name=\"http\" product=\"nginx\" method=\"probed\" conf=\"10\"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service></port>\n<port protocol=\"tcp\" portid=\"443\"><state state=\"open\" reason=\"syn-ack\" reason_ttl=\"0\"/><service name=\"http\" product=\"nginx\" tunnel=\"ssl\" method=\"probed\" conf=\"10\"><cpe>cpe:/a:igor_sysoev:nginx</cpe></service></port>\n</ports>\n<times srtt=\"8592\" rttvar=\"6628\" to=\"100000\"/>\n</host>\n<runstats><finished time=\"1764236692\" timestr=\"Thu Nov 27 15:14:52 2025\" summary=\"Nmap done at Thu Nov 27 15:14:52 2025; 1 IP address (1 host up) scanned in 18.86 seconds\" elapsed=\"18.86\" exit=\"success\"/><hosts up=\"1\" down=\"0\" total=\"1\"/>\n</runstats>\n</nmaprun>\n"
+  }
+]

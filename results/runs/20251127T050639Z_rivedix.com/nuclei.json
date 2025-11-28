@@ -1,0 +1,12 @@
+[
+  {
+    "metadata": {
+      "tool": "nuclei",
+      "target": "rivedix.com",
+      "error": "Module must implement run().",
+      "finished": "2025-11-27T05:06:39.621265+00:00"
+    },
+    "findings": [],
+    "raw": ""
+  }
+]

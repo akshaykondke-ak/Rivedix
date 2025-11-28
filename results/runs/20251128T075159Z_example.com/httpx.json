@@ -1,0 +1,12 @@
+[
+  {
+    "metadata": {
+      "tool": "httpx",
+      "target": "example.com",
+      "error": null,
+      "finished": "2025-11-28T07:52:00.871330+00:00"
+    },
+    "findings": [],
+    "raw": ""
+  }
+]

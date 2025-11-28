@@ -1,0 +1,20 @@
+[
+  {
+    "metadata": {
+      "tool": "nuclei",
+      "description": "Run Nuclei vulnerability scanner (hybrid mode)",
+      "version": "3.hybrid",
+      "finished": "2025-11-27T05:50:47.094020",
+      "target": "rivedix.com"
+    },
+    "findings": [
+      {
+        "title": "No vulnerabilities detected",
+        "description": "Nuclei ran successfully but returned zero results.",
+        "severity": "info",
+        "evidence": ""
+      }
+    ],
+    "raw": ""
+  }
+]

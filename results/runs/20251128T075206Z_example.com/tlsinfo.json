@@ -1,0 +1,25 @@
+[
+  {
+    "metadata": {
+      "tool": "tlsinfo",
+      "target": "example.com",
+      "error": null,
+      "finished": "2025-11-28T07:52:25.732677+00:00"
+    },
+    "findings": [
+      {
+        "title": "Supported TLS Protocols",
+        "description": "unknown",
+        "severity": "info",
+        "evidence": ""
+      },
+      {
+        "title": "TLS Raw Output",
+        "description": "Could not find PEM certificate in output.",
+        "severity": "info",
+        "evidence": ""
+      }
+    ],
+    "raw": ""
+  }
+]

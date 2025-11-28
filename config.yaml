@@ -1,0 +1,100 @@
+# Pentoolkit Global Configuration
+global:
+  concurrency: 4
+  output_dir: "results"
+  log_level: "INFO"
+
+# Reporting configuration
+reporting:
+  per_tool_report: true      # Generate single tool report (HTML + JSON)
+  combined_report: true      # Generate combined report after running all tools
+  template: "pentoolkit/report/templates/report.html"
+  static_dir: "pentoolkit/report/static"
+  theme: "default"
+
+# Tool configurations
+tools:
+  nmap:
+    enabled: true
+    path: "nmap"
+    default_args: ""
+    type: "short"        # default scan type
+    scan_types:
+      short: "-Pn -sV --top-ports 100"
+      fast: "-Pn -T4 -F"
+      deep: "-Pn -sV -sC -A -p-"
+      discovery: "-sn"
+      firewall-bypass: "-Pn -sA -T3"
+      slow: "-Pn -sV -sC --scan-delay 200ms"
+  # nmap:
+  #   enabled: true
+  #   path: "nmap"
+  #   default_args: "-Pn -sV -sC -oX -"
+  #   scan_all_ports: false
+  #   internal_networks:
+  #     - "192.168.0.0/24"
+  #     - "10.0.0.0/8"
+  #     - "127.0.0.1"
+
+  # sslscan:
+  #   enabled: true
+  #   path: "sslscan"
+  #   default_args: "--no-fallback"
+
+
+  tlsinfo:
+    enabled: true
+    path: "openssl"
+    default_args: ""
+
+  whatweb:
+    enabled: true
+    path: "whatweb"
+    default_args: ""
+
+  subfinder:
+    enabled: true
+    path: "subfinder"
+    default_args: "-silent -json"
+
+  # nuclei:
+  #   enabled: true
+  #   path: "nuclei"
+  #   templates_root: "/Users/rivedix/nuclei-templates"
+  #   mode: "hybrid"
+  #   rate_limit: 50
+  #   concurrency: 25
+  #   timeout: 720
+  #   severity: "critical,high,medium,low,info"
+  #   no_meta: true
+  httpx:
+    enabled: true
+    path: httpx
+    default_args: "-silent -follow-redirects -status-code -title -tech-detect -json"
+    
+  nuclei:
+    enabled: true
+    path: nuclei
+    # templates_root should point to your nuclei-templates directory
+    templates_root: /Users/rivedix/nuclei-templates
+    # extra arguments passed to nuclei runs (optional)
+    extra_args:
+      - "-rl"
+      - "50"
+      - "-c"
+      - "25"
+      - "-retries"
+      - "1"
+      - "-timeout"
+      - "10"
+
+
+# Execution restrictions & safety
+execution:
+  allow_internal_scans: true
+  allowed_ranges:
+    - "10.0.0.0/8"
+    - "172.16.0.0/12"
+    - "192.168.0.0/16"
+    - "127.0.0.1"
+  timeout: 300

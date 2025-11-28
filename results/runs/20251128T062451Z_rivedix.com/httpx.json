@@ -1,0 +1,12 @@
+[
+  {
+    "metadata": {
+      "tool": "httpx",
+      "target": "rivedix.com",
+      "error": "'HttpxModule' object has no attribute 'prepare'",
+      "finished": "2025-11-28T06:24:51.812973+00:00"
+    },
+    "findings": [],
+    "raw": ""
+  }
+]

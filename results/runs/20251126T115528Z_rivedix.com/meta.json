@@ -1,0 +1,10 @@
+{
+  "run_id": "20251126T115528Z_rivedix.com",
+  "targets": [
+    "rivedix.com"
+  ],
+  "tools": [
+    "nuclei"
+  ],
+  "timestamp": "20251126T115528Z"
+}
