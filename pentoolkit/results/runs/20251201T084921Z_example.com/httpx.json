@@ -1,0 +1,28 @@
+[
+  {
+    "metadata": {
+      "tool": "httpx",
+      "target": "example.com",
+      "started": "2025-12-01T08:49:26.501295+00:00",
+      "finished": "2025-12-01T08:49:28.542913+00:00",
+      "duration": 2.041632890701294,
+      "success": true,
+      "error": null
+    },
+    "findings": [
+      {
+        "title": "https://example.com",
+        "description": "HTTP 200 | Example Domain",
+        "severity": "info",
+        "evidence": "URL: https://example.com\nStatus: 200\nServer: Unknown\nContent-Length: 513\nTechnologies: HTTP/3",
+        "technologies": [
+          "HTTP/3"
+        ],
+        "status_code": 200,
+        "server": "Unknown",
+        "url": "https://example.com"
+      }
+    ],
+    "raw": "{\"timestamp\":\"2025-12-01T14:19:28.526091+05:30\",\"port\":\"443\",\"url\":\"https://example.com\",\"input\":\"example.com\",\"title\":\"Example Domain\",\"scheme\":\"https\",\"content_type\":\"text/html\",\"method\":\"GET\",\"host\":\"23.215.0.138\",\"path\":\"/\",\"time\":\"743.022958ms\",\"a\":[\"23.192.228.84\",\"23.192.228.80\",\"23.220.75.232\",\"23.220.75.245\",\"23.215.0.136\",\"23.215.0.138\"],\"aaaa\":[\"2600:1406:5e00:6::17ce:bc12\",\"2600:1408:ec00:36::1736:7f31\",\"2600:1406:bc00:53::b81e:94c8\",\"2600:1408:ec00:36::1736:7f24\",\"2600:1406:bc00:53::b81e:94ce\",\"2600:1406:5e00:6::17ce:bc1b\"],\"tech\":[\"HTTP/3\"],\"words\":25,\"lines\":1,\"status_code\":200,\"content_length\":513,\"failed\":false,\"knowledgebase\":{\"PageType\":\"nonerror\",\"pHash\":0},\"resolvers\":[\"1.1.1.1:53\",\"1.0.0.1:53\"]}\n"
+  }
+]

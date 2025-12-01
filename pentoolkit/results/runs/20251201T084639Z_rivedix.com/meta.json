@@ -1,0 +1,15 @@
+{
+  "run_id": "20251201T084639Z_rivedix.com",
+  "targets": [
+    "rivedix.com"
+  ],
+  "tools": [
+    "nmap",
+    "httpx",
+    "subfinder",
+    "tlsinfo",
+    "nuclei"
+  ],
+  "timestamp": "20251201T084639Z",
+  "total_findings": 7
+}

@@ -6,29 +6,15 @@
   <title>Pentoolkit Security Report - {{ target }}</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    pre {
-      max-height: 40vh;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-    
-    @media print {
-      .no-print { display: none; }
-    }
-    
+    pre { max-height: 40vh; white-space: pre-wrap; word-wrap: break-word; }
+    @media print { .no-print { display: none; } }
     .severity-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.025em;
+      display: inline-flex; align-items: center; padding: 0.25rem 0.75rem;
+      border-radius: 9999px; font-size: 0.75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.025em;
     }
   </style>
 </head>
-
 <body class="bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900 min-h-screen">
   <div class="max-w-7xl mx-auto p-6 lg:p-8">
 
@@ -42,7 +28,7 @@
             </svg>
             <h1 class="text-4xl font-bold text-slate-900">Security Assessment Report</h1>
           </div>
-          
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
             <div class="flex items-center gap-2 text-slate-600">
               <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,7 +37,7 @@
               <span class="font-semibold">Target:</span>
               <span class="font-mono bg-slate-100 px-2 py-1 rounded text-sm">{{ target }}</span>
             </div>
-            
+
             <div class="flex items-center gap-2 text-slate-600">
               <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -59,7 +45,7 @@
               <span class="font-semibold">Generated:</span>
               <span class="text-sm">{{ generated }}</span>
             </div>
-            
+
             <div class="flex items-center gap-2 text-slate-600">
               <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
@@ -68,11 +54,6 @@
               <span class="font-mono text-sm">{{ run }}</span>
             </div>
           </div>
-        </div>
-
-        <!-- LOGO -->
-        <div class="ml-6 no-print">
-          <img src="../../../pentoolkit/report/static/logo.png" alt="Logo" class="h-16 w-auto object-contain rounded-lg shadow-md">
         </div>
       </div>
     </header>
@@ -85,9 +66,8 @@
         </svg>
         Executive Summary
       </h2>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Tools Card -->
         <div class="bg-gradient-to-br from-blue-50 to-sky-50 rounded-lg p-6 border border-blue-100">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold text-slate-900">Assessment Tools</h3>
@@ -110,7 +90,6 @@
           </ul>
         </div>
 
-        <!-- Total Findings Card -->
         <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-100">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold text-slate-900">Total Findings</h3>
@@ -124,7 +103,6 @@
           <p class="text-sm text-slate-600 mt-2">Security observations detected</p>
         </div>
 
-        <!-- Severity Breakdown Card -->
         <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg p-6 border border-amber-100">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold text-slate-900">Risk Distribution</h3>
@@ -138,22 +116,12 @@
             {% for sev, count in severities.items() %}
             <li class="flex items-center justify-between text-sm">
               <div class="flex items-center gap-2">
-                {% if sev == 'critical' %}
-                <span class="w-3 h-3 rounded-full bg-red-600"></span>
+                {% if sev == 'critical' %}<span class="w-3 h-3 rounded-full bg-red-600"></span>
+                {% elif sev == 'high' %}<span class="w-3 h-3 rounded-full bg-orange-600"></span>
+                {% elif sev == 'medium' %}<span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                {% elif sev == 'low' %}<span class="w-3 h-3 rounded-full bg-green-500"></span>
+                {% else %}<span class="w-3 h-3 rounded-full bg-gray-400"></span>{% endif %}
                 <span class="font-semibold text-slate-900 capitalize">{{ sev }}</span>
-                {% elif sev == 'high' %}
-                <span class="w-3 h-3 rounded-full bg-orange-600"></span>
-                <span class="font-semibold text-slate-900 capitalize">{{ sev }}</span>
-                {% elif sev == 'medium' %}
-                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                <span class="font-semibold text-slate-900 capitalize">{{ sev }}</span>
-                {% elif sev == 'low' %}
-                <span class="w-3 h-3 rounded-full bg-green-500"></span>
-                <span class="font-semibold text-slate-900 capitalize">{{ sev }}</span>
-                {% else %}
-                <span class="w-3 h-3 rounded-full bg-gray-400"></span>
-                <span class="font-semibold text-slate-900 capitalize">{{ sev }}</span>
-                {% endif %}
               </div>
               <span class="font-bold text-slate-900">{{ count }}</span>
             </li>
@@ -178,9 +146,6 @@
 
         <div class="p-8 space-y-6">
           {% for e in entries %}
-
-          {% if tool == "nuclei" %}
-          <!-- NUCLEI SPECIFIC RENDERING -->
           <div class="border-l-4 border-sky-600 pl-6">
             <div class="flex justify-between items-start mb-4">
               <div>
@@ -193,204 +158,77 @@
               </div>
             </div>
 
-            <div class="bg-slate-50 rounded-lg p-4 mb-6">
-              <p class="text-sm text-slate-600">
-                <span class="font-semibold">Scan Mode:</span> 
-                <span class="font-mono">{{ e.metadata.mode if e.metadata.mode else 'hybrid' }}</span>
-              </p>
-            </div>
-
-            {% set by_sev = {'critical': [], 'high': [], 'medium': [], 'low': [], 'info': []} %}
-            {% for f in e.findings %}
-            {% set _ = by_sev.setdefault(f.severity|default('info'), []).append(f) %}
-            {% endfor %}
-
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-              {% for sev in ['critical','high','medium','low','info'] %}
-              <div class="bg-white border-2 {% if sev == 'critical' %}border-red-200{% elif sev == 'high' %}border-orange-200{% elif sev == 'medium' %}border-yellow-200{% elif sev == 'low' %}border-green-200{% else %}border-gray-200{% endif %} rounded-lg p-4 text-center">
-                <div class="text-xs font-bold uppercase tracking-wider {% if sev == 'critical' %}text-red-600{% elif sev == 'high' %}text-orange-600{% elif sev == 'medium' %}text-yellow-600{% elif sev == 'low' %}text-green-600{% else %}text-gray-600{% endif %} mb-2">{{ sev }}</div>
-                <div class="text-3xl font-bold {% if sev == 'critical' %}text-red-600{% elif sev == 'high' %}text-orange-600{% elif sev == 'medium' %}text-yellow-600{% elif sev == 'low' %}text-green-600{% else %}text-gray-600{% endif %}">{{ by_sev[sev] | length }}</div>
-              </div>
-              {% endfor %}
-            </div>
-
-            <div class="space-y-6">
-              {% for sev in ['critical','high','medium','low','info'] %}
-              {% if by_sev[sev] %}
-              <div>
-                <h4 class="text-lg font-bold mb-3 capitalize flex items-center gap-2">
-                  {% if sev == 'critical' %}
-                  <span class="severity-badge bg-red-600 text-white">{{ sev }}</span>
-                  {% elif sev == 'high' %}
-                  <span class="severity-badge bg-orange-600 text-white">{{ sev }}</span>
-                  {% elif sev == 'medium' %}
-                  <span class="severity-badge bg-yellow-500 text-black">{{ sev }}</span>
-                  {% elif sev == 'low' %}
-                  <span class="severity-badge bg-green-500 text-white">{{ sev }}</span>
-                  {% else %}
-                  <span class="severity-badge bg-gray-400 text-white">{{ sev }}</span>
-                  {% endif %}
-                  <span class="text-slate-600">({{ by_sev[sev]|length }})</span>
-                </h4>
-                
-                <div class="space-y-3">
-                  {% for f in by_sev[sev] %}
-                  <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                    <div class="font-semibold text-slate-900 mb-2">{{ f.title }}</div>
-                    <p class="text-sm text-slate-700 mb-3">{{ f.description }}</p>
-
-                    {% if f.evidence %}
-                    <details class="group">
-                      <summary class="cursor-pointer text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-2">
-                        <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                        View Evidence
-                      </summary>
-                      <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">{{ f.evidence | e }}</pre>
-                    </details>
-                    {% endif %}
+            <!-- ✅ HTTPX TECH STACK CARD -->
+            {% if tool == 'httpx' and e.findings %}
+              {% for f in e.findings %}
+                {% if f.technologies %}
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-5 mb-6 border border-blue-200">
+                  <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    </svg>
+                    Technology Stack Detected
+                  </h4>
+                  <div class="flex flex-wrap gap-2">
+                    {% for tech in f.technologies %}
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold shadow-sm">{{ tech }}</span>
+                    {% endfor %}
                   </div>
-                  {% endfor %}
                 </div>
-              </div>
-              {% endif %}
+                {% endif %}
               {% endfor %}
-            </div>
-
-            {% if e.raw %}
-            <details class="mt-6 no-print border border-slate-200 rounded-lg">
-              <summary class="cursor-pointer text-slate-600 hover:text-slate-700 font-medium text-xs flex items-center gap-2 p-3 bg-slate-50">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-                Technical Details (Raw Nuclei Export)
-              </summary>
-              <pre class="bg-slate-900 text-green-400 text-xs p-4 overflow-auto max-h-64">{{ e.raw | e }}</pre>
-            </details>
             {% endif %}
-          </div>
 
-          {% elif tool == "subfinder" %}
-          <!-- SUBFINDER SPECIFIC RENDERING -->
-          <div class="border-l-4 border-sky-600 pl-6">
-            <div class="flex justify-between items-start mb-4">
-              <div>
-                <p class="text-sm text-slate-500 mb-1">Target</p>
-                <p class="font-mono text-lg font-semibold text-slate-900">{{ e.metadata.target }}</p>
-              </div>
-              <div class="text-right">
-                <p class="text-sm text-slate-500 mb-1">Completed</p>
-                <p class="text-sm text-slate-700">{{ e.metadata.finished }}</p>
-              </div>
-            </div>
+            <!-- ✅ SUBFINDER SUBDOMAIN TABLE -->
+            {% if tool == 'subfinder' and e.findings %}
+              {% for f in e.findings %}
+                {% if f.subdomains %}
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div class="text-center">
+                      <p class="text-sm text-slate-600 mb-2">Total Discovered</p>
+                      <p class="text-4xl font-bold text-blue-600">{{ f.subdomain_count or f.subdomains|length }}</p>
+                    </div>
+                    <div class="text-center">
+                      <p class="text-sm text-slate-600 mb-2">Unique Subdomains</p>
+                      <p class="text-4xl font-bold text-green-600">{{ f.subdomains|length }}</p>
+                    </div>
+                  </div>
 
-            <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="text-center">
-                  <p class="text-sm text-slate-600 mb-2">Total Discovered</p>
-                  <p class="text-4xl font-bold text-blue-600">{{ e.findings | length - 1 }}</p>
+                  <div class="overflow-hidden border border-slate-200 rounded-lg max-h-96 overflow-y-auto">
+                    <table class="w-full text-sm">
+                      <thead class="bg-slate-100 text-slate-700 sticky top-0">
+                        <tr>
+                          <th class="p-3 text-left font-semibold">#</th>
+                          <th class="p-3 text-left font-semibold">Subdomain</th>
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-slate-200">
+                        {% for subdomain in f.subdomains %}
+                        <tr class="hover:bg-slate-50">
+                          <td class="p-3 text-slate-600">{{ loop.index }}</td>
+                          <td class="p-3 font-mono text-blue-600">{{ subdomain }}</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <div class="text-center">
-                  <p class="text-sm text-slate-600 mb-2">Showing in Table</p>
-                  <p class="text-4xl font-bold text-green-600">{% if (e.findings | length - 1) > 100 %}100{% else %}{{ e.findings | length - 1 }}{% endif %}</p>
-                </div>
-                <div class="text-center">
-                  <p class="text-sm text-slate-600 mb-2">Coverage</p>
-                  <p class="text-4xl font-bold text-purple-600">{% if (e.findings | length - 1) > 0 %}{{ ((100 if (e.findings | length - 1) > 100 else (e.findings | length - 1)) / (e.findings | length - 1) * 100) | round(1) }}%{% else %}0%{% endif %}</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="overflow-hidden border border-slate-200 rounded-lg mb-4 max-h-96 overflow-y-auto">
-              <table class="w-full text-sm">
-                <thead class="bg-slate-100 text-slate-700 sticky top-0">
-                  <tr>
-                    <th class="p-3 text-left font-semibold">#</th>
-                    <th class="p-3 text-left font-semibold">Subdomain</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-200">
-                  {% set ns = namespace(count=0) %}
-                  {% for f in e.findings %}
-                  {% if f.title == "Subdomain Found" %}
-                  {% set ns.count = ns.count + 1 %}
-                  {% if ns.count <= 100 %}
-                  <tr class="hover:bg-slate-50 transition-colors">
-                    <td class="p-3 text-slate-500 font-mono text-xs">{{ ns.count }}</td>
-                    <td class="p-3 font-mono text-slate-900">{{ f.evidence }}</td>
-                  </tr>
-                  {% endif %}
-                  {% endif %}
-                  {% endfor %}
-                </tbody>
-              </table>
-              {% if (e.findings | length - 1) > 100 %}
-              <div class="bg-amber-50 border-t-2 border-amber-200 p-3 text-center text-sm text-amber-800">
-                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                Showing first 100 of {{ e.findings | length - 1 }} subdomains. Download full list below.
-              </div>
-              {% endif %}
-            </div>
-
-            <details class="group mt-4">
-              <summary class="cursor-pointer text-indigo-600 hover:text-indigo-700 font-medium text-sm flex items-center gap-2 bg-slate-50 p-3 rounded-lg border border-slate-200">
-                <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-                Download Full Subdomain List ({{ e.findings | length - 1 }} subdomains)
-              </summary>
-              <pre class="bg-slate-100 text-slate-900 text-xs p-4 rounded-lg mt-3 overflow-auto max-h-96 border border-slate-300">{% for f in e.findings %}{% if f.title == "Subdomain Found" %}{{ f.evidence }}
-{% endif %}{% endfor %}</pre>
-            </details>
-
-            {% if e.raw %}
-            <details class="mt-6 no-print border border-slate-200 rounded-lg">
-              <summary class="cursor-pointer text-slate-600 hover:text-slate-700 font-medium text-xs flex items-center gap-2 p-3 bg-slate-50">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-                Technical Details (Raw Output)
-              </summary>
-              <pre class="bg-slate-900 text-green-400 text-xs p-4 overflow-auto max-h-64">{{ e.raw | e }}</pre>
-            </details>
+                {% endif %}
+              {% endfor %}
             {% endif %}
-          </div>
 
-          {% else %}
-          <!-- GENERIC TOOL RENDERING -->
-          <div class="border-l-4 border-sky-600 pl-6">
-            <div class="flex justify-between items-start mb-4">
-              <div>
-                <p class="text-sm text-slate-500 mb-1">Target</p>
-                <p class="font-mono text-lg font-semibold text-slate-900">{{ e.metadata.target }}</p>
-              </div>
-              <div class="text-right">
-                <p class="text-sm text-slate-500 mb-1">Completed</p>
-                <p class="text-sm text-slate-700">{{ e.metadata.finished }}</p>
-              </div>
-            </div>
-
-            {% if e.findings %}
+            <!-- STANDARD FINDINGS -->
             <div class="space-y-3">
               {% for f in e.findings %}
               <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow">
                 <div class="flex justify-between items-start mb-3">
                   <span class="font-semibold text-slate-900">{{ f.title }}</span>
-                  
-                  {% if f.severity == 'critical' %}
-                  <span class="severity-badge bg-red-600 text-white">critical</span>
-                  {% elif f.severity == 'high' %}
-                  <span class="severity-badge bg-orange-600 text-white">high</span>
-                  {% elif f.severity == 'medium' %}
-                  <span class="severity-badge bg-yellow-500 text-black">medium</span>
-                  {% elif f.severity == 'low' %}
-                  <span class="severity-badge bg-green-500 text-white">low</span>
-                  {% else %}
-                  <span class="severity-badge bg-gray-400 text-white">info</span>
-                  {% endif %}
+                  {% if f.severity == 'critical' %}<span class="severity-badge bg-red-600 text-white">critical</span>
+                  {% elif f.severity == 'high' %}<span class="severity-badge bg-orange-500 text-white">high</span>
+                  {% elif f.severity == 'medium' %}<span class="severity-badge bg-yellow-500 text-black">medium</span>
+                  {% elif f.severity == 'low' %}<span class="severity-badge bg-green-500 text-white">low</span>
+                  {% else %}<span class="severity-badge bg-gray-400 text-white">info</span>{% endif %}
                 </div>
 
                 <p class="text-sm text-slate-700 mb-3">{{ f.description }}</p>
@@ -403,20 +241,12 @@
                     </svg>
                     View Evidence
                   </summary>
-                  <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">{{ f.evidence | e }}</pre>
+                  <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">{{ f.evidence }}</pre>
                 </details>
                 {% endif %}
               </div>
               {% endfor %}
             </div>
-            {% else %}
-            <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 text-center">
-              <svg class="w-12 h-12 text-slate-300 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <p class="text-slate-500 font-medium">No findings detected</p>
-            </div>
-            {% endif %}
 
             {% if e.raw %}
             <details class="mt-4 no-print">
@@ -426,12 +256,10 @@
                 </svg>
                 Raw Output
               </summary>
-              <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">{{ e.raw | e }}</pre>
+              <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">{{ e.raw }}</pre>
             </details>
             {% endif %}
           </div>
-          {% endif %}
-
           {% endfor %}
         </div>
       </div>
@@ -441,9 +269,13 @@
     <!-- FOOTER -->
     <footer class="bg-white rounded-xl shadow-lg p-6 mt-8 text-center border-t-4 border-sky-600">
       <p class="text-sm text-slate-600">
-        Generated by <span class="font-semibold text-slate-900">Pentoolkit</span> • 
+        Generated by <span class="font-semibold text-slate-900">Pentoolkit</span> •
         <span class="font-mono">{{ generated }}</span>
       </p>
       <p class="text-xs text-slate-500 mt-2">
         This report contains confidential security assessment results. Handle with care.
       </p>
+    </footer>
+  </div>
+</body>
+</html>

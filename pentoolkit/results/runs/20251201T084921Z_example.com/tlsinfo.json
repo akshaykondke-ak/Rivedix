@@ -1,0 +1,22 @@
+[
+  {
+    "metadata": {
+      "tool": "tlsinfo",
+      "target": "example.com",
+      "started": "2025-12-01T08:49:38.993077+00:00",
+      "finished": "2025-12-01T08:50:29.053240+00:00",
+      "duration": 50.06019878387451,
+      "success": true,
+      "error": null
+    },
+    "findings": [
+      {
+        "title": "TLS Connection Failed",
+        "description": "Could not establish TLS connection to port 443",
+        "severity": "info",
+        "evidence": "Process timed out"
+      }
+    ],
+    "raw": "Process timed out"
+  }
+]

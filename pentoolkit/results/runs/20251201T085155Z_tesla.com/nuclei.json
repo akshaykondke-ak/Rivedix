@@ -1,0 +1,22 @@
+[
+  {
+    "metadata": {
+      "tool": "nuclei",
+      "target": "tesla.com",
+      "started": "2025-12-01T08:52:42.519848+00:00",
+      "finished": "2025-12-01T08:52:42.937727+00:00",
+      "duration": 0.41788697242736816,
+      "success": true,
+      "error": null
+    },
+    "findings": [
+      {
+        "title": "Nuclei Output Parse Error",
+        "description": "No valid findings parsed (1 errors)",
+        "severity": "info",
+        "evidence": "flag provided but not defined: -json"
+      }
+    ],
+    "raw": "flag provided but not defined: -json\n"
+  }
+]

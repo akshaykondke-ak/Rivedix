@@ -1,0 +1,1032 @@
+2025-12-01 11:08:45 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 11:08:45 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 11:08:45 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-12-01 11:08:45 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 11:08:45 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 11:08:45 | INFO     | pentoolkit | Preparing nmap for example.com
+2025-12-01 11:08:45 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 11:08:45 | INFO     | pentoolkit | Running nmap on example.com
+2025-12-01 11:08:45 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 11:08:45 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - example.com
+2025-12-01 11:08:50 | INFO     | pentoolkit | nmap found 0 findings for example.com
+2025-12-01 11:08:50 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 11:08:50 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 11:08:50 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 11:08:50 | INFO     | pentoolkit | Preparing httpx for example.com
+2025-12-01 11:08:51 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 11:08:51 | INFO     | pentoolkit | Running httpx on example.com
+2025-12-01 11:08:51 | INFO     | pentoolkit | [httpx] Probing: example.com
+2025-12-01 11:08:54 | INFO     | pentoolkit | httpx found 12 findings for example.com
+2025-12-01 11:08:54 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 11:08:54 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 11:08:54 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 11:08:54 | INFO     | pentoolkit | Preparing subfinder for example.com
+2025-12-01 11:08:54 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 11:08:54 | INFO     | pentoolkit | Running subfinder on example.com
+2025-12-01 11:08:54 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: example.com
+2025-12-01 11:09:15 | INFO     | pentoolkit | subfinder found 0 findings for example.com
+2025-12-01 11:09:15 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 11:09:15 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 11:09:15 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 11:09:15 | INFO     | pentoolkit | Preparing tlsinfo for example.com
+2025-12-01 11:09:15 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 11:09:15 | INFO     | pentoolkit | Running tlsinfo on example.com
+2025-12-01 11:09:15 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: example.com
+2025-12-01 11:09:45 | ERROR    | pentoolkit | [tlsinfo] Port check failed: [Errno 8] nodename nor servname provided, or not known
+2025-12-01 11:09:45 | INFO     | pentoolkit | tlsinfo found 0 findings for example.com
+2025-12-01 11:09:45 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 11:09:45 | INFO     | pentoolkit.cli | Starting whatweb on 1 target(s)
+2025-12-01 11:09:45 | INFO     | pentoolkit | Starting whatweb execution on 1 target(s) with concurrency=4
+2025-12-01 11:09:45 | INFO     | pentoolkit | Preparing whatweb for example.com
+2025-12-01 11:09:45 | INFO     | pentoolkit | [whatweb] Using whatweb for fingerprinting
+2025-12-01 11:09:45 | INFO     | pentoolkit | Running whatweb on example.com
+2025-12-01 11:09:45 | ERROR    | pentoolkit | whatweb execution failed: WhatWebModule must implement run(target) method
+Traceback (most recent call last):
+  File "/Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/runner.py", line 236, in execute_one
+    raw_output = module_instance.run(target)
+  File "/Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/modules/base.py", line 193, in run
+    raise NotImplementedError(
+        f"{self.__class__.__name__} must implement run(target) method"
+    )
+NotImplementedError: WhatWebModule must implement run(target) method
+2025-12-01 11:09:45 | INFO     | pentoolkit | whatweb completed: 0 successful, 1 failed
+2025-12-01 11:09:45 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 11:09:45 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 11:09:45 | INFO     | pentoolkit | Preparing nuclei for example.com
+2025-12-01 11:09:45 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 11:09:45 | INFO     | pentoolkit | Running nuclei on example.com
+2025-12-01 11:09:45 | INFO     | pentoolkit | [nuclei] Using templates from: /Users/rivedix/nuclei-templates
+2025-12-01 11:09:45 | INFO     | pentoolkit | [nuclei] Scanning: https://example.com with nuclei
+2025-12-01 11:09:45 | INFO     | pentoolkit | [nuclei] Nuclei returned no findings (target may be secure)
+2025-12-01 11:09:45 | INFO     | pentoolkit | nuclei found 1 findings for example.com
+2025-12-01 11:09:45 | INFO     | pentoolkit | nuclei completed: 1 successful, 0 failed
+2025-12-01 11:09:45 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 11:09:45 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 0 findings
+2025-12-01 11:09:45 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 12 findings
+2025-12-01 11:09:45 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 0 findings
+2025-12-01 11:09:45 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 0 findings
+2025-12-01 11:09:45 | INFO     | pentoolkit.report.report_engine | Added results for tool 'whatweb': 1 entries, 0 findings
+2025-12-01 11:09:45 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 1 findings
+2025-12-01 11:09:45 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T053845Z_example.com
+2025-12-01 11:09:45 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 11:09:45 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T053845Z_example.com/report.html (2,796,587 bytes)
+2025-12-01 11:40:51 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 11:40:51 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 11:40:51 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-12-01 11:40:51 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 11:40:51 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 11:40:51 | INFO     | pentoolkit | Preparing nmap for scanme.nmap.org
+2025-12-01 11:40:51 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 11:40:51 | INFO     | pentoolkit | Running nmap on scanme.nmap.org
+2025-12-01 11:40:51 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 11:40:51 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - scanme.nmap.org
+2025-12-01 11:41:13 | INFO     | pentoolkit | nmap found 6 findings for scanme.nmap.org
+2025-12-01 11:41:13 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 11:41:13 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 11:41:13 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 11:41:13 | INFO     | pentoolkit | Preparing httpx for scanme.nmap.org
+2025-12-01 11:41:13 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 11:41:13 | INFO     | pentoolkit | Running httpx on scanme.nmap.org
+2025-12-01 11:41:13 | INFO     | pentoolkit | [httpx] Probing: https://scanme.nmap.org
+2025-12-01 11:41:15 | WARNING  | pentoolkit | [httpx] No output to parse
+2025-12-01 11:41:15 | INFO     | pentoolkit | httpx found 1 findings for scanme.nmap.org
+2025-12-01 11:41:15 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 11:41:15 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 11:41:15 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 11:41:15 | INFO     | pentoolkit | Preparing subfinder for scanme.nmap.org
+2025-12-01 11:41:15 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 11:41:15 | INFO     | pentoolkit | Running subfinder on scanme.nmap.org
+2025-12-01 11:41:15 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: scanme.nmap.org
+2025-12-01 11:41:17 | INFO     | pentoolkit | [subfinder] No subdomains found
+2025-12-01 11:41:17 | INFO     | pentoolkit | subfinder found 1 findings for scanme.nmap.org
+2025-12-01 11:41:17 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 11:41:17 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 11:41:17 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 11:41:17 | INFO     | pentoolkit | Preparing tlsinfo for scanme.nmap.org
+2025-12-01 11:41:17 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 11:41:17 | INFO     | pentoolkit | Running tlsinfo on scanme.nmap.org
+2025-12-01 11:41:17 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: scanme.nmap.org
+2025-12-01 11:41:19 | INFO     | pentoolkit | tlsinfo found 0 findings for scanme.nmap.org
+2025-12-01 11:41:19 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 11:41:19 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 11:41:19 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 11:41:19 | INFO     | pentoolkit | Preparing nuclei for scanme.nmap.org
+2025-12-01 11:41:19 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 11:41:19 | INFO     | pentoolkit | Running nuclei on scanme.nmap.org
+2025-12-01 11:41:19 | INFO     | pentoolkit | [nuclei] Using templates from: /Users/rivedix/nuclei-templates
+2025-12-01 11:41:19 | INFO     | pentoolkit | [nuclei] Scanning: https://scanme.nmap.org with nuclei
+2025-12-01 11:41:19 | ERROR    | pentoolkit | nuclei execution failed: sequence item 10: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/runner.py", line 236, in execute_one
+    raw_output = module_instance.run(target)
+  File "/Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/modules/nuclei_module.py", line 79, in run
+    self._log_debug(f"Command: {' '.join(args)}")
+                                ~~~~~~~~^^^^^^
+TypeError: sequence item 10: expected str instance, NoneType found
+2025-12-01 11:41:19 | INFO     | pentoolkit | nuclei completed: 0 successful, 1 failed
+2025-12-01 11:41:19 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 11:41:19 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 6 findings
+2025-12-01 11:41:19 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 11:41:19 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 1 findings
+2025-12-01 11:41:19 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 0 findings
+2025-12-01 11:41:19 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 0 findings
+2025-12-01 11:41:19 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T061051Z_scanme.nmap.org
+2025-12-01 11:41:19 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 11:41:19 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T061051Z_scanme.nmap.org/report.html (39,040 bytes)
+2025-12-01 11:42:11 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 11:42:11 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 11:42:11 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-12-01 11:42:11 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 11:42:11 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 11:42:11 | INFO     | pentoolkit | Preparing nmap for rivedix.com
+2025-12-01 11:42:11 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 11:42:11 | INFO     | pentoolkit | Running nmap on rivedix.com
+2025-12-01 11:42:11 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 11:42:11 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - rivedix.com
+2025-12-01 11:42:36 | INFO     | pentoolkit | nmap found 2 findings for rivedix.com
+2025-12-01 11:42:36 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 11:42:36 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 11:42:36 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 11:42:36 | INFO     | pentoolkit | Preparing httpx for rivedix.com
+2025-12-01 11:42:37 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 11:42:37 | INFO     | pentoolkit | Running httpx on rivedix.com
+2025-12-01 11:42:37 | INFO     | pentoolkit | [httpx] Probing: https://rivedix.com
+2025-12-01 11:42:38 | WARNING  | pentoolkit | [httpx] No output to parse
+2025-12-01 11:42:38 | INFO     | pentoolkit | httpx found 1 findings for rivedix.com
+2025-12-01 11:42:38 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 11:42:38 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 11:42:38 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 11:42:38 | INFO     | pentoolkit | Preparing subfinder for rivedix.com
+2025-12-01 11:42:38 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 11:42:38 | INFO     | pentoolkit | Running subfinder on rivedix.com
+2025-12-01 11:42:38 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: rivedix.com
+2025-12-01 11:42:41 | INFO     | pentoolkit | subfinder found 0 findings for rivedix.com
+2025-12-01 11:42:41 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 11:42:41 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 11:42:41 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 11:42:41 | INFO     | pentoolkit | Preparing tlsinfo for rivedix.com
+2025-12-01 11:42:41 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 11:42:41 | INFO     | pentoolkit | Running tlsinfo on rivedix.com
+2025-12-01 11:42:41 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: rivedix.com
+2025-12-01 11:42:41 | INFO     | pentoolkit | tlsinfo found 1 findings for rivedix.com
+2025-12-01 11:42:41 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 11:42:41 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 11:42:41 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 11:42:41 | INFO     | pentoolkit | Preparing nuclei for rivedix.com
+2025-12-01 11:42:42 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 11:42:42 | INFO     | pentoolkit | Running nuclei on rivedix.com
+2025-12-01 11:42:42 | INFO     | pentoolkit | [nuclei] Using templates from: /Users/rivedix/nuclei-templates
+2025-12-01 11:42:42 | INFO     | pentoolkit | [nuclei] Scanning: https://rivedix.com with nuclei
+2025-12-01 11:42:42 | ERROR    | pentoolkit | nuclei execution failed: sequence item 10: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/runner.py", line 236, in execute_one
+    raw_output = module_instance.run(target)
+  File "/Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/modules/nuclei_module.py", line 79, in run
+    self._log_debug(f"Command: {' '.join(args)}")
+                                ~~~~~~~~^^^^^^
+TypeError: sequence item 10: expected str instance, NoneType found
+2025-12-01 11:42:42 | INFO     | pentoolkit | nuclei completed: 0 successful, 1 failed
+2025-12-01 11:42:42 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 11:42:42 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 2 findings
+2025-12-01 11:42:42 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 11:42:42 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 0 findings
+2025-12-01 11:42:42 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 1 findings
+2025-12-01 11:42:42 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 0 findings
+2025-12-01 11:42:42 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T061211Z_rivedix.com
+2025-12-01 11:42:42 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 11:42:42 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T061211Z_rivedix.com/report.html (39,847 bytes)
+2025-12-01 11:49:25 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 11:49:25 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 11:49:25 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-12-01 11:49:25 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 11:49:25 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 11:49:25 | INFO     | pentoolkit | Preparing nmap for rivedix.com
+2025-12-01 11:49:25 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 11:49:25 | INFO     | pentoolkit | Running nmap on rivedix.com
+2025-12-01 11:49:25 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 11:49:25 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - rivedix.com
+2025-12-01 11:49:53 | INFO     | pentoolkit | nmap found 2 findings for rivedix.com
+2025-12-01 11:49:53 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 11:49:53 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 11:49:53 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 11:49:53 | INFO     | pentoolkit | Preparing httpx for rivedix.com
+2025-12-01 11:49:53 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 11:49:53 | INFO     | pentoolkit | Running httpx on rivedix.com
+2025-12-01 11:49:53 | INFO     | pentoolkit | [httpx] Probing: rivedix.com
+2025-12-01 11:49:55 | INFO     | pentoolkit | httpx found 1 findings for rivedix.com
+2025-12-01 11:49:55 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 11:49:55 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 11:49:55 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 11:49:55 | INFO     | pentoolkit | Preparing subfinder for rivedix.com
+2025-12-01 11:49:55 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 11:49:55 | INFO     | pentoolkit | Running subfinder on rivedix.com
+2025-12-01 11:49:55 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: rivedix.com
+2025-12-01 11:49:57 | INFO     | pentoolkit | subfinder found 0 findings for rivedix.com
+2025-12-01 11:49:57 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 11:49:57 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 11:49:57 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 11:49:57 | INFO     | pentoolkit | Preparing tlsinfo for rivedix.com
+2025-12-01 11:49:57 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 11:49:57 | INFO     | pentoolkit | Running tlsinfo on rivedix.com
+2025-12-01 11:49:57 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: rivedix.com
+2025-12-01 11:49:57 | INFO     | pentoolkit | tlsinfo found 2 findings for rivedix.com
+2025-12-01 11:49:57 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 11:49:57 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 11:49:57 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 11:49:57 | INFO     | pentoolkit | Preparing nuclei for rivedix.com
+2025-12-01 11:49:57 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 11:49:57 | INFO     | pentoolkit | Running nuclei on rivedix.com
+2025-12-01 11:49:57 | INFO     | pentoolkit | [nuclei] Using templates from: /Users/rivedix/nuclei-templates
+2025-12-01 11:49:57 | INFO     | pentoolkit | [nuclei] Scanning: https://rivedix.com with nuclei
+2025-12-01 11:49:57 | ERROR    | pentoolkit | nuclei execution failed: sequence item 10: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/runner.py", line 236, in execute_one
+    raw_output = module_instance.run(target)
+  File "/Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/modules/nuclei_module.py", line 360, in run
+    self._log_debug(f"Command: {' '.join(args)}")
+                                ~~~~~~~~^^^^^^
+TypeError: sequence item 10: expected str instance, NoneType found
+2025-12-01 11:49:57 | INFO     | pentoolkit | nuclei completed: 0 successful, 1 failed
+2025-12-01 11:49:57 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 11:49:57 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 2 findings
+2025-12-01 11:49:57 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 11:49:57 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 0 findings
+2025-12-01 11:49:57 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 2 findings
+2025-12-01 11:49:57 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 0 findings
+2025-12-01 11:49:57 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T061925Z_rivedix.com
+2025-12-01 11:49:57 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 11:49:57 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T061925Z_rivedix.com/report.html (43,010 bytes)
+2025-12-01 12:13:00 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 12:13:00 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 12:13:00 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-12-01 12:13:00 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 12:13:00 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 12:13:00 | INFO     | pentoolkit | Preparing nmap for rivedix.com
+2025-12-01 12:13:00 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 12:13:00 | INFO     | pentoolkit | Running nmap on rivedix.com
+2025-12-01 12:13:00 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 12:13:00 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - rivedix.com
+2025-12-01 12:13:31 | INFO     | pentoolkit | nmap found 2 findings for rivedix.com
+2025-12-01 12:13:31 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 12:13:31 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 12:13:31 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 12:13:31 | INFO     | pentoolkit | Preparing httpx for rivedix.com
+2025-12-01 12:13:31 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 12:13:31 | INFO     | pentoolkit | Running httpx on rivedix.com
+2025-12-01 12:13:31 | INFO     | pentoolkit | [httpx] Probing: rivedix.com
+2025-12-01 12:13:33 | INFO     | pentoolkit | httpx found 1 findings for rivedix.com
+2025-12-01 12:13:33 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 12:13:33 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 12:13:33 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 12:13:33 | INFO     | pentoolkit | Preparing subfinder for rivedix.com
+2025-12-01 12:13:33 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 12:13:33 | INFO     | pentoolkit | Running subfinder on rivedix.com
+2025-12-01 12:13:33 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: rivedix.com
+2025-12-01 12:13:35 | INFO     | pentoolkit | subfinder found 0 findings for rivedix.com
+2025-12-01 12:13:35 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 12:13:35 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 12:13:35 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 12:13:35 | INFO     | pentoolkit | Preparing tlsinfo for rivedix.com
+2025-12-01 12:13:35 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 12:13:35 | INFO     | pentoolkit | Running tlsinfo on rivedix.com
+2025-12-01 12:13:35 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: rivedix.com
+2025-12-01 12:13:36 | INFO     | pentoolkit | tlsinfo found 2 findings for rivedix.com
+2025-12-01 12:13:36 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 12:13:36 | INFO     | pentoolkit.cli | Starting whatweb on 1 target(s)
+2025-12-01 12:13:36 | INFO     | pentoolkit | Starting whatweb execution on 1 target(s) with concurrency=4
+2025-12-01 12:13:36 | INFO     | pentoolkit | Preparing whatweb for rivedix.com
+2025-12-01 12:13:36 | INFO     | pentoolkit | [whatweb] Using wappalyzer for fingerprinting
+2025-12-01 12:13:36 | INFO     | pentoolkit | Running whatweb on rivedix.com
+2025-12-01 12:13:36 | INFO     | pentoolkit | [whatweb] Fingerprinting: https://rivedix.com
+2025-12-01 12:13:36 | ERROR    | pentoolkit | [whatweb] Failed to parse wappalyzer JSON
+2025-12-01 12:13:36 | INFO     | pentoolkit | whatweb found 1 findings for rivedix.com
+2025-12-01 12:13:36 | INFO     | pentoolkit | whatweb completed: 1 successful, 0 failed
+2025-12-01 12:13:36 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 12:13:36 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 12:13:36 | INFO     | pentoolkit | Preparing nuclei for rivedix.com
+2025-12-01 12:13:36 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 12:13:36 | INFO     | pentoolkit | Running nuclei on rivedix.com
+2025-12-01 12:13:36 | INFO     | pentoolkit | [nuclei] Using templates from: /Users/rivedix/nuclei-templates
+2025-12-01 12:13:36 | INFO     | pentoolkit | [nuclei] Scanning: https://rivedix.com with nuclei
+2025-12-01 12:13:36 | ERROR    | pentoolkit | nuclei execution failed: sequence item 10: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/runner.py", line 236, in execute_one
+    raw_output = module_instance.run(target)
+  File "/Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/modules/nuclei_module.py", line 360, in run
+    self._log_debug(f"Command: {' '.join(args)}")
+                                ~~~~~~~~^^^^^^
+TypeError: sequence item 10: expected str instance, NoneType found
+2025-12-01 12:13:36 | INFO     | pentoolkit | nuclei completed: 0 successful, 1 failed
+2025-12-01 12:13:36 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 12:13:36 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 2 findings
+2025-12-01 12:13:36 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 12:13:36 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 0 findings
+2025-12-01 12:13:36 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 2 findings
+2025-12-01 12:13:36 | INFO     | pentoolkit.report.report_engine | Added results for tool 'whatweb': 1 entries, 1 findings
+2025-12-01 12:13:36 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 0 findings
+2025-12-01 12:13:36 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T064300Z_rivedix.com
+2025-12-01 12:13:36 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 12:13:36 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T064300Z_rivedix.com/report.html (47,317 bytes)
+2025-12-01 12:29:49 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 12:29:49 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 12:29:49 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-12-01 12:29:49 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 12:29:49 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 12:29:49 | INFO     | pentoolkit | Preparing nmap for rivedix.com
+2025-12-01 12:29:49 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 12:29:49 | INFO     | pentoolkit | Running nmap on rivedix.com
+2025-12-01 12:29:49 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 12:29:49 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - rivedix.com
+2025-12-01 12:30:20 | INFO     | pentoolkit | nmap found 2 findings for rivedix.com
+2025-12-01 12:30:20 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 12:30:20 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 12:30:20 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 12:30:20 | INFO     | pentoolkit | Preparing httpx for rivedix.com
+2025-12-01 12:30:20 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 12:30:20 | INFO     | pentoolkit | Running httpx on rivedix.com
+2025-12-01 12:30:20 | INFO     | pentoolkit | [httpx] Probing: rivedix.com
+2025-12-01 12:30:23 | INFO     | pentoolkit | httpx found 1 findings for rivedix.com
+2025-12-01 12:30:23 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 12:30:23 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 12:30:23 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 12:30:23 | INFO     | pentoolkit | Preparing subfinder for rivedix.com
+2025-12-01 12:30:23 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 12:30:23 | INFO     | pentoolkit | Running subfinder on rivedix.com
+2025-12-01 12:30:23 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: rivedix.com
+2025-12-01 12:30:31 | INFO     | pentoolkit | subfinder found 0 findings for rivedix.com
+2025-12-01 12:30:31 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 12:30:31 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 12:30:31 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 12:30:31 | INFO     | pentoolkit | Preparing tlsinfo for rivedix.com
+2025-12-01 12:30:31 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 12:30:31 | INFO     | pentoolkit | Running tlsinfo on rivedix.com
+2025-12-01 12:30:31 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: rivedix.com
+2025-12-01 12:30:32 | INFO     | pentoolkit | tlsinfo found 1 findings for rivedix.com
+2025-12-01 12:30:32 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 12:30:32 | INFO     | pentoolkit.cli | Starting whatweb on 1 target(s)
+2025-12-01 12:30:32 | INFO     | pentoolkit | Starting whatweb execution on 1 target(s) with concurrency=4
+2025-12-01 12:30:32 | INFO     | pentoolkit | Preparing whatweb for rivedix.com
+2025-12-01 12:30:32 | INFO     | pentoolkit | [whatweb] Using wappalyzer for fingerprinting
+2025-12-01 12:30:32 | INFO     | pentoolkit | Running whatweb on rivedix.com
+2025-12-01 12:30:32 | INFO     | pentoolkit | [whatweb] Fingerprinting: https://rivedix.com
+2025-12-01 12:30:32 | ERROR    | pentoolkit | [whatweb] Failed to parse wappalyzer JSON
+2025-12-01 12:30:32 | INFO     | pentoolkit | whatweb found 1 findings for rivedix.com
+2025-12-01 12:30:32 | INFO     | pentoolkit | whatweb completed: 1 successful, 0 failed
+2025-12-01 12:30:32 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 12:30:32 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 12:30:32 | INFO     | pentoolkit | Preparing nuclei for rivedix.com
+2025-12-01 12:30:32 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 12:30:32 | INFO     | pentoolkit | Running nuclei on rivedix.com
+2025-12-01 12:30:32 | INFO     | pentoolkit | [nuclei] Using templates: /Users/rivedix/nuclei-templates
+2025-12-01 12:30:32 | INFO     | pentoolkit | [nuclei] Scanning: https://rivedix.com
+2025-12-01 12:30:32 | WARNING  | pentoolkit | [nuclei] JSON parse error line 1: Expecting value: line 1 column 1 (char 0)
+2025-12-01 12:30:32 | INFO     | pentoolkit | nuclei found 1 findings for rivedix.com
+2025-12-01 12:30:32 | INFO     | pentoolkit | nuclei completed: 1 successful, 0 failed
+2025-12-01 12:30:32 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 12:30:32 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 2 findings
+2025-12-01 12:30:32 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 12:30:32 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 0 findings
+2025-12-01 12:30:32 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 1 findings
+2025-12-01 12:30:32 | INFO     | pentoolkit.report.report_engine | Added results for tool 'whatweb': 1 entries, 1 findings
+2025-12-01 12:30:32 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 1 findings
+2025-12-01 12:30:32 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T065949Z_rivedix.com
+2025-12-01 12:30:32 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 12:30:32 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T065949Z_rivedix.com/report.html (45,234 bytes)
+2025-12-01 12:32:00 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 12:32:00 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 12:32:00 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-12-01 12:32:00 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 12:32:00 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 12:32:00 | INFO     | pentoolkit | Preparing nmap for rivedix.com
+2025-12-01 12:32:00 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 12:32:00 | INFO     | pentoolkit | Running nmap on rivedix.com
+2025-12-01 12:32:00 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 12:32:00 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - rivedix.com
+2025-12-01 12:32:29 | INFO     | pentoolkit | nmap found 2 findings for rivedix.com
+2025-12-01 12:32:29 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 12:32:29 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 12:32:29 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 12:32:29 | INFO     | pentoolkit | Preparing httpx for rivedix.com
+2025-12-01 12:32:29 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 12:32:29 | INFO     | pentoolkit | Running httpx on rivedix.com
+2025-12-01 12:32:29 | INFO     | pentoolkit | [httpx] Probing: rivedix.com
+2025-12-01 12:32:31 | INFO     | pentoolkit | httpx found 1 findings for rivedix.com
+2025-12-01 12:32:31 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 12:32:31 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 12:32:31 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 12:32:31 | INFO     | pentoolkit | Preparing subfinder for rivedix.com
+2025-12-01 12:32:31 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 12:32:31 | INFO     | pentoolkit | Running subfinder on rivedix.com
+2025-12-01 12:32:31 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: rivedix.com
+2025-12-01 12:32:34 | INFO     | pentoolkit | subfinder found 0 findings for rivedix.com
+2025-12-01 12:32:34 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 12:32:34 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 12:32:34 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 12:32:34 | INFO     | pentoolkit | Preparing tlsinfo for rivedix.com
+2025-12-01 12:32:34 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 12:32:34 | INFO     | pentoolkit | Running tlsinfo on rivedix.com
+2025-12-01 12:32:34 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: rivedix.com
+2025-12-01 12:32:34 | INFO     | pentoolkit | tlsinfo found 1 findings for rivedix.com
+2025-12-01 12:32:34 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 12:32:34 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 12:32:34 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 12:32:34 | INFO     | pentoolkit | Preparing nuclei for rivedix.com
+2025-12-01 12:32:34 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 12:32:34 | INFO     | pentoolkit | Running nuclei on rivedix.com
+2025-12-01 12:32:34 | INFO     | pentoolkit | [nuclei] Using templates: /Users/rivedix/nuclei-templates
+2025-12-01 12:32:34 | INFO     | pentoolkit | [nuclei] Scanning: https://rivedix.com
+2025-12-01 12:32:34 | WARNING  | pentoolkit | [nuclei] JSON parse error line 1: Expecting value: line 1 column 1 (char 0)
+2025-12-01 12:32:34 | INFO     | pentoolkit | nuclei found 1 findings for rivedix.com
+2025-12-01 12:32:34 | INFO     | pentoolkit | nuclei completed: 1 successful, 0 failed
+2025-12-01 12:32:34 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 12:32:34 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 2 findings
+2025-12-01 12:32:34 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 12:32:34 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 0 findings
+2025-12-01 12:32:34 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 1 findings
+2025-12-01 12:32:34 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 1 findings
+2025-12-01 12:32:34 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T070200Z_rivedix.com
+2025-12-01 12:32:34 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 12:32:34 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T070200Z_rivedix.com/report.html (40,935 bytes)
+2025-12-01 12:39:53 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 12:39:53 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 12:39:53 | INFO     | pentoolkit | Discovered 6 modules: base, subfinder, nmap, nuclei, tlsinfo, whatweb
+2025-12-01 12:39:53 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 12:39:53 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 12:39:53 | INFO     | pentoolkit | Preparing nmap for rivedix.com
+2025-12-01 12:39:53 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 12:39:53 | INFO     | pentoolkit | Running nmap on rivedix.com
+2025-12-01 12:39:53 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 12:39:53 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - rivedix.com
+2025-12-01 12:40:19 | INFO     | pentoolkit | nmap found 2 findings for rivedix.com
+2025-12-01 12:40:19 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 12:40:19 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 12:40:19 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 12:40:19 | ERROR    | pentoolkit | Module 'httpx' not found in registry
+2025-12-01 12:40:19 | INFO     | pentoolkit | httpx completed: 0 successful, 1 failed
+2025-12-01 12:40:19 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 12:40:19 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 12:40:19 | INFO     | pentoolkit | Preparing subfinder for rivedix.com
+2025-12-01 12:40:19 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 12:40:19 | INFO     | pentoolkit | Running subfinder on rivedix.com
+2025-12-01 12:40:19 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: rivedix.com
+2025-12-01 12:40:21 | INFO     | pentoolkit | subfinder found 0 findings for rivedix.com
+2025-12-01 12:40:21 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 12:40:21 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 12:40:21 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 12:40:21 | INFO     | pentoolkit | Preparing tlsinfo for rivedix.com
+2025-12-01 12:40:21 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 12:40:21 | INFO     | pentoolkit | Running tlsinfo on rivedix.com
+2025-12-01 12:40:21 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: rivedix.com
+2025-12-01 12:40:21 | INFO     | pentoolkit | tlsinfo found 2 findings for rivedix.com
+2025-12-01 12:40:21 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 12:40:21 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 12:40:21 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 12:40:21 | INFO     | pentoolkit | Preparing nuclei for rivedix.com
+2025-12-01 12:40:22 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 12:40:22 | INFO     | pentoolkit | Running nuclei on rivedix.com
+2025-12-01 12:40:22 | INFO     | pentoolkit | [nuclei] Using templates: /Users/rivedix/nuclei-templates
+2025-12-01 12:40:22 | INFO     | pentoolkit | [nuclei] Scanning: https://rivedix.com
+2025-12-01 12:45:22 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 12:45:22 | WARNING  | pentoolkit | [nuclei] Nuclei timed out after 300s
+2025-12-01 12:45:22 | WARNING  | pentoolkit | [nuclei] Nuclei: No output
+2025-12-01 12:45:22 | INFO     | pentoolkit | nuclei found 1 findings for rivedix.com
+2025-12-01 12:45:22 | INFO     | pentoolkit | nuclei completed: 1 successful, 0 failed
+2025-12-01 12:45:22 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 12:45:22 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 2 findings
+2025-12-01 12:45:22 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 0 findings
+2025-12-01 12:45:22 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 0 findings
+2025-12-01 12:45:22 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 2 findings
+2025-12-01 12:45:22 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 1 findings
+2025-12-01 12:45:22 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T070953Z_rivedix.com
+2025-12-01 12:45:22 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 12:45:22 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T070953Z_rivedix.com/report.html (36,644 bytes)
+2025-12-01 12:49:15 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 12:49:15 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 12:49:15 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-12-01 12:49:15 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 12:49:15 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 12:49:15 | INFO     | pentoolkit | Preparing nmap for rivedix.com
+2025-12-01 12:49:15 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 12:49:15 | INFO     | pentoolkit | Running nmap on rivedix.com
+2025-12-01 12:49:15 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 12:49:15 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - rivedix.com
+2025-12-01 12:49:37 | INFO     | pentoolkit | nmap found 2 findings for rivedix.com
+2025-12-01 12:49:37 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 12:49:37 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 12:49:37 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 12:49:37 | INFO     | pentoolkit | Preparing httpx for rivedix.com
+2025-12-01 12:49:37 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 12:49:37 | INFO     | pentoolkit | Running httpx on rivedix.com
+2025-12-01 12:49:37 | INFO     | pentoolkit | [httpx] Probing: rivedix.com
+2025-12-01 12:50:18 | WARNING  | pentoolkit | [httpx] No HTTP/HTTPS response from target
+2025-12-01 12:50:18 | INFO     | pentoolkit | httpx found 1 findings for rivedix.com
+2025-12-01 12:50:18 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 12:50:18 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 12:50:18 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 12:50:18 | INFO     | pentoolkit | Preparing subfinder for rivedix.com
+2025-12-01 12:50:19 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 12:50:19 | INFO     | pentoolkit | Running subfinder on rivedix.com
+2025-12-01 12:50:19 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: rivedix.com
+2025-12-01 12:50:21 | INFO     | pentoolkit | subfinder found 0 findings for rivedix.com
+2025-12-01 12:50:21 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 12:50:21 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 12:50:21 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 12:50:21 | INFO     | pentoolkit | Preparing tlsinfo for rivedix.com
+2025-12-01 12:50:21 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 12:50:21 | INFO     | pentoolkit | Running tlsinfo on rivedix.com
+2025-12-01 12:50:21 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: rivedix.com
+2025-12-01 12:50:21 | INFO     | pentoolkit | tlsinfo found 2 findings for rivedix.com
+2025-12-01 12:50:21 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 12:50:21 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 12:50:21 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 12:50:21 | INFO     | pentoolkit | Preparing nuclei for rivedix.com
+2025-12-01 12:50:21 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 12:50:21 | INFO     | pentoolkit | Running nuclei on rivedix.com
+2025-12-01 12:50:21 | INFO     | pentoolkit | [nuclei] Using templates: /Users/rivedix/nuclei-templates
+2025-12-01 12:50:21 | INFO     | pentoolkit | [nuclei] Scanning: https://rivedix.com
+2025-12-01 12:52:25 | WARNING  | pentoolkit | [nuclei] Nuclei: No output
+2025-12-01 12:52:25 | INFO     | pentoolkit | nuclei found 1 findings for rivedix.com
+2025-12-01 12:52:25 | INFO     | pentoolkit | nuclei completed: 1 successful, 0 failed
+2025-12-01 12:52:25 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 12:52:25 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 2 findings
+2025-12-01 12:52:25 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 12:52:25 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 0 findings
+2025-12-01 12:52:25 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 2 findings
+2025-12-01 12:52:25 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 1 findings
+2025-12-01 12:52:25 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T071915Z_rivedix.com
+2025-12-01 12:52:25 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 12:52:25 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T071915Z_rivedix.com/report.html (38,977 bytes)
+2025-12-01 12:55:36 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 12:55:36 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 12:55:36 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-12-01 12:55:36 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 12:55:36 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 12:55:36 | INFO     | pentoolkit | Preparing nmap for rivedix.com
+2025-12-01 12:55:36 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 12:55:36 | INFO     | pentoolkit | Running nmap on rivedix.com
+2025-12-01 12:55:36 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 12:55:36 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - rivedix.com
+2025-12-01 12:56:06 | INFO     | pentoolkit | nmap found 2 findings for rivedix.com
+2025-12-01 12:56:06 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 12:56:06 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 12:56:06 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 12:56:06 | INFO     | pentoolkit | Preparing httpx for rivedix.com
+2025-12-01 12:56:06 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 12:56:06 | INFO     | pentoolkit | Running httpx on rivedix.com
+2025-12-01 12:56:06 | INFO     | pentoolkit | [httpx] Probing: rivedix.com
+2025-12-01 12:56:47 | WARNING  | pentoolkit | [httpx] No HTTP/HTTPS response
+2025-12-01 12:56:47 | INFO     | pentoolkit | httpx found 1 findings for rivedix.com
+2025-12-01 12:56:47 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 12:56:47 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 12:56:47 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 12:56:47 | INFO     | pentoolkit | Preparing subfinder for rivedix.com
+2025-12-01 12:56:47 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 12:56:47 | INFO     | pentoolkit | Running subfinder on rivedix.com
+2025-12-01 12:56:47 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: rivedix.com
+2025-12-01 12:57:19 | INFO     | pentoolkit | subfinder found 0 findings for rivedix.com
+2025-12-01 12:57:19 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 12:57:19 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 12:57:19 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 12:57:19 | INFO     | pentoolkit | Preparing tlsinfo for rivedix.com
+2025-12-01 12:57:19 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 12:57:19 | INFO     | pentoolkit | Running tlsinfo on rivedix.com
+2025-12-01 12:57:19 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: rivedix.com
+2025-12-01 12:57:29 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 12:57:39 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 12:57:49 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 12:57:59 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 12:58:09 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 12:58:09 | INFO     | pentoolkit | tlsinfo found 1 findings for rivedix.com
+2025-12-01 12:58:09 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 12:58:09 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 12:58:09 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 12:58:09 | INFO     | pentoolkit | Preparing nuclei for rivedix.com
+2025-12-01 12:58:10 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 12:58:10 | INFO     | pentoolkit | Running nuclei on rivedix.com
+2025-12-01 12:58:10 | INFO     | pentoolkit | [nuclei] Using templates: /Users/rivedix/nuclei-templates
+2025-12-01 12:58:10 | INFO     | pentoolkit | [nuclei] Scanning: https://rivedix.com
+2025-12-01 13:01:56 | WARNING  | pentoolkit | [nuclei] Nuclei: No output
+2025-12-01 13:01:56 | INFO     | pentoolkit | nuclei found 1 findings for rivedix.com
+2025-12-01 13:01:56 | INFO     | pentoolkit | nuclei completed: 1 successful, 0 failed
+2025-12-01 13:01:56 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 13:01:56 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 2 findings
+2025-12-01 13:01:56 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 13:01:56 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 0 findings
+2025-12-01 13:01:56 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 1 findings
+2025-12-01 13:01:56 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 1 findings
+2025-12-01 13:01:56 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T072536Z_rivedix.com
+2025-12-01 13:01:56 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 13:01:56 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T072536Z_rivedix.com/report.html (31,858 bytes)
+2025-12-01 13:48:45 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 13:48:45 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 13:48:45 | INFO     | pentoolkit | Discovered 6 modules: base, subfinder, nmap, nuclei, tlsinfo, whatweb
+2025-12-01 13:48:45 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 13:48:45 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 13:48:45 | INFO     | pentoolkit | Preparing nmap for rivedix.com
+2025-12-01 13:48:45 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 13:48:45 | INFO     | pentoolkit | Running nmap on rivedix.com
+2025-12-01 13:48:45 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 13:48:45 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - rivedix.com
+2025-12-01 13:49:28 | INFO     | pentoolkit | nmap found 0 findings for rivedix.com
+2025-12-01 13:49:28 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 13:49:28 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 13:49:28 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 13:49:28 | ERROR    | pentoolkit | Module 'httpx' not found in registry
+2025-12-01 13:49:28 | INFO     | pentoolkit | httpx completed: 0 successful, 1 failed
+2025-12-01 13:49:28 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 13:49:28 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 13:49:28 | INFO     | pentoolkit | Preparing subfinder for rivedix.com
+2025-12-01 13:49:28 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 13:49:28 | INFO     | pentoolkit | Running subfinder on rivedix.com
+2025-12-01 13:49:28 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: rivedix.com
+2025-12-01 13:49:59 | INFO     | pentoolkit | subfinder found 0 findings for rivedix.com
+2025-12-01 13:49:59 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 13:49:59 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 13:49:59 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 13:49:59 | INFO     | pentoolkit | Preparing tlsinfo for rivedix.com
+2025-12-01 13:49:59 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 13:49:59 | INFO     | pentoolkit | Running tlsinfo on rivedix.com
+2025-12-01 13:49:59 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: rivedix.com
+2025-12-01 13:50:09 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 13:50:19 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 13:50:29 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 13:50:39 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 13:50:49 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 13:50:49 | INFO     | pentoolkit | tlsinfo found 1 findings for rivedix.com
+2025-12-01 13:50:49 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 13:50:49 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 13:50:49 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 13:50:49 | INFO     | pentoolkit | Preparing nuclei for rivedix.com
+2025-12-01 13:50:50 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 13:50:50 | INFO     | pentoolkit | Running nuclei on rivedix.com
+2025-12-01 13:50:50 | INFO     | pentoolkit | [nuclei] Using templates: /Users/rivedix/nuclei-templates
+2025-12-01 13:50:50 | INFO     | pentoolkit | [nuclei] Scanning: https://rivedix.com
+2025-12-01 13:55:50 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 13:55:50 | WARNING  | pentoolkit | [nuclei] Nuclei timed out after 300s
+2025-12-01 13:55:50 | WARNING  | pentoolkit | [nuclei] Nuclei: No output
+2025-12-01 13:55:50 | INFO     | pentoolkit | nuclei found 1 findings for rivedix.com
+2025-12-01 13:55:50 | INFO     | pentoolkit | nuclei completed: 1 successful, 0 failed
+2025-12-01 13:55:50 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 13:55:50 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 0 findings
+2025-12-01 13:55:50 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 0 findings
+2025-12-01 13:55:50 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 0 findings
+2025-12-01 13:55:50 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 1 findings
+2025-12-01 13:55:50 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 1 findings
+2025-12-01 13:55:50 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T081845Z_rivedix.com
+2025-12-01 13:55:50 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 13:55:50 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T081845Z_rivedix.com/report.html (26,329 bytes)
+2025-12-01 14:06:08 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 14:06:08 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 14:06:08 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, subfinder, nmap, nuclei, tlsinfo, whatweb
+2025-12-01 14:06:08 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 14:06:08 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 14:06:08 | INFO     | pentoolkit | Preparing nmap for rivedix.com
+2025-12-01 14:06:08 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 14:06:08 | INFO     | pentoolkit | Running nmap on rivedix.com
+2025-12-01 14:06:08 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 14:06:08 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - rivedix.com
+2025-12-01 14:06:51 | INFO     | pentoolkit | nmap found 0 findings for rivedix.com
+2025-12-01 14:06:51 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 14:06:51 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 14:06:51 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 14:06:51 | INFO     | pentoolkit | Preparing httpx for rivedix.com
+2025-12-01 14:06:51 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 14:06:51 | INFO     | pentoolkit | Running httpx on rivedix.com
+2025-12-01 14:06:51 | INFO     | pentoolkit | [httpx] Probing: rivedix.com
+2025-12-01 14:07:32 | WARNING  | pentoolkit | [httpx] No HTTP/HTTPS response from target
+2025-12-01 14:07:32 | INFO     | pentoolkit | httpx found 1 findings for rivedix.com
+2025-12-01 14:07:32 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 14:07:32 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 14:07:32 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 14:07:32 | INFO     | pentoolkit | Preparing subfinder for rivedix.com
+2025-12-01 14:07:32 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 14:07:32 | INFO     | pentoolkit | Running subfinder on rivedix.com
+2025-12-01 14:07:32 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: rivedix.com
+2025-12-01 14:07:34 | INFO     | pentoolkit | subfinder found 0 findings for rivedix.com
+2025-12-01 14:07:34 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 14:07:34 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 14:07:34 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 14:07:34 | INFO     | pentoolkit | Preparing tlsinfo for rivedix.com
+2025-12-01 14:07:34 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 14:07:34 | INFO     | pentoolkit | Running tlsinfo on rivedix.com
+2025-12-01 14:07:34 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: rivedix.com
+2025-12-01 14:07:35 | INFO     | pentoolkit | tlsinfo found 2 findings for rivedix.com
+2025-12-01 14:07:35 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 14:07:35 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 14:07:35 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 14:07:35 | INFO     | pentoolkit | Preparing nuclei for rivedix.com
+2025-12-01 14:07:35 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 14:07:35 | INFO     | pentoolkit | Running nuclei on rivedix.com
+2025-12-01 14:07:35 | INFO     | pentoolkit | [nuclei] Using templates from: /Users/rivedix/nuclei-templates
+2025-12-01 14:07:35 | INFO     | pentoolkit | [nuclei] Scanning: https://rivedix.com with nuclei
+2025-12-01 14:07:35 | ERROR    | pentoolkit | nuclei execution failed: sequence item 10: expected str instance, NoneType found
+Traceback (most recent call last):
+  File "/Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/runner.py", line 236, in execute_one
+    raw_output = module_instance.run(target)
+  File "/Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/modules/nuclei_module.py", line 1139, in run
+    self._log_debug(f"Command: {' '.join(args)}")
+                                ~~~~~~~~^^^^^^
+TypeError: sequence item 10: expected str instance, NoneType found
+2025-12-01 14:07:35 | INFO     | pentoolkit | nuclei completed: 0 successful, 1 failed
+2025-12-01 14:07:35 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 14:07:35 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 0 findings
+2025-12-01 14:07:35 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 14:07:35 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 0 findings
+2025-12-01 14:07:35 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 2 findings
+2025-12-01 14:07:35 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 0 findings
+2025-12-01 14:07:35 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T083608Z_rivedix.com
+2025-12-01 14:07:35 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 14:07:35 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T083608Z_rivedix.com/report.html (33,465 bytes)
+2025-12-01 14:10:18 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 14:10:18 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 14:10:18 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, subfinder, nmap, nuclei, tlsinfo, whatweb
+2025-12-01 14:10:18 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 14:10:18 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 14:10:18 | INFO     | pentoolkit | Preparing nmap for rivedix.com
+2025-12-01 14:10:18 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 14:10:18 | INFO     | pentoolkit | Running nmap on rivedix.com
+2025-12-01 14:10:18 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 14:10:18 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - rivedix.com
+2025-12-01 14:10:42 | INFO     | pentoolkit | nmap found 2 findings for rivedix.com
+2025-12-01 14:10:42 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 14:10:42 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 14:10:42 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 14:10:42 | INFO     | pentoolkit | Preparing httpx for rivedix.com
+2025-12-01 14:10:42 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 14:10:42 | INFO     | pentoolkit | Running httpx on rivedix.com
+2025-12-01 14:10:42 | INFO     | pentoolkit | [httpx] Probing: rivedix.com
+2025-12-01 14:10:58 | INFO     | pentoolkit | httpx found 1 findings for rivedix.com
+2025-12-01 14:10:58 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 14:10:58 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 14:10:58 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 14:10:58 | INFO     | pentoolkit | Preparing subfinder for rivedix.com
+2025-12-01 14:10:58 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 14:10:58 | INFO     | pentoolkit | Running subfinder on rivedix.com
+2025-12-01 14:10:58 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: rivedix.com
+2025-12-01 14:11:00 | INFO     | pentoolkit | [subfinder] Found 1 subdomains
+2025-12-01 14:11:00 | INFO     | pentoolkit | subfinder found 1 findings for rivedix.com
+2025-12-01 14:11:00 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 14:11:00 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 14:11:00 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 14:11:00 | INFO     | pentoolkit | Preparing tlsinfo for rivedix.com
+2025-12-01 14:11:00 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 14:11:00 | INFO     | pentoolkit | Running tlsinfo on rivedix.com
+2025-12-01 14:11:00 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: rivedix.com
+2025-12-01 14:11:01 | INFO     | pentoolkit | tlsinfo found 1 findings for rivedix.com
+2025-12-01 14:11:01 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 14:11:01 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 14:11:01 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 14:11:01 | INFO     | pentoolkit | Preparing nuclei for rivedix.com
+2025-12-01 14:11:01 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 14:11:01 | INFO     | pentoolkit | Running nuclei on rivedix.com
+2025-12-01 14:11:01 | INFO     | pentoolkit | [nuclei] Using templates: /Users/rivedix/nuclei-templates
+2025-12-01 14:11:01 | INFO     | pentoolkit | [nuclei] Scanning: https://rivedix.com
+2025-12-01 14:11:01 | WARNING  | pentoolkit | [nuclei] JSON parse error line 1: Expecting value: line 1 column 1 (char 0)
+2025-12-01 14:11:01 | INFO     | pentoolkit | nuclei found 1 findings for rivedix.com
+2025-12-01 14:11:01 | INFO     | pentoolkit | nuclei completed: 1 successful, 0 failed
+2025-12-01 14:11:01 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 14:11:01 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 2 findings
+2025-12-01 14:11:01 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 14:11:01 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 1 findings
+2025-12-01 14:11:01 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 1 findings
+2025-12-01 14:11:01 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 1 findings
+2025-12-01 14:11:01 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T084018Z_rivedix.com
+2025-12-01 14:11:01 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 14:11:01 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T084018Z_rivedix.com/report.html (43,817 bytes)
+2025-12-01 14:14:18 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 14:14:18 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 14:14:18 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-12-01 14:14:18 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 14:14:18 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 14:14:18 | INFO     | pentoolkit | Preparing nmap for rivedix.com
+2025-12-01 14:14:18 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 14:14:18 | INFO     | pentoolkit | Running nmap on rivedix.com
+2025-12-01 14:14:18 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 14:14:18 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - rivedix.com
+2025-12-01 14:14:42 | INFO     | pentoolkit | nmap found 2 findings for rivedix.com
+2025-12-01 14:14:42 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 14:14:42 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 14:14:42 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 14:14:42 | INFO     | pentoolkit | Preparing httpx for rivedix.com
+2025-12-01 14:14:43 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 14:14:43 | INFO     | pentoolkit | Running httpx on rivedix.com
+2025-12-01 14:14:43 | INFO     | pentoolkit | [httpx] Probing: rivedix.com
+2025-12-01 14:14:54 | INFO     | pentoolkit | httpx found 1 findings for rivedix.com
+2025-12-01 14:14:54 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 14:14:54 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 14:14:54 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 14:14:54 | INFO     | pentoolkit | Preparing subfinder for rivedix.com
+2025-12-01 14:14:55 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 14:14:55 | INFO     | pentoolkit | Running subfinder on rivedix.com
+2025-12-01 14:14:55 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: rivedix.com
+2025-12-01 14:15:14 | INFO     | pentoolkit | [subfinder] Found 1 subdomains
+2025-12-01 14:15:14 | INFO     | pentoolkit | subfinder found 1 findings for rivedix.com
+2025-12-01 14:15:14 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 14:15:14 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 14:15:14 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 14:15:14 | INFO     | pentoolkit | Preparing tlsinfo for rivedix.com
+2025-12-01 14:15:14 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 14:15:14 | INFO     | pentoolkit | Running tlsinfo on rivedix.com
+2025-12-01 14:15:14 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: rivedix.com
+2025-12-01 14:15:14 | INFO     | pentoolkit | tlsinfo found 2 findings for rivedix.com
+2025-12-01 14:15:14 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 14:15:14 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 14:15:14 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 14:15:14 | INFO     | pentoolkit | Preparing nuclei for rivedix.com
+2025-12-01 14:15:14 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 14:15:14 | INFO     | pentoolkit | Running nuclei on rivedix.com
+2025-12-01 14:15:14 | INFO     | pentoolkit | [nuclei] Using templates: /Users/rivedix/nuclei-templates
+2025-12-01 14:15:14 | INFO     | pentoolkit | [nuclei] Scanning: https://rivedix.com
+2025-12-01 14:15:14 | WARNING  | pentoolkit | [nuclei] JSON parse error line 1: Expecting value: line 1 column 1 (char 0)
+2025-12-01 14:15:14 | INFO     | pentoolkit | nuclei found 1 findings for rivedix.com
+2025-12-01 14:15:14 | INFO     | pentoolkit | nuclei completed: 1 successful, 0 failed
+2025-12-01 14:15:14 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 14:15:14 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 2 findings
+2025-12-01 14:15:14 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 14:15:14 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 1 findings
+2025-12-01 14:15:14 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 2 findings
+2025-12-01 14:15:14 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 1 findings
+2025-12-01 14:15:14 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T084418Z_rivedix.com
+2025-12-01 14:15:14 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 14:15:14 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T084418Z_rivedix.com/report.html (46,220 bytes)
+2025-12-01 14:16:39 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 14:16:39 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 14:16:39 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-12-01 14:16:39 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 14:16:39 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 14:16:39 | INFO     | pentoolkit | Preparing nmap for rivedix.com
+2025-12-01 14:16:39 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 14:16:39 | INFO     | pentoolkit | Running nmap on rivedix.com
+2025-12-01 14:16:39 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 14:16:39 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - rivedix.com
+2025-12-01 14:17:07 | INFO     | pentoolkit | nmap found 2 findings for rivedix.com
+2025-12-01 14:17:07 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 14:17:07 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 14:17:07 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 14:17:07 | INFO     | pentoolkit | Preparing httpx for rivedix.com
+2025-12-01 14:17:07 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 14:17:07 | INFO     | pentoolkit | Running httpx on rivedix.com
+2025-12-01 14:17:07 | INFO     | pentoolkit | [httpx] Probing: rivedix.com
+2025-12-01 14:17:19 | INFO     | pentoolkit | httpx found 1 findings for rivedix.com
+2025-12-01 14:17:19 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 14:17:19 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 14:17:19 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 14:17:19 | INFO     | pentoolkit | Preparing subfinder for rivedix.com
+2025-12-01 14:17:19 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 14:17:19 | INFO     | pentoolkit | Running subfinder on rivedix.com
+2025-12-01 14:17:19 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: rivedix.com
+2025-12-01 14:17:24 | INFO     | pentoolkit | [subfinder] Found 1 subdomains
+2025-12-01 14:17:24 | INFO     | pentoolkit | subfinder found 1 findings for rivedix.com
+2025-12-01 14:17:24 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 14:17:24 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 14:17:24 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 14:17:24 | INFO     | pentoolkit | Preparing tlsinfo for rivedix.com
+2025-12-01 14:17:24 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 14:17:24 | INFO     | pentoolkit | Running tlsinfo on rivedix.com
+2025-12-01 14:17:24 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: rivedix.com
+2025-12-01 14:17:24 | INFO     | pentoolkit | tlsinfo found 2 findings for rivedix.com
+2025-12-01 14:17:24 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 14:17:24 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 14:17:24 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 14:17:24 | INFO     | pentoolkit | Preparing nuclei for rivedix.com
+2025-12-01 14:17:24 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 14:17:24 | INFO     | pentoolkit | Running nuclei on rivedix.com
+2025-12-01 14:17:24 | INFO     | pentoolkit | [nuclei] Using templates: /Users/rivedix/nuclei-templates
+2025-12-01 14:17:24 | INFO     | pentoolkit | [nuclei] Scanning: https://rivedix.com
+2025-12-01 14:17:24 | WARNING  | pentoolkit | [nuclei] JSON parse error line 1: Expecting value: line 1 column 1 (char 0)
+2025-12-01 14:17:24 | INFO     | pentoolkit | nuclei found 1 findings for rivedix.com
+2025-12-01 14:17:24 | INFO     | pentoolkit | nuclei completed: 1 successful, 0 failed
+2025-12-01 14:17:24 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 14:17:24 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 2 findings
+2025-12-01 14:17:24 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 14:17:24 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 1 findings
+2025-12-01 14:17:24 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 2 findings
+2025-12-01 14:17:24 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 1 findings
+2025-12-01 14:17:24 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T084639Z_rivedix.com
+2025-12-01 14:17:24 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 14:17:24 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T084639Z_rivedix.com/report.html (46,160 bytes)
+2025-12-01 14:19:21 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 14:19:21 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 14:19:21 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-12-01 14:19:21 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 14:19:21 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 14:19:21 | INFO     | pentoolkit | Preparing nmap for example.com
+2025-12-01 14:19:21 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 14:19:21 | INFO     | pentoolkit | Running nmap on example.com
+2025-12-01 14:19:21 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 14:19:21 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - example.com
+2025-12-01 14:19:26 | ERROR    | pentoolkit | [nmap] XML parsing failed: junk after document element: line 12, column 0
+Traceback (most recent call last):
+  File "/Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/modules/nmap_module.py", line 133, in parse_output
+    root = ET.fromstring(output)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.0_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/xml/etree/ElementTree.py", line 1352, in XML
+    parser.feed(text)
+    ~~~~~~~~~~~^^^^^^
+xml.etree.ElementTree.ParseError: junk after document element: line 12, column 0
+2025-12-01 14:19:26 | INFO     | pentoolkit | nmap found 0 findings for example.com
+2025-12-01 14:19:26 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 14:19:26 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 14:19:26 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 14:19:26 | INFO     | pentoolkit | Preparing httpx for example.com
+2025-12-01 14:19:26 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 14:19:26 | INFO     | pentoolkit | Running httpx on example.com
+2025-12-01 14:19:26 | INFO     | pentoolkit | [httpx] Probing: example.com
+2025-12-01 14:19:28 | INFO     | pentoolkit | httpx found 1 findings for example.com
+2025-12-01 14:19:28 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 14:19:28 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 14:19:28 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 14:19:28 | INFO     | pentoolkit | Preparing subfinder for example.com
+2025-12-01 14:19:28 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 14:19:28 | INFO     | pentoolkit | Running subfinder on example.com
+2025-12-01 14:19:28 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: example.com
+2025-12-01 14:19:38 | INFO     | pentoolkit | [subfinder] Found 22248 subdomains
+2025-12-01 14:19:38 | INFO     | pentoolkit | subfinder found 1 findings for example.com
+2025-12-01 14:19:38 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 14:19:38 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 14:19:38 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 14:19:38 | INFO     | pentoolkit | Preparing tlsinfo for example.com
+2025-12-01 14:19:39 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 14:19:39 | INFO     | pentoolkit | Running tlsinfo on example.com
+2025-12-01 14:19:39 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: example.com
+2025-12-01 14:19:49 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 14:19:59 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 14:20:09 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 14:20:19 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 14:20:29 | ERROR    | pentoolkit | Command failed after 1 attempts: Process timed out
+2025-12-01 14:20:29 | INFO     | pentoolkit | tlsinfo found 1 findings for example.com
+2025-12-01 14:20:29 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 14:20:29 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 14:20:29 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 14:20:29 | INFO     | pentoolkit | Preparing nuclei for example.com
+2025-12-01 14:20:29 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 14:20:29 | INFO     | pentoolkit | Running nuclei on example.com
+2025-12-01 14:20:29 | INFO     | pentoolkit | [nuclei] Using templates: /Users/rivedix/nuclei-templates
+2025-12-01 14:20:29 | INFO     | pentoolkit | [nuclei] Scanning: https://example.com
+2025-12-01 14:20:29 | WARNING  | pentoolkit | [nuclei] JSON parse error line 1: Expecting value: line 1 column 1 (char 0)
+2025-12-01 14:20:29 | INFO     | pentoolkit | nuclei found 1 findings for example.com
+2025-12-01 14:20:29 | INFO     | pentoolkit | nuclei completed: 1 successful, 0 failed
+2025-12-01 14:20:29 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 14:20:29 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 0 findings
+2025-12-01 14:20:29 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 14:20:29 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 1 findings
+2025-12-01 14:20:29 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 1 findings
+2025-12-01 14:20:29 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 1 findings
+2025-12-01 14:20:29 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T084921Z_example.com
+2025-12-01 14:20:29 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 14:20:29 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T084921Z_example.com/report.html (8,827,032 bytes)
+2025-12-01 14:21:55 | INFO     | pentoolkit | Initializing Pentoolkit Runner
+2025-12-01 14:21:55 | INFO     | pentoolkit | Configuration loaded from /Users/rivedix/Desktop/tool/pentoolkit/config.yaml
+2025-12-01 14:21:55 | INFO     | pentoolkit | Discovered 7 modules: base, httpx, nmap, nuclei, tlsinfo, subfinder, whatweb
+2025-12-01 14:21:55 | INFO     | pentoolkit.cli | Starting nmap on 1 target(s)
+2025-12-01 14:21:55 | INFO     | pentoolkit | Starting nmap execution on 1 target(s) with concurrency=4
+2025-12-01 14:21:55 | INFO     | pentoolkit | Preparing nmap for tesla.com
+2025-12-01 14:21:55 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nmap
+2025-12-01 14:21:55 | INFO     | pentoolkit | Running nmap on tesla.com
+2025-12-01 14:21:55 | INFO     | pentoolkit | [nmap] Using scan profile: short
+2025-12-01 14:21:55 | INFO     | pentoolkit | [nmap] Executing: nmap -T3 -Pn -sV --top-ports 100 -oX - tesla.com
+2025-12-01 14:22:27 | INFO     | pentoolkit | nmap found 2 findings for tesla.com
+2025-12-01 14:22:27 | INFO     | pentoolkit | nmap completed: 1 successful, 0 failed
+2025-12-01 14:22:27 | INFO     | pentoolkit.cli | Starting httpx on 1 target(s)
+2025-12-01 14:22:27 | INFO     | pentoolkit | Starting httpx execution on 1 target(s) with concurrency=4
+2025-12-01 14:22:27 | INFO     | pentoolkit | Preparing httpx for tesla.com
+2025-12-01 14:22:27 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/httpx
+2025-12-01 14:22:27 | INFO     | pentoolkit | Running httpx on tesla.com
+2025-12-01 14:22:27 | INFO     | pentoolkit | [httpx] Probing: tesla.com
+2025-12-01 14:22:29 | INFO     | pentoolkit | httpx found 1 findings for tesla.com
+2025-12-01 14:22:29 | INFO     | pentoolkit | httpx completed: 1 successful, 0 failed
+2025-12-01 14:22:29 | INFO     | pentoolkit.cli | Starting subfinder on 1 target(s)
+2025-12-01 14:22:29 | INFO     | pentoolkit | Starting subfinder execution on 1 target(s) with concurrency=4
+2025-12-01 14:22:29 | INFO     | pentoolkit | Preparing subfinder for tesla.com
+2025-12-01 14:22:29 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/subfinder
+2025-12-01 14:22:29 | INFO     | pentoolkit | Running subfinder on tesla.com
+2025-12-01 14:22:29 | INFO     | pentoolkit | [subfinder] Enumerating subdomains for: tesla.com
+2025-12-01 14:22:41 | INFO     | pentoolkit | [subfinder] Found 796 subdomains
+2025-12-01 14:22:41 | INFO     | pentoolkit | subfinder found 1 findings for tesla.com
+2025-12-01 14:22:41 | INFO     | pentoolkit | subfinder completed: 1 successful, 0 failed
+2025-12-01 14:22:41 | INFO     | pentoolkit.cli | Starting tlsinfo on 1 target(s)
+2025-12-01 14:22:41 | INFO     | pentoolkit | Starting tlsinfo execution on 1 target(s) with concurrency=4
+2025-12-01 14:22:41 | INFO     | pentoolkit | Preparing tlsinfo for tesla.com
+2025-12-01 14:22:41 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/openssl
+2025-12-01 14:22:41 | INFO     | pentoolkit | Running tlsinfo on tesla.com
+2025-12-01 14:22:41 | INFO     | pentoolkit | [tlsinfo] Analyzing TLS for: tesla.com
+2025-12-01 14:22:42 | INFO     | pentoolkit | tlsinfo found 2 findings for tesla.com
+2025-12-01 14:22:42 | INFO     | pentoolkit | tlsinfo completed: 1 successful, 0 failed
+2025-12-01 14:22:42 | INFO     | pentoolkit.cli | Starting nuclei on 1 target(s)
+2025-12-01 14:22:42 | INFO     | pentoolkit | Starting nuclei execution on 1 target(s) with concurrency=4
+2025-12-01 14:22:42 | INFO     | pentoolkit | Preparing nuclei for tesla.com
+2025-12-01 14:22:42 | INFO     | pentoolkit | Binary validated: /opt/homebrew/bin/nuclei
+2025-12-01 14:22:42 | INFO     | pentoolkit | Running nuclei on tesla.com
+2025-12-01 14:22:42 | INFO     | pentoolkit | [nuclei] Using templates: /Users/rivedix/nuclei-templates
+2025-12-01 14:22:42 | INFO     | pentoolkit | [nuclei] Scanning: https://tesla.com
+2025-12-01 14:22:42 | WARNING  | pentoolkit | [nuclei] JSON parse error line 1: Expecting value: line 1 column 1 (char 0)
+2025-12-01 14:22:42 | INFO     | pentoolkit | nuclei found 1 findings for tesla.com
+2025-12-01 14:22:42 | INFO     | pentoolkit | nuclei completed: 1 successful, 0 failed
+2025-12-01 14:22:42 | INFO     | pentoolkit.report.report_engine | Report output directory: results
+2025-12-01 14:22:42 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nmap': 1 entries, 2 findings
+2025-12-01 14:22:42 | INFO     | pentoolkit.report.report_engine | Added results for tool 'httpx': 1 entries, 1 findings
+2025-12-01 14:22:42 | INFO     | pentoolkit.report.report_engine | Added results for tool 'subfinder': 1 entries, 1 findings
+2025-12-01 14:22:42 | INFO     | pentoolkit.report.report_engine | Added results for tool 'tlsinfo': 1 entries, 2 findings
+2025-12-01 14:22:42 | INFO     | pentoolkit.report.report_engine | Added results for tool 'nuclei': 1 entries, 1 findings
+2025-12-01 14:22:42 | INFO     | pentoolkit.report.report_engine | Generating report for run_id: 20251201T085155Z_tesla.com
+2025-12-01 14:22:42 | INFO     | pentoolkit.report.report_engine | Loaded template from: /Users/rivedix/Desktop/tool/pentoolkit/pentoolkit/report/templates/report.html
+2025-12-01 14:22:42 | INFO     | pentoolkit.report.report_engine | Report generated successfully: results/runs/20251201T085155Z_tesla.com/report.html (361,186 bytes)

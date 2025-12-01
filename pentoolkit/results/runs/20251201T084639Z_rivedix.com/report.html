@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pentoolkit Security Report - rivedix.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    pre { max-height: 40vh; white-space: pre-wrap; word-wrap: break-word; }
+    @media print { .no-print { display: none; } }
+    .severity-badge {
+      display: inline-flex; align-items: center; padding: 0.25rem 0.75rem;
+      border-radius: 9999px; font-size: 0.75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.025em;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900 min-h-screen">
+  <div class="max-w-7xl mx-auto p-6 lg:p-8">
+
+    <!-- HEADER -->
+    <header class="bg-white rounded-xl shadow-lg p-8 mb-8 border-t-4 border-sky-600">
+      <div class="flex items-start justify-between">
+        <div class="flex-1">
+          <div class="flex items-center gap-3 mb-3">
+            <svg class="w-10 h-10 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <h1 class="text-4xl font-bold text-slate-900">Security Assessment Report</h1>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+            <div class="flex items-center gap-2 text-slate-600">
+              <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+              </svg>
+              <span class="font-semibold">Target:</span>
+              <span class="font-mono bg-slate-100 px-2 py-1 rounded text-sm">rivedix.com</span>
+            </div>
+
+            <div class="flex items-center gap-2 text-slate-600">
+              <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span class="font-semibold">Generated:</span>
+              <span class="text-sm">2025-12-01T08:47:24.980779</span>
+            </div>
+
+            <div class="flex items-center gap-2 text-slate-600">
+              <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+              </svg>
+              <span class="font-semibold">Run ID:</span>
+              <span class="font-mono text-sm">20251201T084639Z_rivedix.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+        <svg class="w-7 h-7 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+        Executive Summary
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-gradient-to-br from-blue-50 to-sky-50 rounded-lg p-6 border border-blue-100">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-slate-900">Assessment Tools</h3>
+            <div class="bg-blue-100 rounded-full p-2">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+          </div>
+          <ul class="space-y-2">
+            
+            <li class="flex items-center gap-2 text-sm text-slate-700">
+              <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span class="font-mono">httpx</span>
+            </li>
+            
+            <li class="flex items-center gap-2 text-sm text-slate-700">
+              <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span class="font-mono">nmap</span>
+            </li>
+            
+            <li class="flex items-center gap-2 text-sm text-slate-700">
+              <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span class="font-mono">nuclei</span>
+            </li>
+            
+            <li class="flex items-center gap-2 text-sm text-slate-700">
+              <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span class="font-mono">subfinder</span>
+            </li>
+            
+            <li class="flex items-center gap-2 text-sm text-slate-700">
+              <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span class="font-mono">tlsinfo</span>
+            </li>
+            
+          </ul>
+        </div>
+
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-100">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-slate-900">Total Findings</h3>
+            <div class="bg-purple-100 rounded-full p-2">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+            </div>
+          </div>
+          <p class="text-6xl font-bold text-purple-600">7</p>
+          <p class="text-sm text-slate-600 mt-2">Security observations detected</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg p-6 border border-amber-100">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-slate-900">Risk Distribution</h3>
+            <div class="bg-amber-100 rounded-full p-2">
+              <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+          </div>
+          <ul class="space-y-2">
+            
+            <li class="flex items-center justify-between text-sm">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                
+                <span class="font-semibold text-slate-900 capitalize">low</span>
+              </div>
+              <span class="font-bold text-slate-900">2</span>
+            </li>
+            
+            <li class="flex items-center justify-between text-sm">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                
+                <span class="font-semibold text-slate-900 capitalize">medium</span>
+              </div>
+              <span class="font-bold text-slate-900">0</span>
+            </li>
+            
+            <li class="flex items-center justify-between text-sm">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-gray-400"></span>
+                <span class="font-semibold text-slate-900 capitalize">info</span>
+              </div>
+              <span class="font-bold text-slate-900">5</span>
+            </li>
+            
+            <li class="flex items-center justify-between text-sm">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-orange-600"></span>
+                
+                <span class="font-semibold text-slate-900 capitalize">high</span>
+              </div>
+              <span class="font-bold text-slate-900">0</span>
+            </li>
+            
+            <li class="flex items-center justify-between text-sm">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-600"></span>
+                
+                <span class="font-semibold text-slate-900 capitalize">critical</span>
+              </div>
+              <span class="font-bold text-slate-900">0</span>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILED FINDINGS -->
+    
+    <section class="mb-8">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="bg-gradient-to-r from-sky-600 to-blue-600 px-8 py-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span class="font-mono">nmap</span>
+          </h2>
+        </div>
+
+        <div class="p-8 space-y-6">
+          
+          <div class="border-l-4 border-sky-600 pl-6">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <p class="text-sm text-slate-500 mb-1">Target</p>
+                <p class="font-mono text-lg font-semibold text-slate-900">rivedix.com</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm text-slate-500 mb-1">Completed</p>
+                <p class="text-sm text-slate-700">2025-12-01T08:47:07.013727+00:00</p>
+              </div>
+            </div>
+
+            <!-- ✅ HTTPX TECH STACK CARD -->
+            
+
+            <!-- ✅ SUBFINDER SUBDOMAIN TABLE -->
+            
+
+            <!-- STANDARD FINDINGS -->
+            <div class="space-y-3">
+              
+              <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="font-semibold text-slate-900">Open Port 80/tcp</span>
+                  <span class="severity-badge bg-green-500 text-white">low</span>
+                  
+                </div>
+
+                <p class="text-sm text-slate-700 mb-3">http nginx</p>
+
+                
+                <details class="group">
+                  <summary class="cursor-pointer text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-2">
+                    <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    View Evidence
+                  </summary>
+                  <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">192.0.78.234:80 (rivedix.com) - http</pre>
+                </details>
+                
+              </div>
+              
+              <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="font-semibold text-slate-900">Open Port 443/tcp</span>
+                  <span class="severity-badge bg-green-500 text-white">low</span>
+                  
+                </div>
+
+                <p class="text-sm text-slate-700 mb-3">http nginx</p>
+
+                
+                <details class="group">
+                  <summary class="cursor-pointer text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-2">
+                    <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    View Evidence
+                  </summary>
+                  <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">192.0.78.234:443 (rivedix.com) - http</pre>
+                </details>
+                
+              </div>
+              
+            </div>
+
+            
+            <details class="mt-4 no-print">
+              <summary class="cursor-pointer text-indigo-600 hover:text-indigo-700 font-medium text-sm flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                Raw Output
+              </summary>
+              <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
+&lt;!DOCTYPE nmaprun&gt;
+&lt;?xml-stylesheet href=&#34;file:///opt/homebrew/bin/../share/nmap/nmap.xsl&#34; type=&#34;text/xsl&#34;?&gt;
+&lt;!-- Nmap 7.98 scan initiated Mon Dec  1 14:16:39 2025 as: /opt/homebrew/bin/nmap -T3 -Pn -sV -&amp;#45;top-ports 100 -oX - rivedix.com --&gt;
+&lt;nmaprun scanner=&#34;nmap&#34; args=&#34;/opt/homebrew/bin/nmap -T3 -Pn -sV -&amp;#45;top-ports 100 -oX - rivedix.com&#34; start=&#34;1764578799&#34; startstr=&#34;Mon Dec  1 14:16:39 2025&#34; version=&#34;7.98&#34; xmloutputversion=&#34;1.05&#34;&gt;
+&lt;scaninfo type=&#34;connect&#34; protocol=&#34;tcp&#34; numservices=&#34;100&#34; services=&#34;7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157&#34;/&gt;
+&lt;verbose level=&#34;0&#34;/&gt;
+&lt;debugging level=&#34;0&#34;/&gt;
+&lt;host starttime=&#34;1764578800&#34; endtime=&#34;1764578826&#34;&gt;&lt;status state=&#34;up&#34; reason=&#34;user-set&#34; reason_ttl=&#34;0&#34;/&gt;
+&lt;address addr=&#34;192.0.78.234&#34; addrtype=&#34;ipv4&#34;/&gt;
+&lt;hostnames&gt;
+&lt;hostname name=&#34;rivedix.com&#34; type=&#34;user&#34;/&gt;
+&lt;/hostnames&gt;
+&lt;ports&gt;&lt;extraports state=&#34;filtered&#34; count=&#34;98&#34;&gt;
+&lt;extrareasons reason=&#34;no-response&#34; count=&#34;98&#34; proto=&#34;tcp&#34; ports=&#34;7,9,13,21-23,25-26,37,53,79,81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,444-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157&#34;/&gt;
+&lt;/extraports&gt;
+&lt;port protocol=&#34;tcp&#34; portid=&#34;80&#34;&gt;&lt;state state=&#34;open&#34; reason=&#34;syn-ack&#34; reason_ttl=&#34;0&#34;/&gt;&lt;service name=&#34;http&#34; product=&#34;nginx&#34; method=&#34;probed&#34; conf=&#34;10&#34;&gt;&lt;cpe&gt;cpe:/a:igor_sysoev:nginx&lt;/cpe&gt;&lt;/service&gt;&lt;/port&gt;
+&lt;port protocol=&#34;tcp&#34; portid=&#34;443&#34;&gt;&lt;state state=&#34;open&#34; reason=&#34;syn-ack&#34; reason_ttl=&#34;0&#34;/&gt;&lt;service name=&#34;http&#34; product=&#34;nginx&#34; tunnel=&#34;ssl&#34; method=&#34;probed&#34; conf=&#34;10&#34;&gt;&lt;cpe&gt;cpe:/a:igor_sysoev:nginx&lt;/cpe&gt;&lt;/service&gt;&lt;/port&gt;
+&lt;/ports&gt;
+&lt;times srtt=&#34;9499&#34; rttvar=&#34;5256&#34; to=&#34;100000&#34;/&gt;
+&lt;/host&gt;
+&lt;runstats&gt;&lt;finished time=&#34;1764578826&#34; timestr=&#34;Mon Dec  1 14:17:06 2025&#34; summary=&#34;Nmap done at Mon Dec  1 14:17:06 2025; 1 IP address (1 host up) scanned in 27.62 seconds&#34; elapsed=&#34;27.62&#34; exit=&#34;success&#34;/&gt;&lt;hosts up=&#34;1&#34; down=&#34;0&#34; total=&#34;1&#34;/&gt;
+&lt;/runstats&gt;
+&lt;/nmaprun&gt;</pre>
+            </details>
+            
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-8">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="bg-gradient-to-r from-sky-600 to-blue-600 px-8 py-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span class="font-mono">httpx</span>
+          </h2>
+        </div>
+
+        <div class="p-8 space-y-6">
+          
+          <div class="border-l-4 border-sky-600 pl-6">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <p class="text-sm text-slate-500 mb-1">Target</p>
+                <p class="font-mono text-lg font-semibold text-slate-900">rivedix.com</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm text-slate-500 mb-1">Completed</p>
+                <p class="text-sm text-slate-700">2025-12-01T08:47:19.060802+00:00</p>
+              </div>
+            </div>
+
+            <!-- ✅ HTTPX TECH STACK CARD -->
+            
+              
+                
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-5 mb-6 border border-blue-200">
+                  <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    </svg>
+                    Technology Stack Detected
+                  </h4>
+                  <div class="flex flex-wrap gap-2">
+                    
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold shadow-sm">Elementor:3.33.2</span>
+                    
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold shadow-sm">HSTS</span>
+                    
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold shadow-sm">HTTP/3</span>
+                    
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold shadow-sm">MySQL</span>
+                    
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold shadow-sm">Nginx</span>
+                    
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold shadow-sm">PHP</span>
+                    
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold shadow-sm">Redux Framework:4.4.0</span>
+                    
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold shadow-sm">WordPress</span>
+                    
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold shadow-sm">WordPress.com</span>
+                    
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold shadow-sm">imagesLoaded</span>
+                    
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold shadow-sm">jQuery</span>
+                    
+                    <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-semibold shadow-sm">jQuery Migrate</span>
+                    
+                  </div>
+                </div>
+                
+              
+            
+
+            <!-- ✅ SUBFINDER SUBDOMAIN TABLE -->
+            
+
+            <!-- STANDARD FINDINGS -->
+            <div class="space-y-3">
+              
+              <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="font-semibold text-slate-900">https://rivedix.com</span>
+                  <span class="severity-badge bg-gray-400 text-white">info</span>
+                </div>
+
+                <p class="text-sm text-slate-700 mb-3">HTTP 200 | Rivedix Technology Solutions | nginx</p>
+
+                
+                <details class="group">
+                  <summary class="cursor-pointer text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-2">
+                    <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    View Evidence
+                  </summary>
+                  <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">URL: https://rivedix.com
+Status: 200
+Server: nginx
+Content-Length: 201412
+Technologies: Elementor:3.33.2, HSTS, HTTP/3, MySQL, Nginx, PHP, Redux Framework:4.4.0, WordPress, WordPress.com, imagesLoaded, jQuery, jQuery Migrate</pre>
+                </details>
+                
+              </div>
+              
+            </div>
+
+            
+            <details class="mt-4 no-print">
+              <summary class="cursor-pointer text-indigo-600 hover:text-indigo-700 font-medium text-sm flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                Raw Output
+              </summary>
+              <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">{&#34;timestamp&#34;:&#34;2025-12-01T14:17:19.043711+05:30&#34;,&#34;port&#34;:&#34;443&#34;,&#34;url&#34;:&#34;https://rivedix.com&#34;,&#34;input&#34;:&#34;rivedix.com&#34;,&#34;title&#34;:&#34;Rivedix Technology Solutions&#34;,&#34;scheme&#34;:&#34;https&#34;,&#34;webserver&#34;:&#34;nginx&#34;,&#34;content_type&#34;:&#34;text/html&#34;,&#34;method&#34;:&#34;GET&#34;,&#34;host&#34;:&#34;192.0.78.234&#34;,&#34;path&#34;:&#34;/&#34;,&#34;time&#34;:&#34;10.069629166s&#34;,&#34;a&#34;:[&#34;192.0.78.234&#34;,&#34;192.0.78.162&#34;],&#34;tech&#34;:[&#34;Elementor:3.33.2&#34;,&#34;HSTS&#34;,&#34;HTTP/3&#34;,&#34;MySQL&#34;,&#34;Nginx&#34;,&#34;PHP&#34;,&#34;Redux Framework:4.4.0&#34;,&#34;WordPress&#34;,&#34;WordPress.com&#34;,&#34;imagesLoaded&#34;,&#34;jQuery&#34;,&#34;jQuery Migrate&#34;],&#34;words&#34;:11641,&#34;lines&#34;:2017,&#34;status_code&#34;:200,&#34;content_length&#34;:201412,&#34;failed&#34;:false,&#34;knowledgebase&#34;:{&#34;PageType&#34;:&#34;other&#34;,&#34;pHash&#34;:0},&#34;resolvers&#34;:[&#34;1.1.1.1:53&#34;,&#34;1.0.0.1:53&#34;]}
+</pre>
+            </details>
+            
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-8">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="bg-gradient-to-r from-sky-600 to-blue-600 px-8 py-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span class="font-mono">subfinder</span>
+          </h2>
+        </div>
+
+        <div class="p-8 space-y-6">
+          
+          <div class="border-l-4 border-sky-600 pl-6">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <p class="text-sm text-slate-500 mb-1">Target</p>
+                <p class="font-mono text-lg font-semibold text-slate-900">rivedix.com</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm text-slate-500 mb-1">Completed</p>
+                <p class="text-sm text-slate-700">2025-12-01T08:47:24.335611+00:00</p>
+              </div>
+            </div>
+
+            <!-- ✅ HTTPX TECH STACK CARD -->
+            
+
+            <!-- ✅ SUBFINDER SUBDOMAIN TABLE -->
+            
+              
+                
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div class="text-center">
+                      <p class="text-sm text-slate-600 mb-2">Total Discovered</p>
+                      <p class="text-4xl font-bold text-blue-600">1</p>
+                    </div>
+                    <div class="text-center">
+                      <p class="text-sm text-slate-600 mb-2">Unique Subdomains</p>
+                      <p class="text-4xl font-bold text-green-600">1</p>
+                    </div>
+                  </div>
+
+                  <div class="overflow-hidden border border-slate-200 rounded-lg max-h-96 overflow-y-auto">
+                    <table class="w-full text-sm">
+                      <thead class="bg-slate-100 text-slate-700 sticky top-0">
+                        <tr>
+                          <th class="p-3 text-left font-semibold">#</th>
+                          <th class="p-3 text-left font-semibold">Subdomain</th>
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-slate-200">
+                        
+                        <tr class="hover:bg-slate-50">
+                          <td class="p-3 text-slate-600">1</td>
+                          <td class="p-3 font-mono text-blue-600">www.rivedix.com</td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+              
+            
+
+            <!-- STANDARD FINDINGS -->
+            <div class="space-y-3">
+              
+              <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="font-semibold text-slate-900">Discovered 1 Subdomain(s)</span>
+                  <span class="severity-badge bg-gray-400 text-white">info</span>
+                </div>
+
+                <p class="text-sm text-slate-700 mb-3">Found 1 subdomains via passive enumeration</p>
+
+                
+                <details class="group">
+                  <summary class="cursor-pointer text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-2">
+                    <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    View Evidence
+                  </summary>
+                  <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">www.rivedix.com</pre>
+                </details>
+                
+              </div>
+              
+            </div>
+
+            
+            <details class="mt-4 no-print">
+              <summary class="cursor-pointer text-indigo-600 hover:text-indigo-700 font-medium text-sm flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                Raw Output
+              </summary>
+              <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">{&#34;host&#34;:&#34;www.rivedix.com&#34;,&#34;input&#34;:&#34;rivedix.com&#34;,&#34;source&#34;:&#34;crtsh&#34;}
+</pre>
+            </details>
+            
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-8">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="bg-gradient-to-r from-sky-600 to-blue-600 px-8 py-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span class="font-mono">tlsinfo</span>
+          </h2>
+        </div>
+
+        <div class="p-8 space-y-6">
+          
+          <div class="border-l-4 border-sky-600 pl-6">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <p class="text-sm text-slate-500 mb-1">Target</p>
+                <p class="font-mono text-lg font-semibold text-slate-900">rivedix.com</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm text-slate-500 mb-1">Completed</p>
+                <p class="text-sm text-slate-700">2025-12-01T08:47:24.576585+00:00</p>
+              </div>
+            </div>
+
+            <!-- ✅ HTTPX TECH STACK CARD -->
+            
+
+            <!-- ✅ SUBFINDER SUBDOMAIN TABLE -->
+            
+
+            <!-- STANDARD FINDINGS -->
+            <div class="space-y-3">
+              
+              <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="font-semibold text-slate-900">Supported TLS Protocols</span>
+                  <span class="severity-badge bg-gray-400 text-white">info</span>
+                </div>
+
+                <p class="text-sm text-slate-700 mb-3">TLS 1.3, TLS 1.2</p>
+
+                
+                <details class="group">
+                  <summary class="cursor-pointer text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-2">
+                    <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    View Evidence
+                  </summary>
+                  <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">TLS 1.3, TLS 1.2</pre>
+                </details>
+                
+              </div>
+              
+              <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="font-semibold text-slate-900">TLS Certificate Information</span>
+                  <span class="severity-badge bg-gray-400 text-white">info</span>
+                </div>
+
+                <p class="text-sm text-slate-700 mb-3">Issuer: C=US, O=Let&#39;s Encrypt, CN=E8
+Subject: CN=tls.automattic.com
+Expires: Feb 14 07:05:05 2026 GMT</p>
+
+                
+                <details class="group">
+                  <summary class="cursor-pointer text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-2">
+                    <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    View Evidence
+                  </summary>
+                  <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">subject=CN=tls.automattic.com
+issuer=C=US, O=Let&#39;s Encrypt, CN=E8
+notBefore=Nov 16 07:05:06 2025 GMT
+notAfter=Feb 14 07:05:05 2026 GMT
+X509v3 Subject Alternative Name: 
+    DNS:cambriaca.newspackstaging.com, DNS:dailyshorts.fashion.blog, DNS:dkdef.com, DNS:gamesplatfrom.game.blog, DNS:guideakid.org, DNS:indiekid.family.blog, DNS:kaatjevertelt.com, DNS:ladiesbl.fashion.blog, DNS:landhausrossatz.com, DNS:lanternagalli.blog, DNS:lifeongumstreet.com, DNS:masteracharavadee.com, DNS:missclairestelle.com, DNS:morrowapartments.net, DNS:myforplay.game.blog, DNS:nicholsesq.com, DNS:oldfloridaestatemanagement.com, DNS:oskarfroblom.music.blog, DNS:outermost.co, DNS:pchks.com, DNS:rivedix.com, DNS:scottmetoyer.music.blog, DNS:thepoliticaldiscussion.politics.blog, DNS:tls.automattic.com, DNS:tunesdays.music.blog, DNS:www.dailyshorts.fashion.blog, DNS:www.gamesplatfrom.game.blog, DNS:www.guideakid.org, DNS:www.indiekid.family.blog, DNS:www.ladiesbl.fashion.blog, DNS:www.landhausrossatz.com, DNS:www.lifeongumstreet.com, DNS:www.limestreetgroup.com, DNS:www.marcelauchoa.net, DNS:www.marinatorre.fr, DNS:www.missclairestelle.com, DNS:www.monasterboiceparish.com, DNS:www.myforplay.game.blog, DNS:www.nicholsesq.com, DNS:www.nikkikickscancer.com, DNS:www.oldfloridaestatemanagement.com, DNS:www.opgswd.com, DNS:www.oskarfroblom.music.blog, DNS:www.pchks.com, DNS:www.ps138kbrooklyn.org, DNS:www.rkbgreenpower.com, DNS:www.scottmetoyer.music.blog, DNS:www.thepoliticaldiscussion.politics.blog, DNS:www.tunesdays.music.blog, DNS:www.unoccupied.music.blog, DNS:www.zannicardqtfxd.politics.blog
+</pre>
+                </details>
+                
+              </div>
+              
+            </div>
+
+            
+            <details class="mt-4 no-print">
+              <summary class="cursor-pointer text-indigo-600 hover:text-indigo-700 font-medium text-sm flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                Raw Output
+              </summary>
+              <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">CONNECTED(00000006)
+---
+Certificate chain
+ 0 s:CN=tls.automattic.com
+   i:C=US, O=Let&#39;s Encrypt, CN=E8
+   a:PKEY: EC, (prime256v1); sigalg: ecdsa-with-SHA384
+   v:NotBefore: Nov 16 07:05:06 2025 GMT; NotAfter: Feb 14 07:05:05 2026 GMT
+ 1 s:C=US, O=Let&#39;s Encrypt, CN=E8
+   i:C=US, O=Internet Security Research Group, CN=ISRG Root X1
+   a:PKEY: EC, (secp384r1); sigalg: sha256WithRSAEncryption
+   v:NotBefore: Mar 13 00:00:00 2024 GMT; NotAfter: Mar 12 23:59:59 2027 GMT
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIIPTCCB8SgAwIBAgISBoIlyv7LmVHL4FaTwMQDUvSSMAoGCCqGSM49BAMDMDIx
+CzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQDEwJF
+ODAeFw0yNTExMTYwNzA1MDZaFw0yNjAyMTQwNzA1MDVaMB0xGzAZBgNVBAMTEnRs
+cy5hdXRvbWF0dGljLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABK6wqpFx
+vEo/qWHlh12Rv9GW1p/wjBkzj/zJ45GFbJVpq4M0TOOqRLyk0hAUjrVDXzyaBGma
+JvCqXu1scLzi9NajggbNMIIGyTAOBgNVHQ8BAf8EBAMCB4AwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFO+okOCH
+WMy6IteQ7rvufSJ4t2U3MB8GA1UdIwQYMBaAFI8NE6L2Ln7RUGwzGDhdWY4jcpHK
+MDIGCCsGAQUFBwEBBCYwJDAiBggrBgEFBQcwAoYWaHR0cDovL2U4LmkubGVuY3Iu
+b3JnLzCCBMoGA1UdEQSCBMEwggS9gh1jYW1icmlhY2EubmV3c3BhY2tzdGFnaW5n
+LmNvbYIYZGFpbHlzaG9ydHMuZmFzaGlvbi5ibG9ngglka2RlZi5jb22CF2dhbWVz
+cGxhdGZyb20uZ2FtZS5ibG9ngg1ndWlkZWFraWQub3JnghRpbmRpZWtpZC5mYW1p
+bHkuYmxvZ4IRa2FhdGpldmVydGVsdC5jb22CFWxhZGllc2JsLmZhc2hpb24uYmxv
+Z4ITbGFuZGhhdXNyb3NzYXR6LmNvbYISbGFudGVybmFnYWxsaS5ibG9nghNsaWZl
+b25ndW1zdHJlZXQuY29tghVtYXN0ZXJhY2hhcmF2YWRlZS5jb22CFG1pc3NjbGFp
+cmVzdGVsbGUuY29tghRtb3Jyb3dhcGFydG1lbnRzLm5ldIITbXlmb3JwbGF5Lmdh
+bWUuYmxvZ4IObmljaG9sc2VzcS5jb22CHm9sZGZsb3JpZGFlc3RhdGVtYW5hZ2Vt
+ZW50LmNvbYIXb3NrYXJmcm9ibG9tLm11c2ljLmJsb2eCDG91dGVybW9zdC5jb4IJ
+cGNoa3MuY29tggtyaXZlZGl4LmNvbYIXc2NvdHRtZXRveWVyLm11c2ljLmJsb2eC
+JHRoZXBvbGl0aWNhbGRpc2N1c3Npb24ucG9saXRpY3MuYmxvZ4ISdGxzLmF1dG9t
+YXR0aWMuY29tghR0dW5lc2RheXMubXVzaWMuYmxvZ4Icd3d3LmRhaWx5c2hvcnRz
+LmZhc2hpb24uYmxvZ4Ibd3d3LmdhbWVzcGxhdGZyb20uZ2FtZS5ibG9nghF3d3cu
+Z3VpZGVha2lkLm9yZ4IYd3d3LmluZGlla2lkLmZhbWlseS5ibG9nghl3d3cubGFk
+aWVzYmwuZmFzaGlvbi5ibG9nghd3d3cubGFuZGhhdXNyb3NzYXR6LmNvbYIXd3d3
+LmxpZmVvbmd1bXN0cmVldC5jb22CF3d3dy5saW1lc3RyZWV0Z3JvdXAuY29tghR3
+d3cubWFyY2VsYXVjaG9hLm5ldIISd3d3Lm1hcmluYXRvcnJlLmZyghh3d3cubWlz
+c2NsYWlyZXN0ZWxsZS5jb22CG3d3dy5tb25hc3RlcmJvaWNlcGFyaXNoLmNvbYIX
+d3d3Lm15Zm9ycGxheS5nYW1lLmJsb2eCEnd3dy5uaWNob2xzZXNxLmNvbYIYd3d3
+Lm5pa2tpa2lja3NjYW5jZXIuY29tgiJ3d3cub2xkZmxvcmlkYWVzdGF0ZW1hbmFn
+ZW1lbnQuY29tgg53d3cub3Bnc3dkLmNvbYIbd3d3Lm9za2FyZnJvYmxvbS5tdXNp
+Yy5ibG9ngg13d3cucGNoa3MuY29tghZ3d3cucHMxMzhrYnJvb2tseW4ub3JnghV3
+d3cucmtiZ3JlZW5wb3dlci5jb22CG3d3dy5zY290dG1ldG95ZXIubXVzaWMuYmxv
+Z4Iod3d3LnRoZXBvbGl0aWNhbGRpc2N1c3Npb24ucG9saXRpY3MuYmxvZ4IYd3d3
+LnR1bmVzZGF5cy5tdXNpYy5ibG9nghl3d3cudW5vY2N1cGllZC5tdXNpYy5ibG9n
+giB3d3cuemFubmljYXJkcXRmeGQucG9saXRpY3MuYmxvZzATBgNVHSAEDDAKMAgG
+BmeBDAECATAtBgNVHR8EJjAkMCKgIKAehhxodHRwOi8vZTguYy5sZW5jci5vcmcv
+MTkuY3JsMIIBAgYKKwYBBAHWeQIEAgSB8wSB8ADuAHUAGYbUxyiqb/66A294Kk0B
+karOLXIxD67OXXBBLSVMx9QAAAGai7DhzwAABAMARjBEAiAiZnID9I9AdnF0CChG
+V4m1kBEveHX9Ikrhwb/rHWSNvQIgcwOIXKtZkZfeGvBxVOkfAJU4WA1AzsnJOsKM
+IYCEzNAAdQCWl2S/VViXrfdDh2g3CEJ36fA61fak8zZuRqQ/D8qpxgAAAZqLsOI7
+AAAEAwBGMEQCIE8yDeD7vbW3gcL1rjGA9I+wRAWmeZWvyD4SUWT4Wv8cAiARjl4d
+FNUrmI2MKo41ffRn40br4+Xbpuk9328qtiWjBTAKBggqhkjOPQQDAwNnADBkAjAy
+X/6fth1QHwg20sUuXnRG2wz2nH+bgzrBPU4Ym+38WCjxielW/Qm/dQyICTBj9y4C
+MBTQgaDlWkpX2OYn7OvhEgvX53ROeZAnmfRYjgHmZx+P4VcuMlkqxSK8N2DLVj/T
+Jg==
+-----END CERTIFICATE-----
+subject=CN=tls.automattic.com
+issuer=C=US, O=Let&#39;s Encrypt, CN=E8
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: ecdsa_secp256r1_sha256
+Negotiated TLS1.3 group: X25519MLKEM768
+---
+SSL handshake has read 4695 bytes and written 1549 bytes
+Verification: OK
+---
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Protocol: TLSv1.3
+Server public key is 256 bit
+This TLS version forbids renegotiation.
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 0 (ok)
+---
+Connecting to 192.0.78.234
+depth=2 C=US, O=Internet Security Research Group, CN=ISRG Root X1
+verify return:1
+depth=1 C=US, O=Let&#39;s Encrypt, CN=E8
+verify return:1
+depth=0 CN=tls.automattic.com
+verify return:1
+DONE</pre>
+            </details>
+            
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-8">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="bg-gradient-to-r from-sky-600 to-blue-600 px-8 py-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span class="font-mono">nuclei</span>
+          </h2>
+        </div>
+
+        <div class="p-8 space-y-6">
+          
+          <div class="border-l-4 border-sky-600 pl-6">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <p class="text-sm text-slate-500 mb-1">Target</p>
+                <p class="font-mono text-lg font-semibold text-slate-900">rivedix.com</p>
+              </div>
+              <div class="text-right">
+                <p class="text-sm text-slate-500 mb-1">Completed</p>
+                <p class="text-sm text-slate-700">2025-12-01T08:47:24.968147+00:00</p>
+              </div>
+            </div>
+
+            <!-- ✅ HTTPX TECH STACK CARD -->
+            
+
+            <!-- ✅ SUBFINDER SUBDOMAIN TABLE -->
+            
+
+            <!-- STANDARD FINDINGS -->
+            <div class="space-y-3">
+              
+              <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="font-semibold text-slate-900">Nuclei Output Parse Error</span>
+                  <span class="severity-badge bg-gray-400 text-white">info</span>
+                </div>
+
+                <p class="text-sm text-slate-700 mb-3">No valid findings parsed (1 errors)</p>
+
+                
+                <details class="group">
+                  <summary class="cursor-pointer text-sky-600 hover:text-sky-700 text-sm font-medium flex items-center gap-2">
+                    <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    View Evidence
+                  </summary>
+                  <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">flag provided but not defined: -json</pre>
+                </details>
+                
+              </div>
+              
+            </div>
+
+            
+            <details class="mt-4 no-print">
+              <summary class="cursor-pointer text-indigo-600 hover:text-indigo-700 font-medium text-sm flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                Raw Output
+              </summary>
+              <pre class="bg-slate-900 text-green-400 text-xs mt-3 p-4 rounded-lg overflow-auto">flag provided but not defined: -json
+</pre>
+            </details>
+            
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- FOOTER -->
+    <footer class="bg-white rounded-xl shadow-lg p-6 mt-8 text-center border-t-4 border-sky-600">
+      <p class="text-sm text-slate-600">
+        Generated by <span class="font-semibold text-slate-900">Pentoolkit</span> •
+        <span class="font-mono">2025-12-01T08:47:24.980779</span>
+      </p>
+      <p class="text-xs text-slate-500 mt-2">
+        This report contains confidential security assessment results. Handle with care.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

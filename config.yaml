@@ -6,14 +6,15 @@ global:
 
 # Reporting configuration
 reporting:
-  per_tool_report: true      # Generate single tool report (HTML + JSON)
-  combined_report: true      # Generate combined report after running all tools
+  per_tool_report: true
+  combined_report: true
   template: "pentoolkit/report/templates/report.html"
   static_dir: "pentoolkit/report/static"
   theme: "default"
 
 # Tool configurations
 tools:
+  # ========== Network Scanner ==========
   nmap:
     enabled: true
     path: "nmap"
@@ -26,58 +27,37 @@ tools:
       discovery: "-sn"
       firewall-bypass: "-Pn -sA -T3"
       slow: "-Pn -sV -sC --scan-delay 200ms"
-  # nmap:
-  #   enabled: true
-  #   path: "nmap"
-  #   default_args: "-Pn -sV -sC -oX -"
-  #   scan_all_ports: false
-  #   internal_networks:
-  #     - "192.168.0.0/24"
-  #     - "10.0.0.0/8"
-  #     - "127.0.0.1"
 
-  # sslscan:
-  #   enabled: true
-  #   path: "sslscan"
-  #   default_args: "--no-fallback"
-
-
-  tlsinfo:
+  # ========== HTTP Prober ==========
+  httpx:
     enabled: true
-    path: "openssl"
-    default_args: ""
+    path: "httpx"
+    default_args: "-silent -follow-redirects -status-code -title -tech-detect -json"
 
-  whatweb:
-    enabled: true
-    path: "whatweb"
-    default_args: ""
-
+  # ========== Subdomain Finder ==========
   subfinder:
     enabled: true
     path: "subfinder"
     default_args: "-silent -json"
 
-  # nuclei:
-  #   enabled: true
-  #   path: "nuclei"
-  #   templates_root: "/Users/rivedix/nuclei-templates"
-  #   mode: "hybrid"
-  #   rate_limit: 50
-  #   concurrency: 25
-  #   timeout: 720
-  #   severity: "critical,high,medium,low,info"
-  #   no_meta: true
-  httpx:
+  # ========== TLS/SSL Checker ==========
+  tlsinfo:
     enabled: true
-    path: httpx
-    default_args: "-silent -follow-redirects -status-code -title -tech-detect -json"
-    
+    path: "openssl"
+    default_args: ""
+
+  # ========== Web Technology Fingerprinter ==========
+  whatweb:
+    enabled: false
+    path: "whatweb"
+    default_args: ""
+
+  # ========== Vulnerability Scanner ==========
   nuclei:
     enabled: true
-    path: nuclei
-    # templates_root should point to your nuclei-templates directory
-    templates_root: /Users/rivedix/nuclei-templates
-    # extra arguments passed to nuclei runs (optional)
+    path: "nuclei"
+    # IMPORTANT: Set this to your nuclei templates directory
+    templates_root: "/Users/rivedix/nuclei-templates"
     extra_args:
       - "-rl"
       - "50"
@@ -87,7 +67,6 @@ tools:
       - "1"
       - "-timeout"
       - "10"
-
 
 # Execution restrictions & safety
 execution:

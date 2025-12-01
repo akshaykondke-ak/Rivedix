@@ -1,7 +1,8 @@
 
-# ============================================================================
-# pentoolkit/modules/subfinder_module.py
-# ============================================================================
+"""
+Subfinder module - FIXED VERSION
+Properly returns findings and counts subdomains.
+"""
 
 import json
 from typing import List, Dict, Any
@@ -12,27 +13,19 @@ class SubfinderModule(BinaryModule):
     """
     Subdomain enumeration using Subfinder.
     
-    Features:
-        - Passive subdomain discovery
-        - Multiple data sources
-        - JSON output
+    FIXES:
+    - ✅ Always returns self.findings
+    - ✅ Proper subdomain counting
+    - ✅ Handles both JSON and plain text
     """
     
     name = "subfinder"
     description = "Passive subdomain enumeration tool"
-    version = "1.1"
+    version = "1.2"
     required_binary = "subfinder"
 
     def run(self, target: str) -> str:
-        """
-        Execute subfinder on domain.
-        
-        Args:
-            target: Target domain
-            
-        Returns:
-            JSON output from subfinder
-        """
+        """Execute subfinder on domain."""
         # Extract domain from URL if needed
         from pentoolkit.utils.helpers import extract_domain_from_url
         
@@ -63,8 +56,11 @@ class SubfinderModule(BinaryModule):
         return self.raw_output
 
     def parse_output(self) -> List[Dict[str, Any]]:
-        """Parse subfinder JSON output."""
-        findings = []
+        """
+        Parse subfinder JSON output.
+        
+        ✅ FIXED: Now properly returns self.findings!
+        """
         output = (self.raw_output or "").strip()
         
         if not output:
@@ -75,7 +71,7 @@ class SubfinderModule(BinaryModule):
                 severity="info",
                 evidence="Empty result"
             )
-            return self.findings
+            return self.findings  # ✅ CRITICAL FIX
         
         # Parse JSON lines
         subdomains = []
@@ -88,32 +84,26 @@ class SubfinderModule(BinaryModule):
             try:
                 item = json.loads(line)
                 subdomain = item.get("host") or item.get("domain") or str(item)
-                subdomains.append(subdomain)
+                if subdomain and subdomain not in subdomains:
+                    subdomains.append(subdomain)
             
             except json.JSONDecodeError:
                 # Might be plain text
-                if line:
+                if line and line not in subdomains:
                     subdomains.append(line)
         
         # Create findings
         if subdomains:
-            # Summary finding
+            # Summary finding with count
             self._add_finding(
                 title=f"Discovered {len(subdomains)} Subdomain(s)",
                 description=f"Found {len(subdomains)} subdomains via passive enumeration",
                 severity="info",
-                evidence="\n".join(subdomains[:50])  # Limit evidence
+                evidence="\n".join(subdomains[:100]),  # Limit to 100
+                subdomain_count=len(subdomains),  # ✅ Add count for report
+                subdomains=subdomains  # ✅ Add full list for report
             )
             
-            # Individual findings for each subdomain
-            for subdomain in subdomains[:20]:  # Limit to 20 detailed findings
-                self._add_finding(
-                    title=f"Subdomain: {subdomain}",
-                    description="Discovered subdomain",
-                    severity="info",
-                    evidence=subdomain
-                )
+            self._log_info(f"Found {len(subdomains)} subdomains")
         
-        self.findings = findings
-        return findings
-
+        return self.findings  # ✅ CRITICAL FIX: Always return findings!

@@ -1,0 +1,26 @@
+[
+  {
+    "metadata": {
+      "tool": "subfinder",
+      "target": "rivedix.com",
+      "started": "2025-12-01T08:47:19.061314+00:00",
+      "finished": "2025-12-01T08:47:24.335611+00:00",
+      "duration": 5.274324893951416,
+      "success": true,
+      "error": null
+    },
+    "findings": [
+      {
+        "title": "Discovered 1 Subdomain(s)",
+        "description": "Found 1 subdomains via passive enumeration",
+        "severity": "info",
+        "evidence": "www.rivedix.com",
+        "subdomain_count": 1,
+        "subdomains": [
+          "www.rivedix.com"
+        ]
+      }
+    ],
+    "raw": "{\"host\":\"www.rivedix.com\",\"input\":\"rivedix.com\",\"source\":\"crtsh\"}\n"
+  }
+]

@@ -1,0 +1,15 @@
+[
+  {
+    "metadata": {
+      "tool": "nmap",
+      "target": "example.com",
+      "started": "2025-12-01T08:49:21.375863+00:00",
+      "finished": "2025-12-01T08:49:26.500420+00:00",
+      "duration": 5.124578952789307,
+      "success": true,
+      "error": null
+    },
+    "findings": [],
+    "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE nmaprun>\n<?xml-stylesheet href=\"file:///opt/homebrew/bin/../share/nmap/nmap.xsl\" type=\"text/xsl\"?>\n<!-- Nmap 7.98 scan initiated Mon Dec  1 14:19:21 2025 as: /opt/homebrew/bin/nmap -T3 -Pn -sV -&#45;top-ports 100 -oX - example.com -->\n<nmaprun scanner=\"nmap\" args=\"/opt/homebrew/bin/nmap -T3 -Pn -sV -&#45;top-ports 100 -oX - example.com\" start=\"1764578961\" startstr=\"Mon Dec  1 14:19:21 2025\" version=\"7.98\" xmloutputversion=\"1.05\">\n<scaninfo type=\"connect\" protocol=\"tcp\" numservices=\"100\" services=\"7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157\"/>\n<verbose level=\"0\"/>\n<debugging level=\"0\"/>\n<runstats><finished time=\"1764578966\" timestr=\"Mon Dec  1 14:19:26 2025\" summary=\"Nmap done at Mon Dec  1 14:19:26 2025; 0 IP addresses (0 hosts up) scanned in 5.09 seconds\" elapsed=\"5.09\" exit=\"success\"/><hosts up=\"0\" down=\"0\" total=\"0\"/>\n</runstats>\n</nmaprun>\nFailed to resolve \"example.com\".\nWARNING: No targets were specified, so 0 hosts scanned."
+  }
+]

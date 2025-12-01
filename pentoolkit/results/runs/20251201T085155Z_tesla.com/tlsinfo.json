@@ -1,0 +1,28 @@
+[
+  {
+    "metadata": {
+      "tool": "tlsinfo",
+      "target": "tesla.com",
+      "started": "2025-12-01T08:52:41.244478+00:00",
+      "finished": "2025-12-01T08:52:42.519118+00:00",
+      "duration": 1.2746531963348389,
+      "success": true,
+      "error": null
+    },
+    "findings": [
+      {
+        "title": "Supported TLS Protocols",
+        "description": "TLS 1.3, TLS 1.2",
+        "severity": "info",
+        "evidence": "TLS 1.3, TLS 1.2"
+      },
+      {
+        "title": "TLS Certificate Information",
+        "description": "Issuer: C=US, O=Let's Encrypt, CN=R12\nSubject: CN=tesla.com\nExpires: Jan 11 17:22:35 2026 GMT",
+        "severity": "info",
+        "evidence": "subject=CN=tesla.com\nissuer=C=US, O=Let's Encrypt, CN=R12\nnotBefore=Oct 13 17:22:36 2025 GMT\nnotAfter=Jan 11 17:22:35 2026 GMT\nX509v3 Subject Alternative Name: \n    DNS:tesla.com\n"
+      }
+    ],
+    "raw": "CONNECTED(00000006)\n---\nCertificate chain\n 0 s:CN=tesla.com\n   i:C=US, O=Let's Encrypt, CN=R12\n   a:PKEY: RSA, 2048 (bit); sigalg: sha256WithRSAEncryption\n   v:NotBefore: Oct 13 17:22:36 2025 GMT; NotAfter: Jan 11 17:22:35 2026 GMT\n 1 s:C=US, O=Let's Encrypt, CN=R12\n   i:C=US, O=Internet Security Research Group, CN=ISRG Root X1\n   a:PKEY: RSA, 2048 (bit); sigalg: sha256WithRSAEncryption\n   v:NotBefore: Mar 13 00:00:00 2024 GMT; NotAfter: Mar 12 23:59:59 2027 GMT\n---\nServer certificate\n-----BEGIN CERTIFICATE-----\nMIIE7TCCA9WgAwIBAgISBimm6qwsljYNHVy0edD5dn+HMA0GCSqGSIb3DQEBCwUA\nMDMxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQwwCgYDVQQD\nEwNSMTIwHhcNMjUxMDEzMTcyMjM2WhcNMjYwMTExMTcyMjM1WjAUMRIwEAYDVQQD\nEwl0ZXNsYS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDKeq/g\nnRJ1jfSs3OOu9PwgRl63NEnmtENpBKhaujxXXprqehE02vhrmRF7Qo0qQLr/HtuU\nyGesdG8Jv8Grj+v44ucc4Kg+YEQ17ZeDE4HhiOPYkxshcoKmVF0dWfpVyqVydXhu\nbtJUR1zVjROOPJIUHwh5AxlPJEVPsGYxV9aCcuIE7AF9fzpQvva+jZhn3Q9q5CZt\nnpZ7JbLxjQ+OmhmT4AUt8KZCX7++c4yl7+neMLIbNEPQeJCYbrnog9efNXMFk3vO\nFOGSDpoVVcbHql6E/OBtZhPH4aCOXAp1GxxaYC/lsWSzisuxGmXaCkY4A7GtDYoV\nOHQAvuDWfYyFBa53AgMBAAGjggIYMIICFDAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0l\nBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYE\nFF+r5afw+COISY1MnfkZ2lkl5WR+MB8GA1UdIwQYMBaAFAC1KfItjm8x6JtMrXg+\n+tzpDNHSMDMGCCsGAQUFBwEBBCcwJTAjBggrBgEFBQcwAoYXaHR0cDovL3IxMi5p\nLmxlbmNyLm9yZy8wFAYDVR0RBA0wC4IJdGVzbGEuY29tMBMGA1UdIAQMMAowCAYG\nZ4EMAQIBMC0GA1UdHwQmMCQwIqAgoB6GHGh0dHA6Ly9yMTIuYy5sZW5jci5vcmcv\nOC5jcmwwggEEBgorBgEEAdZ5AgQCBIH1BIHyAPAAdwBkEcRspBLsp4kcogIuALyr\nTygH1B41J6vq/tUDyX3N8AAAAZnezf+FAAAEAwBIMEYCIQCQd88a2dXyTHAP3OJB\nhGvBHdJaxyL40TopxrRAqogaTgIhALYD8VMCT7t1Xf9EUTOwsLHKCRuEaufws55F\nkDacI13vAHUAGYbUxyiqb/66A294Kk0BkarOLXIxD67OXXBBLSVMx9QAAAGZ3s4H\nWgAABAMARjBEAiBvK25tMMCLJnO8XFeBdxTDHtP+yJluX9WoStKCmvSEtAIgHcqh\n4iKZ6AH9D6qEFgyWyapXH/XyKlaL6OveryoUOd4wDQYJKoZIhvcNAQELBQADggEB\nAFYsPWx1juoR9gu25O6XtSnfDyfE+05tLxJIKPQR+pUWXbQEyiI1plTSb/8SHlxk\nhgRSgICRG55nLkC1/X3eVFabMqK4xzOOU/5pVOV1FysZWeOVfspdaFTbmGdmabJZ\nQRgU3L8+v6PTyVuO1YH+d/wmGc+trVMXbZ8JCmCYP1MasZR623IVqrBYLehPH+0Y\nScG4rnBOXaBK1J+S39RxnzjrW1+xHnjZaZDyh6CEG4aC/QcwYvEvCyvNxtr77NDD\nZemAQ/DJjpFqPYDMRfHtG8tPTzyzSm+OiHUzsmYrcNeWfkpgXtAxWvJoRUh3o77o\nKADJfoOWGfM3WxPGxou+cuI=\n-----END CERTIFICATE-----\nsubject=CN=tesla.com\nissuer=C=US, O=Let's Encrypt, CN=R12\n---\nNo client certificate CA names sent\nPeer signing digest: SHA256\nPeer signature type: rsa_pss_rsae_sha256\nPeer Temp Key: X25519, 253 bits\n---\nSSL handshake has read 3130 bytes and written 1547 bytes\nVerification: OK\n---\nNew, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384\nProtocol: TLSv1.3\nServer public key is 2048 bit\nThis TLS version forbids renegotiation.\nCompression: NONE\nExpansion: NONE\nNo ALPN negotiated\nEarly data was not sent\nVerify return code: 0 (ok)\n---\nConnecting to 2.18.51.207\ndepth=2 C=US, O=Internet Security Research Group, CN=ISRG Root X1\nverify return:1\ndepth=1 C=US, O=Let's Encrypt, CN=R12\nverify return:1\ndepth=0 CN=tesla.com\nverify return:1\nDONE"
+  }
+]

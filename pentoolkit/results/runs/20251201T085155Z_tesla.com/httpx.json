@@ -1,0 +1,28 @@
+[
+  {
+    "metadata": {
+      "tool": "httpx",
+      "target": "tesla.com",
+      "started": "2025-12-01T08:52:27.827254+00:00",
+      "finished": "2025-12-01T08:52:29.635453+00:00",
+      "duration": 1.8082141876220703,
+      "success": true,
+      "error": null
+    },
+    "findings": [
+      {
+        "title": "https://tesla.com",
+        "description": "HTTP 403 | Access Denied | AkamaiGHost",
+        "severity": "info",
+        "evidence": "URL: https://tesla.com\nStatus: 403\nServer: AkamaiGHost\nContent-Length: 357\nTechnologies: HSTS",
+        "technologies": [
+          "HSTS"
+        ],
+        "status_code": 403,
+        "server": "AkamaiGHost",
+        "url": "https://tesla.com"
+      }
+    ],
+    "raw": "{\"timestamp\":\"2025-12-01T14:22:29.617738+05:30\",\"port\":\"443\",\"url\":\"https://tesla.com\",\"input\":\"tesla.com\",\"title\":\"Access Denied\",\"scheme\":\"https\",\"webserver\":\"AkamaiGHost\",\"content_type\":\"text/html\",\"method\":\"GET\",\"host\":\"2.18.50.207\",\"path\":\"/\",\"time\":\"405.616583ms\",\"a\":[\"23.40.100.207\",\"2.18.49.207\",\"2.18.48.207\",\"23.7.244.207\",\"2.18.51.207\",\"2.18.53.207\",\"2.18.54.207\",\"2.18.55.207\",\"2.18.52.207\",\"2.18.50.207\"],\"tech\":[\"HSTS\"],\"words\":13,\"lines\":10,\"status_code\":403,\"content_length\":357,\"failed\":false,\"knowledgebase\":{\"PageType\":\"error\",\"pHash\":0},\"resolvers\":[\"1.1.1.1:53\",\"1.0.0.1:53\"]}\n"
+  }
+]

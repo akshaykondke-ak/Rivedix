@@ -1,0 +1,39 @@
+[
+  {
+    "metadata": {
+      "tool": "httpx",
+      "target": "rivedix.com",
+      "started": "2025-12-01T08:47:07.014772+00:00",
+      "finished": "2025-12-01T08:47:19.060802+00:00",
+      "duration": 12.046037912368774,
+      "success": true,
+      "error": null
+    },
+    "findings": [
+      {
+        "title": "https://rivedix.com",
+        "description": "HTTP 200 | Rivedix Technology Solutions | nginx",
+        "severity": "info",
+        "evidence": "URL: https://rivedix.com\nStatus: 200\nServer: nginx\nContent-Length: 201412\nTechnologies: Elementor:3.33.2, HSTS, HTTP/3, MySQL, Nginx, PHP, Redux Framework:4.4.0, WordPress, WordPress.com, imagesLoaded, jQuery, jQuery Migrate",
+        "technologies": [
+          "Elementor:3.33.2",
+          "HSTS",
+          "HTTP/3",
+          "MySQL",
+          "Nginx",
+          "PHP",
+          "Redux Framework:4.4.0",
+          "WordPress",
+          "WordPress.com",
+          "imagesLoaded",
+          "jQuery",
+          "jQuery Migrate"
+        ],
+        "status_code": 200,
+        "server": "nginx",
+        "url": "https://rivedix.com"
+      }
+    ],
+    "raw": "{\"timestamp\":\"2025-12-01T14:17:19.043711+05:30\",\"port\":\"443\",\"url\":\"https://rivedix.com\",\"input\":\"rivedix.com\",\"title\":\"Rivedix Technology Solutions\",\"scheme\":\"https\",\"webserver\":\"nginx\",\"content_type\":\"text/html\",\"method\":\"GET\",\"host\":\"192.0.78.234\",\"path\":\"/\",\"time\":\"10.069629166s\",\"a\":[\"192.0.78.234\",\"192.0.78.162\"],\"tech\":[\"Elementor:3.33.2\",\"HSTS\",\"HTTP/3\",\"MySQL\",\"Nginx\",\"PHP\",\"Redux Framework:4.4.0\",\"WordPress\",\"WordPress.com\",\"imagesLoaded\",\"jQuery\",\"jQuery Migrate\"],\"words\":11641,\"lines\":2017,\"status_code\":200,\"content_length\":201412,\"failed\":false,\"knowledgebase\":{\"PageType\":\"other\",\"pHash\":0},\"resolvers\":[\"1.1.1.1:53\",\"1.0.0.1:53\"]}\n"
+  }
+]

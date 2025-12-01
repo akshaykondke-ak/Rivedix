@@ -1,3 +1,6 @@
+
+
+
 """
 Nmap module with multiple scan profiles and robust XML parsing.
 """
@@ -318,4 +321,3 @@ class NmapModule(BinaryModule):
         
         # Default
         return "info"
-

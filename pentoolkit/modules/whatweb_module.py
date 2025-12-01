@@ -1,4 +1,3 @@
-
 # ============================================================================
 # pentoolkit/modules/whatweb_module.py
 # ============================================================================
@@ -143,4 +142,3 @@ class WhatWebModule(PentoolkitModule):
             severity="info",
             evidence=output[:1000]
         )
-

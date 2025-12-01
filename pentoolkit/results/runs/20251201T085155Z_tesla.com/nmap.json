@@ -1,0 +1,44 @@
+[
+  {
+    "metadata": {
+      "tool": "nmap",
+      "target": "tesla.com",
+      "started": "2025-12-01T08:51:55.931181+00:00",
+      "finished": "2025-12-01T08:52:27.826011+00:00",
+      "duration": 31.894860982894897,
+      "success": true,
+      "error": null
+    },
+    "findings": [
+      {
+        "title": "Open Port 80/tcp",
+        "description": "http AkamaiGHost",
+        "severity": "low",
+        "evidence": "23.40.100.207:80 (tesla.com) - http",
+        "port": "80",
+        "protocol": "tcp",
+        "state": "open",
+        "service": "http",
+        "product": "AkamaiGHost",
+        "version": null,
+        "ip": "23.40.100.207",
+        "hostname": "tesla.com"
+      },
+      {
+        "title": "Open Port 443/tcp",
+        "description": "http AkamaiGHost",
+        "severity": "low",
+        "evidence": "23.40.100.207:443 (tesla.com) - http",
+        "port": "443",
+        "protocol": "tcp",
+        "state": "open",
+        "service": "http",
+        "product": "AkamaiGHost",
+        "version": null,
+        "ip": "23.40.100.207",
+        "hostname": "tesla.com"
+      }
+    ],
+    "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE nmaprun>\n<?xml-stylesheet href=\"file:///opt/homebrew/bin/../share/nmap/nmap.xsl\" type=\"text/xsl\"?>\n<!-- Nmap 7.98 scan initiated Mon Dec  1 14:21:55 2025 as: /opt/homebrew/bin/nmap -T3 -Pn -sV -&#45;top-ports 100 -oX - tesla.com -->\n<nmaprun scanner=\"nmap\" args=\"/opt/homebrew/bin/nmap -T3 -Pn -sV -&#45;top-ports 100 -oX - tesla.com\" start=\"1764579115\" startstr=\"Mon Dec  1 14:21:55 2025\" version=\"7.98\" xmloutputversion=\"1.05\">\n<scaninfo type=\"connect\" protocol=\"tcp\" numservices=\"100\" services=\"7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157\"/>\n<verbose level=\"0\"/>\n<debugging level=\"0\"/>\n<host starttime=\"1764579116\" endtime=\"1764579147\"><status state=\"up\" reason=\"user-set\" reason_ttl=\"0\"/>\n<address addr=\"23.40.100.207\" addrtype=\"ipv4\"/>\n<hostnames>\n<hostname name=\"tesla.com\" type=\"user\"/>\n<hostname name=\"a23-40-100-207.deploy.static.akamaitechnologies.com\" type=\"PTR\"/>\n</hostnames>\n<ports><extraports state=\"filtered\" count=\"98\">\n<extrareasons reason=\"no-response\" count=\"98\" proto=\"tcp\" ports=\"7,9,13,21-23,25-26,37,53,79,81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,444-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157\"/>\n</extraports>\n<port protocol=\"tcp\" portid=\"80\"><state state=\"open\" reason=\"syn-ack\" reason_ttl=\"0\"/><service name=\"http\" product=\"AkamaiGHost\" extrainfo=\"Akamai&apos;s HTTP Acceleration/Mirror service\" method=\"probed\" conf=\"10\"/></port>\n<port protocol=\"tcp\" portid=\"443\"><state state=\"open\" reason=\"syn-ack\" reason_ttl=\"0\"/><service name=\"http\" product=\"AkamaiGHost\" extrainfo=\"Akamai&apos;s HTTP Acceleration/Mirror service\" tunnel=\"ssl\" method=\"probed\" conf=\"10\"/></port>\n</ports>\n<times srtt=\"162941\" rttvar=\"30700\" to=\"285741\"/>\n</host>\n<runstats><finished time=\"1764579147\" timestr=\"Mon Dec  1 14:22:27 2025\" summary=\"Nmap done at Mon Dec  1 14:22:27 2025; 1 IP address (1 host up) scanned in 31.86 seconds\" elapsed=\"31.86\" exit=\"success\"/><hosts up=\"1\" down=\"0\" total=\"1\"/>\n</runstats>\n</nmaprun>"
+  }
+]

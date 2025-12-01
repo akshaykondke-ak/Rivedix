@@ -1,14 +1,9 @@
-"""
-Remaining pentoolkit modules refactored with error handling.
-Copy each class to its respective file:
-- sslscan_module.py -> OpenSSLTLSModule
-- subfinder_module.py -> SubfinderModule
-- whatweb_module.py -> WhatWebModule
-"""
 
-# ============================================================================
-# pentoolkit/modules/sslscan_module.py
-# ============================================================================
+
+# """
+# TLS/SSL analysis module - FIXED VERSION
+# Properly detects only actually supported protocols.
+# """
 
 import re
 from typing import List, Dict, Any
@@ -19,34 +14,26 @@ class OpenSSLTLSModule(BinaryModule):
     """
     TLS/SSL analysis using OpenSSL.
     
-    Features:
-        - Protocol version detection (TLS 1.0-1.3)
-        - Certificate information extraction
-        - Cipher suite enumeration
+    FIXES:
+    - ✅ Only reports ACTUALLY supported protocols
+    - ✅ Tests each protocol version separately
+    - ✅ Always returns self.findings
     """
     
     name = "tlsinfo"
     description = "TLS/SSL certificate and protocol analyzer"
-    version = "1.3"
+    version = "1.4"
     required_binary = "openssl"
 
     def run(self, target: str) -> str:
-        """
-        Execute OpenSSL TLS analysis.
-        
-        Args:
-            target: Target hostname
-            
-        Returns:
-            Raw openssl output
-        """
-        # Remove scheme if present
+        """Execute OpenSSL TLS analysis."""
+        # Clean target
         target = target.replace("https://", "").replace("http://", "")
-        target = target.split("/")[0]  # Remove path
+        target = target.split("/")[0]
         
         self._log_info(f"Analyzing TLS for: {target}")
         
-        # Test multiple TLS versions
+        # ✅ FIX: Test each protocol separately and check if connection succeeds
         supported_protocols = []
         outputs = []
         
@@ -70,26 +57,29 @@ class OpenSSLTLSModule(BinaryModule):
                 result = self._run_command(
                     cmd,
                     timeout=10,
-                    stdin="",  # Send empty stdin
+                    stdin="",
                     check_returncode=False
                 )
                 
                 output = result.get_combined_output()
                 
-                # Check if connection succeeded
-                if "BEGIN CERTIFICATE" in output or "Verify return code" in output:
+                # ✅ CRITICAL: Check if handshake actually succeeded
+                # Look for success indicators, NOT just certificate presence
+                if self._is_protocol_supported(output):
                     supported_protocols.append(version_name)
                     outputs.append(output)
-                    self._log_debug(f"Supported: {version_name}")
+                    self._log_debug(f"✓ Supported: {version_name}")
+                else:
+                    self._log_debug(f"✗ Not supported: {version_name}")
             
             except Exception as e:
                 self._log_debug(f"Protocol {version_name} test failed: {e}")
                 continue
         
-        # Store supported protocols for parsing
+        # Store supported protocols
         self.supported_protocols = supported_protocols
         
-        # Use first successful output or try default connection
+        # Use first successful output
         if outputs:
             self.raw_output = outputs[0]
         else:
@@ -105,12 +95,46 @@ class OpenSSLTLSModule(BinaryModule):
         
         return self.raw_output
 
+    def _is_protocol_supported(self, output: str) -> bool:
+        """
+        Check if protocol handshake succeeded.
+        
+        ✅ CRITICAL FIX: Properly detect successful TLS connection
+        """
+        # HARD FAILURE indicators (connection definitely failed)
+        hard_failures = [
+            "no peer certificate available",
+            "ssl handshake failure",
+            "sslv3 alert handshake failure",
+            "no protocols available",
+            "wrong version number",
+            "Connection refused",
+            "connect: Connection refused",
+            "errno"
+        ]
+        
+        # Check for hard failures first
+        if any(fail in output for fail in hard_failures):
+            return False
+        
+        # SUCCESS indicators (connection definitely succeeded)
+        success_indicators = [
+            "Cipher is ",  # Shows negotiated cipher (e.g., "Cipher is TLS_AES_256_GCM_SHA384")
+            "Protocol: TLS",  # Shows protocol version
+            "New, TLS",  # TLS handshake completed
+            "Verify return code: 0 (ok)"  # Successful verification
+        ]
+        
+        # Must have at least TWO success indicators
+        success_count = sum(1 for indicator in success_indicators if indicator in output)
+        
+        return success_count >= 2
+
     def parse_output(self) -> List[Dict[str, Any]]:
         """Parse OpenSSL output for TLS information."""
-        findings = []
         output = self.raw_output or ""
         
-        # Supported protocols
+        # ✅ FIX: Get ONLY actually supported protocols
         protocols = getattr(self, "supported_protocols", [])
         
         if protocols:
@@ -120,6 +144,14 @@ class OpenSSLTLSModule(BinaryModule):
                 severity=self._assess_protocol_severity(protocols),
                 evidence=", ".join(protocols)
             )
+        else:
+            self._add_finding(
+                title="TLS Connection Failed",
+                description="Could not establish TLS connection to port 443",
+                severity="info",
+                evidence=output[:500]
+            )
+            return self.findings  # ✅ Return early
         
         # Extract certificate
         cert_match = re.search(
@@ -133,15 +165,13 @@ class OpenSSLTLSModule(BinaryModule):
             cert_info = self._parse_certificate(cert_pem)
             
             if cert_info:
-                findings.append(cert_info)
+                self._add_finding(**cert_info)
         
-        self.findings = findings
-        return findings
+        return self.findings  # ✅ CRITICAL FIX: Always return findings!
 
     def _parse_certificate(self, pem: str) -> Dict[str, Any]:
         """Parse certificate using openssl x509."""
         try:
-            # Write PEM to temp file and parse
             import tempfile
             import os
             
@@ -198,11 +228,12 @@ class OpenSSLTLSModule(BinaryModule):
 
     def _assess_protocol_severity(self, protocols: List[str]) -> str:
         """Assess severity based on supported protocols."""
-        # Check for outdated protocols
+        # TLS 1.0 and 1.1 are deprecated
         if "TLS 1.0" in protocols:
-            return "medium"
+            return "medium"  # TLS 1.0 is deprecated
         if "TLS 1.1" in protocols:
-            return "low"
-        return "info"
+            return "low"  # TLS 1.1 is deprecated
+        return "info"  # TLS 1.2+ is good
+
 
 

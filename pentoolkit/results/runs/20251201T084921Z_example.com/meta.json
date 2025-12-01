@@ -1,0 +1,15 @@
+{
+  "run_id": "20251201T084921Z_example.com",
+  "targets": [
+    "example.com"
+  ],
+  "tools": [
+    "nmap",
+    "httpx",
+    "subfinder",
+    "tlsinfo",
+    "nuclei"
+  ],
+  "timestamp": "20251201T084921Z",
+  "total_findings": 4
+}
